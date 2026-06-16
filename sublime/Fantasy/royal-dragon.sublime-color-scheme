@@ -1,0 +1,269 @@
+{
+  "name": "Royal Dragon",
+  "author": "CyberSteveOn",
+  "variables": {
+    "bg0": "#0E0804",
+    "bg1": "#0A0502",
+    "bg2": "#180E08",
+    "bg3": "#231408",
+    "ui_auburn": "#8B2500",
+    "ui_crimson": "#C0392B",
+    "ui_ember": "#E25822",
+    "ui_gold": "#D4AF37",
+    "ui_gold2": "#B8972E",
+    "ui_brass": "#7C6010",
+    "ui_smoke": "#8E7560",
+    "ui_ash": "#C4A882",
+    "ui_ash_dim": "#8A7055",
+    "ui_copper": "#B87333",
+    "ui_steel": "#7A8A8C",
+    "ui_scale": "#4A9E6B",
+    "ui_fire": "#FF4500",
+    "ui_bone": "#E8D5B0",
+    "ui_bone_dim": "#C4A882",
+    "ui_blue": "#5B8FA8"
+  },
+  "globals": {
+    "background": "var(bg0)",
+    "foreground": "var(ui_ash)",
+    "invisibles": "var(ui_smoke)",
+    "caret": "var(ui_gold)",
+    "line_highlight": "var(bg2)",
+    "selection": "#D4AF3722",
+    "selection_border": "#D4AF3755",
+    "selection_border_width": "1",
+    "inactive_selection": "#D4AF3711",
+    "find_highlight": "var(ui_gold)",
+    "find_highlight_foreground": "var(bg0)",
+    "brackets_options": "underline",
+    "brackets_foreground": "var(ui_scale)",
+    "bracket_contents_options": "stippled_underline",
+    "bracket_contents_foreground": "var(ui_scale)",
+    "tags_options": "stippled_underline",
+    "tags_foreground": "var(ui_crimson)",
+    "shadow": "#00000088",
+    "shadow_width": "4",
+    "active_guide": "#D4AF3733",
+    "stack_guide": "#8E756066",
+    "highlight": "var(ui_gold)",
+    "accent": "var(ui_gold)"
+  },
+  "rules": [
+    {
+      "name": "Comments",
+      "scope": "comment, punctuation.definition.comment",
+      "foreground": "var(ui_smoke)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Strings",
+      "scope": "string, string.quoted, string.template",
+      "foreground": "var(ui_bone)"
+    },
+    {
+      "name": "String escape sequences",
+      "scope": "constant.character.escape, string.regexp",
+      "foreground": "var(ui_copper)"
+    },
+    {
+      "name": "Template / f-string interpolation",
+      "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
+      "foreground": "var(ui_bone_dim)"
+    },
+    {
+      "name": "Keywords",
+      "scope": "keyword, keyword.control, keyword.operator.logical, keyword.other, storage.type, storage.modifier",
+      "foreground": "var(ui_gold)"
+    },
+    {
+      "name": "Built-in functions",
+      "scope": "support.function.builtin, support.function, support.type.python",
+      "foreground": "var(ui_scale)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Functions and methods",
+      "scope": "entity.name.function, meta.function-call.generic, meta.function-call",
+      "foreground": "var(ui_crimson)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Classes and types",
+      "scope": "entity.name.class, entity.name.type, entity.other.inherited-class, support.class",
+      "foreground": "var(ui_ember)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Enum variants",
+      "scope": "entity.name.enum, constant.other.enum, meta.enum",
+      "foreground": "var(ui_gold2)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Decorators and annotations",
+      "scope": "entity.name.function.decorator, punctuation.definition.decorator, meta.decorator",
+      "foreground": "var(ui_auburn)"
+    },
+    {
+      "name": "Variables and identifiers",
+      "scope": "variable, variable.other, variable.other.readwrite, variable.other.object",
+      "foreground": "var(ui_ash)"
+    },
+    {
+      "name": "Function parameters",
+      "scope": "variable.parameter, meta.function.parameters",
+      "foreground": "var(ui_ember)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Numbers",
+      "scope": "constant.numeric, constant.numeric.integer, constant.numeric.float",
+      "foreground": "var(ui_gold)"
+    },
+    {
+      "name": "Constants and booleans",
+      "scope": "constant.language, constant.language.boolean, variable.language.special",
+      "foreground": "var(ui_auburn)"
+    },
+    {
+      "name": "Operators",
+      "scope": "keyword.operator, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.assignment",
+      "foreground": "var(ui_scale)"
+    },
+    {
+      "name": "Punctuation \u2014 brackets and braces",
+      "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
+      "foreground": "var(ui_ash_dim)"
+    },
+    {
+      "name": "Type annotations",
+      "scope": "meta.type.annotation, support.type, entity.name.type.instance",
+      "foreground": "var(ui_gold2)"
+    },
+    {
+      "name": "Self / this",
+      "scope": "variable.language.this, variable.language.self",
+      "foreground": "var(ui_blue)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Import / module names",
+      "scope": "entity.name.module, support.module, keyword.control.import",
+      "foreground": "var(ui_copper)"
+    },
+    {
+      "name": "Tags (HTML/JSX/XML)",
+      "scope": "entity.name.tag, meta.tag",
+      "foreground": "var(ui_crimson)"
+    },
+    {
+      "name": "Attributes (HTML/JSX)",
+      "scope": "entity.other.attribute-name",
+      "foreground": "var(ui_gold2)"
+    },
+    {
+      "name": "Invalid / deprecated",
+      "scope": "invalid, invalid.deprecated",
+      "foreground": "var(ui_fire)",
+      "font_style": "underline"
+    },
+    {
+      "name": "Rust \u2014 lifetimes",
+      "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
+      "foreground": "var(ui_copper)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Rust \u2014 macros",
+      "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
+      "foreground": "var(ui_bone_dim)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Rust \u2014 traits",
+      "scope": "entity.name.trait.rust",
+      "foreground": "var(ui_ember)",
+      "font_style": "bold italic"
+    },
+    {
+      "name": "Rust \u2014 enum variants",
+      "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
+      "foreground": "var(ui_gold2)"
+    },
+    {
+      "name": "Rust \u2014 derive attributes",
+      "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
+      "foreground": "var(ui_auburn)"
+    },
+    {
+      "name": "Visibility modifiers",
+      "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
+      "foreground": "var(ui_brass)"
+    },
+    {
+      "name": "Struct fields / property access",
+      "scope": "variable.other.member, variable.other.property, meta.path variable.other",
+      "foreground": "var(ui_gold2)"
+    },
+    {
+      "name": "Regex patterns",
+      "scope": "string.regexp, source.regexp, meta.regex",
+      "foreground": "var(ui_copper)"
+    },
+    {
+      "name": "Namespace / path separators",
+      "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
+      "foreground": "var(ui_ash_dim)"
+    },
+    {
+      "name": "PowerShell \u2014 cmdlets",
+      "scope": "support.function.powershell, entity.name.function.powershell",
+      "foreground": "var(ui_crimson)",
+      "font_style": "bold"
+    },
+    {
+      "name": "PowerShell \u2014 variables ($var)",
+      "scope": "variable.other.readwrite.powershell",
+      "foreground": "var(ui_steel)"
+    },
+    {
+      "name": "PowerShell \u2014 parameters (-Flag)",
+      "scope": "variable.parameter.powershell",
+      "foreground": "var(ui_ember)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Markdown \u2014 headings",
+      "scope": "markup.heading, punctuation.definition.heading.markdown",
+      "foreground": "var(ui_gold)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markdown \u2014 bold",
+      "scope": "markup.bold",
+      "foreground": "var(ui_crimson)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markdown \u2014 italic",
+      "scope": "markup.italic",
+      "foreground": "var(ui_ash_dim)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Markdown \u2014 inline code",
+      "scope": "markup.raw.inline, markup.raw.block",
+      "foreground": "var(ui_bone)"
+    },
+    {
+      "name": "Markdown \u2014 links",
+      "scope": "markup.underline.link, string.other.link",
+      "foreground": "var(ui_copper)"
+    },
+    {
+      "name": "JSON / TOML / YAML keys",
+      "scope": "meta.mapping.key.json, string.quoted.double.json meta.structure.dictionary.key.json, keyword.key.toml, support.type.property-name.toml, entity.name.tag.yaml, string.unquoted.plain.out.yaml",
+      "foreground": "var(ui_gold)"
+    }
+  ]
+}

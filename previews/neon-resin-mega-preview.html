@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Resin — All 10 Themes</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg0:#0D1117;--bg1:#090D12;--bg2:#141B24;--bg3:#1C2535;
+    --cyan:#7FEDF0;--csoft:#B8EFF1;--green:#9be963;--lime:#CCFF00;
+    --orange:#FF6D00;--orange2:#FF9240;--magenta:#FF2D78;--teal:#00C9A7;
+    --blue:#B8D4FF;--muted:#3D4555;--fg:#D8E8EC;--fgdim:#8FA8B0;--red:#FF4455;
+    --pub:#FF9B45;--field:#7ECFB3;--regex:#FFD166;--ns:#6A9FB5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg1);color:var(--fg);font-family:'JetBrains Mono',monospace;min-height:100vh;}
+
+  .topbar{background:var(--bg1);border-bottom:1px solid var(--bg3);padding:16px 28px 12px;display:flex;align-items:center;gap:12px;position:relative;}
+  .topbar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--magenta) 0%,var(--pub) 10%,var(--orange) 20%,var(--regex) 30%,var(--lime) 40%,var(--green) 50%,var(--field) 60%,var(--teal) 70%,var(--cyan) 80%,var(--blue) 90%,var(--ns) 100%);}
+  .title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.3px;}
+  .title em{color:var(--cyan);font-style:normal;}
+  .title span{color:var(--orange);}
+  .subtitle{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;flex:1;}
+
+  .vtoggle{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+  .vt-label{font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-right:2px;}
+  .vbtn{background:var(--bg2);border:1px solid var(--bg3);border-radius:3px;color:var(--muted);cursor:pointer;
+    font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:3px 9px;transition:all .15s;white-space:nowrap;}
+  .vbtn.active{background:var(--cyan);border-color:var(--cyan);color:var(--bg0);font-weight:bold;}
+  .vbtn:hover:not(.active){color:var(--fg);border-color:var(--fgdim);}
+
+  .note{background:var(--bg2);border-left:2px solid var(--cyan);font-size:9.5px;color:var(--fgdim);
+    padding:5px 12px;border-bottom:1px solid var(--bg3);min-height:24px;display:flex;align-items:center;gap:8px;}
+  .note-tag{color:var(--cyan);font-weight:bold;text-transform:uppercase;font-size:8px;letter-spacing:.06em;}
+
+  .tabs{background:var(--bg1);border-bottom:1px solid var(--bg3);display:flex;padding:0 28px;overflow-x:auto;}
+  .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer;
+    font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:8px 13px 7px;white-space:nowrap;transition:color .15s;}
+  .tab.active{color:var(--fg);border-bottom-color:var(--cyan);background:var(--bg0);}
+  .tab:hover:not(.active){color:var(--fgdim);}
+
+  .editor{display:flex;background:var(--bg0);min-height:420px;}
+  .gutter{background:var(--bg0);border-right:1px solid var(--bg3);flex-shrink:0;min-width:44px;padding:15px 0;text-align:right;user-select:none;}
+  .ln{display:block;font-size:10.5px;line-height:21px;color:var(--muted);padding-right:10px;}
+  .ln.act{color:var(--cyan);}
+  .code-wrap{flex:1;padding:15px 0 15px 18px;overflow-x:auto;}
+  .panel{display:none;}.panel.active{display:block;}
+  pre{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:21px;white-space:pre;}
+
+  .c  {color:var(--muted);font-style:italic;}
+  .s  {color:var(--green);}
+  .se {color:var(--lime);}
+  .si {color:var(--csoft);}
+  .kw {color:var(--magenta);}
+  .fn {color:var(--cyan);font-weight:bold;}
+  .bi {color:var(--teal);font-weight:bold;}
+  .cl {color:var(--orange);font-weight:bold;}
+  .tr {color:var(--orange);font-weight:bold;font-style:italic;}
+  .en {color:var(--orange2);font-weight:bold;}
+  .dc {color:var(--magenta);}
+  .va {color:var(--fg);}
+  .lv {color:var(--blue);}
+  .lvi{color:var(--blue);font-style:italic;}
+  .pa {color:var(--orange2);font-style:italic;}
+  .nu {color:var(--lime);}
+  .bo {color:var(--magenta);}
+  .op {color:var(--teal);}
+  .br {color:var(--fgdim);}
+  .ty {color:var(--orange);}
+  .lf {color:var(--lime);font-style:italic;}
+  .ma {color:var(--csoft);font-weight:bold;}
+  .im {color:var(--cyan);}
+  .er {color:var(--red);text-decoration:underline;}
+  .or {color:var(--orange2);}
+  .pb {color:var(--pub);}
+  .fd {color:var(--field);}
+  .rx {color:var(--regex);}
+  .ns {color:var(--ns);}
+
+  .palette-section{background:var(--bg1);border-top:1px solid var(--bg3);padding:12px 28px;}
+  .pal-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .pal-label{font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;}
+  .swatches{display:flex;flex-wrap:wrap;gap:6px 12px;}
+  .sw{display:flex;align-items:center;gap:5px;font-size:9px;}
+  .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .sw-hex{color:var(--muted);font-size:8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="title"><em>Neon</em> <span>Resin</span></div>
+  <div class="subtitle" id="subtitle">Dark — UV neon on near-black</div>
+  <div class="vtoggle">
+    <span class="vt-label">theme</span>
+    <button class="vbtn active" id="btn-dark"     onclick="setVariant('dark')">Dark</button>
+    <button class="vbtn"        id="btn-inverted" onclick="setVariant('inverted')">Inverted</button>
+    <button class="vbtn"        id="btn-dusk"     onclick="setVariant('dusk')">Dusk</button>
+    <button class="vbtn"        id="btn-deep"     onclick="setVariant('deep')">Deep</button>
+    <button class="vbtn"        id="btn-rotated"  onclick="setVariant('rotated')">Rotated</button>
+    <button class="vbtn"        id="btn-dust"     onclick="setVariant('dust')">Dust</button>
+    <button class="vbtn"        id="btn-ultra"    onclick="setVariant('ultra')">Ultra</button>
+    <button class="vbtn"        id="btn-split"    onclick="setVariant('split')">Split</button>
+    <button class="vbtn"        id="btn-mono"     onclick="setVariant('mono')">Mono</button>
+    <button class="vbtn"        id="btn-swap"     onclick="setVariant('swap')">Swap</button>
+  </div>
+</div>
+
+<div class="note" id="note">
+  <span class="note-tag">Dark</span> Original — UV neon on near-black #0D1117
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('rust',this)">main.rs</button>
+  <button class="tab"        onclick="switchTab('python',this)">scanner.py</button>
+  <button class="tab"        onclick="switchTab('ps',this)">Install-Package.ps1</button>
+  <button class="tab"        onclick="switchTab('java',this)">ScanEngine.java</button>
+  <button class="tab"        onclick="switchTab('js',this)">scanner.js</button>
+  <button class="tab"        onclick="switchTab('go',this)">scanner.go</button>
+</div>
+
+<div class="editor" id="editor">
+  <div class="gutter" id="gutter"></div>
+  <div class="code-wrap">
+
+    <div class="panel active" id="panel-rust"><pre>
+<span class="c">// SecurelyScoped — scan engine core (app_lib.rs)</span>
+<span class="im">use</span> <span class="cl">std</span><span class="ns">::</span><span class="cl">path</span><span class="ns">::</span><span class="cl">PathBuf</span><span class="br">;</span>
+<span class="im">use</span> <span class="cl">walkdir</span><span class="ns">::</span><span class="cl">WalkDir</span><span class="br">;</span>
+
+<span class="dc">#[derive(Debug, Clone)]</span>
+<span class="pb">pub</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span>
+    <span class="en">Critical</span><span class="br">,</span> <span class="en">High</span><span class="br">,</span> <span class="en">Medium</span><span class="br">,</span> <span class="en">Low</span><span class="br">,</span>
+<span class="br">}</span>
+
+<span class="dc">#[derive(Debug)]</span>
+<span class="pb">pub</span> <span class="kw">struct</span> <span class="cl">FindingVuln</span> <span class="br">{</span>
+    <span class="pb">pub</span> <span class="fd">file</span><span class="op">:</span>     <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">line</span><span class="op">:</span>     <span class="ty">u32</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">message</span><span class="op">:</span>  <span class="cl">String</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">severity</span><span class="op">:</span> <span class="cl">Severity</span><span class="br">,</span>
+<span class="br">}</span>
+
+<span class="pb">pub</span> <span class="kw">trait</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="kw">fn</span> <span class="fn">scan</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span><span class="br">;</span>
+    <span class="kw">fn</span> <span class="fn">is_allowed</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">,</span> <span class="pa">ext</span><span class="op">:</span> <span class="op">&amp;</span><span class="ty">str</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">bool</span><span class="br">;</span>
+<span class="br">}</span>
+
+<span class="kw">const</span> <span class="va">MAX_SIZE</span><span class="op">:</span> <span class="ty">u64</span> <span class="op">=</span> <span class="nu">10_485_760</span><span class="br">;</span>
+<span class="kw">const</span> <span class="va">LDAP_RE</span><span class="op">:</span> <span class="op">&amp;</span><span class="ty">str</span> <span class="op">=</span> <span class="rx">r"LDAP://[\w\.]+"</span><span class="br">;</span>
+
+<span class="pb">pub</span> <span class="kw">fn</span> <span class="fn">scan_file</span><span class="op">&lt;</span><span class="lf">'a</span><span class="op">&gt;</span><span class="br">(</span>
+    <span class="pa">path</span><span class="op">:</span>     <span class="op">&amp;</span><span class="lf">'a</span> <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pa">patterns</span><span class="op">:</span> <span class="op">&amp;</span><span class="br">[(</span><span class="op">&amp;</span><span class="ty">str</span><span class="br">,</span> <span class="cl">Severity</span><span class="br">)],</span>
+<span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="br">{</span>
+    <span class="kw">let</span> <span class="va">contents</span> <span class="op">=</span> <span class="bi">std::fs::read_to_string</span><span class="br">(</span><span class="va">path</span><span class="br">)</span>
+        <span class="op">.</span><span class="fn">unwrap_or_default</span><span class="br">();</span>
+    <span class="kw">let mut</span> <span class="va">findings</span><span class="op">:</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="op">=</span> <span class="cl">Vec</span><span class="op">::</span><span class="fn">new</span><span class="br">();</span>
+    <span class="kw">for</span> <span class="br">(</span><span class="va">i</span><span class="br">,</span> <span class="va">line</span><span class="br">)</span> <span class="kw">in</span> <span class="va">contents</span><span class="op">.</span><span class="fn">lines</span><span class="br">()</span><span class="op">.</span><span class="fn">enumerate</span><span class="br">()</span> <span class="br">{</span>
+        <span class="kw">for</span> <span class="br">(</span><span class="va">pat</span><span class="br">,</span> <span class="va">sev</span><span class="br">)</span> <span class="kw">in</span> <span class="va">patterns</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">line</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">pat</span><span class="br">)</span> <span class="br">{</span>
+                <span class="va">findings</span><span class="op">.</span><span class="fn">push</span><span class="br">(</span><span class="cl">FindingVuln</span> <span class="br">{</span>
+                    <span class="fd">file</span><span class="op">:</span>     <span class="va">path</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                    <span class="fd">line</span><span class="op">:</span>     <span class="va">i</span> <span class="kw">as</span> <span class="ty">u32</span> <span class="op">+</span> <span class="nu">1</span><span class="br">,</span>
+                    <span class="fd">message</span><span class="op">:</span>  <span class="ma">format!</span><span class="br">(</span><span class="s">"Match: </span><span class="si">{pat}</span><span class="s">"</span><span class="br">),</span>
+                    <span class="fd">severity</span><span class="op">:</span> <span class="va">sev</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                <span class="br">});</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="va">findings</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-python"><pre>
+<span class="c"># scanner.py — domain-specific pattern layer</span>
+<span class="kw">from</span> <span class="im">dataclasses</span> <span class="kw">import</span> <span class="va">dataclass</span><span class="br">,</span> <span class="va">field</span>
+<span class="kw">from</span> <span class="im">pathlib</span>    <span class="kw">import</span> <span class="cl">Path</span>
+<span class="kw">import</span> <span class="im">re</span>
+
+<span class="va">MAX_FINDINGS</span> <span class="op">=</span> <span class="nu">500</span>
+<span class="va">LDAP_RE</span>      <span class="op">=</span> <span class="rx">re.compile(r"LDAP://[\w\.]+")</span>
+<span class="va">CRED_RE</span>      <span class="op">=</span> <span class="rx">re.compile(r"password\s*=\s*\S+")</span>
+<span class="va">DEFAULT_SEV</span>  <span class="op">=</span> <span class="s">"medium"</span>
+
+<span class="kw">class</span> <span class="cl">Severity</span><span class="br">:</span>
+    <span class="en">CRITICAL</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">HIGH</span>     <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">MEDIUM</span>   <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">LOW</span>      <span class="op">=</span> <span class="s">"low"</span>
+
+<span class="dc">@dataclass</span>
+<span class="kw">class</span> <span class="cl">ScanResult</span><span class="br">:</span>
+    <span class="fd">file_path</span><span class="op">:</span>  <span class="ty">Path</span>
+    <span class="fd">line_no</span><span class="op">:</span>    <span class="ty">int</span>
+    <span class="fd">pattern</span><span class="op">:</span>   <span class="ty">str</span>
+    <span class="fd">severity</span><span class="op">:</span>  <span class="ty">str</span>  <span class="op">=</span> <span class="va">DEFAULT_SEV</span>
+    <span class="fd">findings</span><span class="op">:</span>  <span class="ty">list</span> <span class="op">=</span> <span class="bi">field</span><span class="br">(</span><span class="va">default_factory</span><span class="op">=</span><span class="ty">list</span><span class="br">)</span>
+
+<span class="kw">def</span> <span class="fn">scan_file</span><span class="br">(</span>
+    <span class="pa">path</span><span class="op">:</span>     <span class="cl">Path</span><span class="br">,</span>
+    <span class="pa">rules</span><span class="op">:</span>    <span class="ty">list</span><span class="br">[</span><span class="cl">ScanResult</span><span class="br">],</span>
+    <span class="pa">max_size</span><span class="op">:</span> <span class="ty">int</span> <span class="op">=</span> <span class="nu">10_485_760</span><span class="br">,</span>
+<span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">list</span><span class="br">[</span><span class="cl">ScanResult</span><span class="br">]:</span>
+    <span class="s">"""Scan a file against all pattern rules."""</span>
+    <span class="kw">if not</span> <span class="va">path</span><span class="op">.</span><span class="fn">exists</span><span class="br">()</span><span class="op">:</span> <span class="kw">return</span> <span class="br">[]</span>
+    <span class="va">results</span><span class="op">:</span> <span class="ty">list</span><span class="br">[</span><span class="cl">ScanResult</span><span class="br">]</span> <span class="op">=</span> <span class="br">[]</span>
+    <span class="va">text</span> <span class="op">=</span> <span class="va">path</span><span class="op">.</span><span class="fn">read_text</span><span class="br">(</span><span class="va">encoding</span><span class="op">=</span><span class="s">"utf-8"</span><span class="br">)</span>
+    <span class="kw">for</span> <span class="va">n</span><span class="br">,</span> <span class="va">line</span> <span class="kw">in</span> <span class="bi">enumerate</span><span class="br">(</span><span class="va">text</span><span class="op">.</span><span class="fn">splitlines</span><span class="br">(),</span> <span class="nu">1</span><span class="br">):</span>
+        <span class="kw">for</span> <span class="va">rule</span> <span class="kw">in</span> <span class="va">rules</span><span class="op">:</span>
+            <span class="kw">if</span> <span class="bi">re</span><span class="op">.</span><span class="fn">search</span><span class="br">(</span><span class="va">rule</span><span class="op">.</span><span class="fd">regex</span><span class="br">,</span> <span class="va">line</span><span class="br">):</span>
+                <span class="va">results</span><span class="op">.</span><span class="fn">append</span><span class="br">(</span><span class="cl">ScanResult</span><span class="br">(</span>
+                    <span class="fd">file_path</span><span class="op">=</span><span class="va">path</span><span class="br">,</span> <span class="fd">line_no</span><span class="op">=</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">pattern</span><span class="op">=</span><span class="va">rule</span><span class="op">.</span><span class="fd">name</span><span class="br">,</span> <span class="fd">severity</span><span class="op">=</span><span class="va">rule</span><span class="op">.</span><span class="fd">severity</span><span class="br">,</span>
+                <span class="br">))</span>
+    <span class="kw">return</span> <span class="va">results</span><span class="br">[:</span><span class="va">MAX_FINDINGS</span><span class="br">]</span>
+
+<span class="kw">if</span> <span class="bo">__name__</span> <span class="op">==</span> <span class="s">"__main__"</span><span class="op">:</span>
+    <span class="va">hits</span> <span class="op">=</span> <span class="fn">scan_file</span><span class="br">(</span><span class="cl">Path</span><span class="br">(</span><span class="s">"./test.ps1"</span><span class="br">),</span> <span class="br">[])</span>
+    <span class="bi">print</span><span class="br">(</span><span class="s">f"Found </span><span class="si">{len(hits)}</span><span class="s"> issue(s)"</span><span class="br">)</span>
+</pre></div>
+
+    <div class="panel" id="panel-ps"><pre>
+<span class="c"># Install-Package.ps1 — winget wrapper</span>
+<span class="kw">function</span> <span class="fn">Install-Package</span> <span class="br">{</span>
+    <span class="br">[</span><span class="cl">CmdletBinding</span><span class="br">()]</span>
+    <span class="kw">param</span> <span class="br">(</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">(</span><span class="va">Mandatory</span><span class="op">=$</span><span class="bo">true</span><span class="br">)]</span> <span class="br">[</span><span class="ty">string</span><span class="br">]</span> <span class="pa">$Query</span><span class="br">,</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">()]</span>               <span class="br">[</span><span class="ty">switch</span><span class="br">]</span> <span class="pa">$Uninstall</span><span class="br">,</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">()]</span>               <span class="br">[</span><span class="ty">int</span><span class="br">]</span>    <span class="pa">$MaxWidth</span> <span class="op">=</span> <span class="nu">120</span>
+    <span class="br">)</span>
+    <span class="lv">$raw</span> <span class="op">=</span> <span class="fn">winget</span> <span class="or">search</span> <span class="op">--</span><span class="or">query</span> <span class="lv">$Query</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="op">-not</span> <span class="lv">$raw</span><span class="br">)</span> <span class="br">{</span> <span class="fn">Write-Warning</span> <span class="s">"No results"</span><span class="br">;</span> <span class="kw">return</span> <span class="br">}</span>
+    <span class="lv">$packages</span> <span class="op">=</span> <span class="lv">$raw</span> <span class="op">|</span> <span class="fn">Select-Object</span> <span class="op">-Skip</span> <span class="nu">2</span> <span class="op">|</span> <span class="fn">ForEach-Object</span> <span class="br">{</span>
+        <span class="lv">$cols</span> <span class="op">=</span> <span class="lv">$_</span> <span class="op">-split</span> <span class="rx">'\s{2,}'</span><span class="br">,</span> <span class="nu">4</span>
+        <span class="br">[</span><span class="cl">PSCustomObject</span><span class="br">]</span> <span class="op">@</span><span class="br">{</span>
+            <span class="va">Name</span> <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">0</span><span class="br">]</span> <span class="op">-replace</span> <span class="rx">'\u2026$'</span><span class="br">,</span><span class="s">''</span>
+            <span class="va">Id</span>   <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">1</span><span class="br">];</span> <span class="va">Ver</span> <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">2</span><span class="br">]</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="lv">$packages</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="op">-AutoSize</span>
+    <span class="lv">$idx</span> <span class="op">=</span> <span class="br">[</span><span class="ty">int</span><span class="br">]</span><span class="br">(</span><span class="fn">Read-Host</span> <span class="s">"Pick"</span><span class="br">)</span> <span class="op">-</span> <span class="nu">1</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="lv">$Uninstall</span><span class="br">)</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">uninstall</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$packages</span><span class="br">[</span><span class="lv">$idx</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span>
+    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">install</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$packages</span><span class="br">[</span><span class="lv">$idx</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span> <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-java"><pre>
+<span class="c">// ScanEngine.java</span>
+<span class="kw">package</span> <span class="ns">com.securelyscoped</span><span class="ns">.</span><span class="im">scanner</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Files</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Path</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.util.regex.Pattern</span><span class="br">;</span>
+
+<span class="pb">public</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span> <span class="en">CRITICAL</span><span class="br">,</span> <span class="en">HIGH</span><span class="br">,</span> <span class="en">MEDIUM</span><span class="br">,</span> <span class="en">LOW</span> <span class="br">}</span>
+
+<span class="pb">public</span> <span class="kw">record</span> <span class="cl">FindingVuln</span><span class="br">(</span>
+    <span class="cl">Path</span> <span class="fd">file</span><span class="br">,</span> <span class="ty">int</span> <span class="fd">line</span><span class="br">,</span>
+    <span class="cl">String</span> <span class="fd">message</span><span class="br">,</span> <span class="cl">Severity</span> <span class="fd">severity</span>
+<span class="br">) {}</span>
+
+<span class="pb">public</span> <span class="kw">interface</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">);</span>
+<span class="br">}</span>
+
+<span class="pb">public</span> <span class="kw">class</span> <span class="cl">ScanEngine</span> <span class="kw">implements</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="pb">private</span> <span class="kw">static final</span> <span class="ty">long</span>    <span class="va">MAX</span>     <span class="op">=</span> <span class="nu">10_485_760L</span><span class="br">;</span>
+    <span class="pb">private</span> <span class="kw">static final</span> <span class="cl">Pattern</span> <span class="va">LDAP_RE</span> <span class="op">=</span> <span class="cl">Pattern</span><span class="op">.</span><span class="fn">compile</span><span class="br">(</span><span class="rx">"LDAP://[\\w\\.]+"</span><span class="br">);</span>
+    <span class="pb">private final</span> <span class="cl">Path</span> <span class="fd">root</span><span class="br">;</span>
+
+    <span class="pb">public</span> <span class="fn">ScanEngine</span><span class="br">(</span><span class="cl">Path</span> <span class="pa">root</span><span class="br">) {</span> <span class="lvi">this</span><span class="op">.</span><span class="fd">root</span> <span class="op">=</span> <span class="va">root</span><span class="br">; }</span>
+
+    <span class="dc">@Override</span>
+    <span class="pb">public</span> <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">) {</span>
+        <span class="kw">return</span> <span class="cl">java.util.List</span><span class="op">.</span><span class="fn">of</span><span class="br">(</span><span class="s">"rs"</span><span class="br">,</span><span class="s">"py"</span><span class="br">,</span><span class="s">"java"</span><span class="br">,</span><span class="s">"go"</span><span class="br">)</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">ext</span><span class="br">);</span>
+    <span class="br">}</span>
+
+    <span class="pb">public</span> <span class="ty">void</span> <span class="fn">run</span><span class="br">() {</span>
+        <span class="kw">try</span> <span class="br">{</span>
+            <span class="cl">Files</span><span class="op">.</span><span class="fn">walk</span><span class="br">(</span><span class="fd">root</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">filter</span><span class="br">(</span><span class="cl">Files</span><span class="op">::</span><span class="fn">isRegularFile</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">filter</span><span class="br">(</span><span class="pa">p</span> <span class="op">-&gt;</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="va">p</span><span class="op">.</span><span class="fn">toString</span><span class="br">()))</span>
+                 <span class="op">.</span><span class="fn">forEach</span><span class="br">(</span><span class="cl">System</span><span class="op">.</span><span class="va">out</span><span class="op">::</span><span class="fn">println</span><span class="br">);</span>
+        <span class="br">}</span> <span class="kw">catch</span> <span class="br">(</span><span class="cl">Exception</span> <span class="va">e</span><span class="br">) {</span>
+            <span class="cl">System</span><span class="op">.</span><span class="va">err</span><span class="op">.</span><span class="fn">println</span><span class="br">(</span><span class="s">"Error: "</span> <span class="op">+</span> <span class="va">e</span><span class="op">.</span><span class="fn">getMessage</span><span class="br">());</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-js"><pre>
+<span class="c">// scanner.js — Tauri frontend bridge</span>
+<span class="kw">import</span> <span class="br">{</span> <span class="va">invoke</span> <span class="br">}</span> <span class="kw">from</span> <span class="s">'@tauri-apps/api/tauri'</span><span class="br">;</span>
+<span class="kw">import</span> <span class="br">{</span> <span class="va">open</span>   <span class="br">}</span> <span class="kw">from</span> <span class="s">'@tauri-apps/api/dialog'</span><span class="br">;</span>
+
+<span class="kw">const</span> <span class="va">LDAP_RE</span>  <span class="op">=</span> <span class="rx">/LDAP:\/\/[\w\.]+/gi</span><span class="br">;</span>
+<span class="kw">const</span> <span class="va">CRED_RE</span>  <span class="op">=</span> <span class="rx">/password\s*=\s*\S+/gi</span><span class="br">;</span>
+<span class="kw">const</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="bi">Object</span><span class="op">.</span><span class="fn">freeze</span><span class="br">({</span>
+    <span class="en">CRITICAL</span><span class="op">:</span><span class="s">'critical'</span><span class="br">,</span> <span class="en">HIGH</span><span class="op">:</span><span class="s">'high'</span><span class="br">,</span>
+    <span class="en">MEDIUM</span><span class="op">:</span><span class="s">'medium'</span><span class="br">,</span>     <span class="en">LOW</span><span class="op">:</span><span class="s">'low'</span><span class="br">,</span>
+<span class="br">});</span>
+
+<span class="kw">async function</span> <span class="fn">scanFile</span><span class="br">(</span><span class="pa">path</span><span class="br">,</span> <span class="pa">patterns</span><span class="br">) {</span>
+    <span class="kw">try</span> <span class="br">{</span>
+        <span class="kw">const</span> <span class="va">res</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">invoke</span><span class="br">(</span><span class="s">'scan_file'</span><span class="br">,</span> <span class="br">{</span><span class="va">path</span><span class="br">,</span><span class="va">patterns</span><span class="br">});</span>
+        <span class="kw">return</span> <span class="va">res</span><span class="op">.</span><span class="fn">slice</span><span class="br">(</span><span class="nu">0</span><span class="br">,</span> <span class="nu">500</span><span class="br">);</span>
+    <span class="br">}</span> <span class="kw">catch</span> <span class="br">(</span><span class="va">err</span><span class="br">) {</span>
+        <span class="bi">console</span><span class="op">.</span><span class="fn">error</span><span class="br">(</span><span class="s">`Scan failed:`</span><span class="br">,</span><span class="va">err</span><span class="br">);</span>
+        <span class="kw">return</span> <span class="br">[];</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+<span class="kw">async function</span> <span class="fn">pickAndScan</span><span class="br">() {</span>
+    <span class="kw">const</span> <span class="va">sel</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">open</span><span class="br">({</span><span class="va">multiple</span><span class="op">:</span><span class="bo">false</span><span class="br">,</span>
+        <span class="va">filters</span><span class="op">:</span><span class="br">[{</span><span class="va">name</span><span class="op">:</span><span class="s">'Source'</span><span class="br">,</span><span class="va">extensions</span><span class="op">:</span><span class="br">[</span><span class="s">'rs'</span><span class="br">,</span><span class="s">'py'</span><span class="br">,</span><span class="s">'js'</span><span class="br">,</span><span class="s">'go'</span><span class="br">]}]});</span>
+    <span class="kw">if</span> <span class="br">(!</span><span class="va">sel</span><span class="br">)</span> <span class="kw">return</span><span class="br">;</span>
+    <span class="kw">const</span> <span class="va">hits</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">scanFile</span><span class="br">(</span><span class="va">sel</span><span class="br">,</span><span class="br">[</span><span class="s">'password'</span><span class="br">,</span><span class="s">'LDAP://'</span><span class="br">]);</span>
+    <span class="bi">console</span><span class="op">.</span><span class="fn">log</span><span class="br">(</span><span class="s">`Found </span><span class="si">${hits.length}</span><span class="s"> issue(s)`</span><span class="br">);</span>
+<span class="br">}</span>
+<span class="kw">export</span> <span class="br">{</span><span class="va">scanFile</span><span class="br">,</span><span class="va">pickAndScan</span><span class="br">,</span><span class="va">Severity</span><span class="br">};</span>
+</pre></div>
+
+    <div class="panel" id="panel-go"><pre>
+<span class="c">// scanner.go — SecurelyScoped Go edition</span>
+<span class="kw">package</span> <span class="im">scanner</span>
+
+<span class="kw">import</span> <span class="br">(</span>
+    <span class="s">"bufio"</span><span class="br">;</span> <span class="s">"fmt"</span><span class="br">;</span> <span class="s">"os"</span><span class="br">;</span> <span class="s">"regexp"</span>
+<span class="br">)</span>
+
+<span class="kw">var</span> <span class="br">(</span>
+    <span class="va">LDAPRegex</span> <span class="op">=</span> <span class="bi">regexp</span><span class="op">.</span><span class="fn">MustCompile</span><span class="br">(</span><span class="rx">`LDAP://[\w\.]+`</span><span class="br">)</span>
+    <span class="va">CredRegex</span> <span class="op">=</span> <span class="bi">regexp</span><span class="op">.</span><span class="fn">MustCompile</span><span class="br">(</span><span class="rx">`password\s*=\s*\S+`</span><span class="br">)</span>
+<span class="br">)</span>
+
+<span class="kw">type</span> <span class="cl">Severity</span> <span class="ty">string</span>
+<span class="kw">const</span> <span class="br">(</span>
+    <span class="en">Critical</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">High</span>     <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">Medium</span>   <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">Low</span>      <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"low"</span>
+<span class="br">)</span>
+
+<span class="kw">type</span> <span class="cl">FindingVuln</span> <span class="kw">struct</span> <span class="br">{</span>
+    <span class="fd">File</span>     <span class="ty">string</span>
+    <span class="fd">Line</span>     <span class="ty">int</span>
+    <span class="fd">Message</span>  <span class="ty">string</span>
+    <span class="fd">Severity</span> <span class="cl">Severity</span>
+<span class="br">}</span>
+
+<span class="kw">func</span> <span class="fn">ScanFile</span><span class="br">(</span><span class="pa">path</span> <span class="ty">string</span><span class="br">,</span> <span class="pa">pats</span> <span class="br">[]*</span><span class="cl">regexp</span><span class="op">.</span><span class="cl">Regexp</span><span class="br">)</span> <span class="br">([]</span><span class="cl">FindingVuln</span><span class="br">,</span> <span class="ty">error</span><span class="br">) {</span>
+    <span class="va">f</span><span class="br">,</span> <span class="va">err</span> <span class="op">:=</span> <span class="bi">os</span><span class="op">.</span><span class="fn">Open</span><span class="br">(</span><span class="va">path</span><span class="br">)</span>
+    <span class="kw">if</span> <span class="va">err</span> <span class="op">!=</span> <span class="bo">nil</span> <span class="br">{</span> <span class="kw">return</span> <span class="bo">nil</span><span class="br">,</span> <span class="va">err</span> <span class="br">}</span>
+    <span class="kw">defer</span> <span class="va">f</span><span class="op">.</span><span class="fn">Close</span><span class="br">()</span>
+    <span class="kw">var</span> <span class="va">out</span> <span class="br">[]</span><span class="cl">FindingVuln</span>
+    <span class="va">sc</span><span class="br">,</span> <span class="va">n</span> <span class="op">:=</span> <span class="bi">bufio</span><span class="op">.</span><span class="fn">NewScanner</span><span class="br">(</span><span class="va">f</span><span class="br">),</span> <span class="nu">0</span>
+    <span class="kw">for</span> <span class="va">sc</span><span class="op">.</span><span class="fn">Scan</span><span class="br">() {</span>
+        <span class="va">n</span><span class="op">++</span>
+        <span class="kw">for</span> <span class="va">_</span><span class="br">,</span> <span class="va">p</span> <span class="op">:=</span> <span class="kw">range</span> <span class="va">pats</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">p</span><span class="op">.</span><span class="fn">MatchString</span><span class="br">(</span><span class="va">sc</span><span class="op">.</span><span class="fn">Text</span><span class="br">()) {</span>
+                <span class="va">out</span> <span class="op">=</span> <span class="bi">append</span><span class="br">(</span><span class="va">out</span><span class="br">,</span> <span class="cl">FindingVuln</span><span class="br">{</span>
+                    <span class="fd">File</span><span class="op">:</span><span class="va">path</span><span class="br">,</span> <span class="fd">Line</span><span class="op">:</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">Message</span><span class="op">:</span> <span class="bi">fmt</span><span class="op">.</span><span class="fn">Sprintf</span><span class="br">(</span><span class="s">"match: %s"</span><span class="br">,</span><span class="va">p</span><span class="br">),</span>
+                    <span class="fd">Severity</span><span class="op">:</span><span class="en">High</span><span class="br">,</span>
+                <span class="br">})</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="kw">return</span> <span class="va">out</span><span class="br">,</span> <span class="va">sc</span><span class="op">.</span><span class="fn">Err</span><span class="br">()</span>
+<span class="br">}</span>
+</pre></div>
+
+  </div>
+</div>
+
+<div class="palette-section">
+  <div class="pal-top"><div class="pal-label">palette — <span id="pal-mode">dark</span></div></div>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<script>
+const T = {"dark":{"label":"Dark \u2014 UV neon on near-black","bg0":"#0D1117","bg1":"#090D12","bg2":"#141B24","bg3":"#1C2535","cyan":"#7FEDF0","csoft":"#B8EFF1","green":"#9be963","lime":"#CCFF00","orange":"#FF6D00","orange2":"#FF9240","magenta":"#FF2D78","teal":"#00C9A7","blue":"#B8D4FF","muted":"#3D4555","fg":"#D8E8EC","fgdim":"#8FA8B0","red":"#FF4455","pub":"#FF9B45","field":"#7ECFB3","regex":"#FFD166","ns":"#6A9FB5"},"inverted":{"label":"Inverted \u2014 jewel tones on warm grey","bg0":"#1E1A16","bg1":"#171410","bg2":"#252018","bg3":"#2E2820","cyan":"#80120F","csoft":"#47100E","green":"#64169C","lime":"#3300FF","orange":"#0092FF","orange2":"#006DBF","magenta":"#00D287","teal":"#FF3658","blue":"#472B00","muted":"#C2BAAA","fg":"#57221F","fgdim":"#85544F","red":"#00BBAA","pub":"#0064BA","field":"#81304C","regex":"#002E99","ns":"#95604A"},"dusk":{"label":"Dusk \u2014 burnt sienna base","bg0":"#160F08","bg1":"#100A04","bg2":"#1E1610","bg3":"#2A2018","cyan":"#7FEDF0","csoft":"#B8EFF1","green":"#A8F060","lime":"#E8F020","orange":"#FF6D00","orange2":"#FF9240","magenta":"#FF4499","teal":"#00DEB8","blue":"#B8D4FF","muted":"#3D4555","fg":"#A8DDE0","fgdim":"#7AABB0","red":"#FF4455","pub":"#FF9B45","field":"#7ECFB3","regex":"#FFD166","ns":"#6A9FB5"},"deep":{"label":"Deep \u2014 midnight blue base","bg0":"#070B14","bg1":"#040810","bg2":"#0C1220","bg3":"#141C2E","cyan":"#60F0FF","csoft":"#A0E8F8","green":"#88F040","lime":"#BBFF00","orange":"#FF6D00","orange2":"#FF9240","magenta":"#FF1A6E","teal":"#00E8C8","blue":"#B8D4FF","muted":"#3D4555","fg":"#A8DDE0","fgdim":"#7AABB0","red":"#FF4455","pub":"#FF9B45","field":"#7ECFB3","regex":"#FFD166","ns":"#6A9FB5"},"rotated":{"label":"Rotated 120\u00b0 \u2014 all hues shifted","bg0":"#160D10","bg1":"#12090D","bg2":"#23141A","bg3":"#341C24","cyan":"#EF7EEC","csoft":"#F1B7EE","green":"#639AE8","lime":"#00CBFF","orange":"#00FF6D","orange2":"#40FF92","magenta":"#78FF2D","teal":"#A700C9","blue":"#FFB8D4","muted":"#553C44","fg":"#E0A7DC","fgdim":"#B07AAA","red":"#54FF43","pub":"#44FF9B","field":"#B27ECF","regex":"#65FFD1","ns":"#B5699E"},"dust":{"label":"Dust \u2014 desaturated 45%","bg0":"#0F1114","bg1":"#0B0D0F","bg2":"#171B20","bg3":"#21262F","cyan":"#98D4D6","csoft":"#C4E3E4","green":"#9FCA81","lime":"#A9C539","orange":"#C57539","orange2":"#D4986A","magenta":"#CF5C85","teal":"#2D9B89","blue":"#C7D7EF","muted":"#42464F","fg":"#B4D1D3","fgdim":"#86A1A3","red":"#D46E77","pub":"#D59E6E","field":"#90BCAD","regex":"#DCC388","ns":"#7A98A4"},"ultra":{"label":"Ultra \u2014 high contrast push","bg0":"#050609","bg1":"#030507","bg2":"#080A0E","bg3":"#0B0E15","cyan":"#CEFBFC","csoft":"#F1FCFD","green":"#C8F8A6","lime":"#D8FF3F","orange":"#FF913F","orange2":"#FEBF8F","magenta":"#FF78A8","teal":"#00FBD0","blue":"#EFF5FF","muted":"#49556C","fg":"#9ED8DC","fgdim":"#6AADB2","red":"#FF949E","pub":"#FEC696","field":"#B7E8D7","regex":"#FFEBBF","ns":"#96BFD0"},"split":{"label":"Split \u2014 bg 180\u00b0 rotated, tokens original","bg0":"#16130D","bg1":"#120D09","bg2":"#231D14","bg3":"#342B1C","cyan":"#7FEDF0","csoft":"#B8EFF1","green":"#9be963","lime":"#CCFF00","orange":"#FF6D00","orange2":"#FF9240","magenta":"#FF2D78","teal":"#00C9A7","blue":"#B8D4FF","muted":"#3D4555","fg":"#A8DDE0","fgdim":"#7AABB0","red":"#FF4455","pub":"#FF9B45","field":"#7ECFB3","regex":"#FFD166","ns":"#6A9FB5"},"mono":{"label":"Mono \u2014 cyan monochromatic","bg0":"#0E1415","bg1":"#0A0F10","bg2":"#162021","bg3":"#202E30","cyan":"#7EE3F0","csoft":"#B2EEF6","green":"#5EDCED","lime":"#19CDE5","orange":"#19CDE5","orange2":"#53DAEB","magenta":"#42D6E9","teal":"#14A2B4","blue":"#BFF1F7","muted":"#0E7583","fg":"#94E8F3","fgdim":"#40D6E9","red":"#56DAEC","pub":"#57DBEC","field":"#5FDCED","regex":"#75E1EF","ns":"#36D3E8"},"swap":{"label":"Swap \u2014 warm/cool role swap","bg0":"#0D1117","bg1":"#090D12","bg2":"#141B24","bg3":"#1C2535","cyan":"#9be963","csoft":"#B8EFF1","green":"#7FEDF0","lime":"#CCFF00","orange":"#FF6D00","orange2":"#FF9240","magenta":"#00C9A7","teal":"#FF2D78","blue":"#B8D4FF","muted":"#3D4555","fg":"#A8DDE0","fgdim":"#7AABB0","red":"#FF4455","pub":"#FF9B45","field":"#7ECFB3","regex":"#FFD166","ns":"#6A9FB5"}};
+
+const cssKeys = {
+  bg0:'--bg0',bg1:'--bg1',bg2:'--bg2',bg3:'--bg3',
+  cyan:'--cyan',csoft:'--csoft',green:'--green',lime:'--lime',
+  orange:'--orange',orange2:'--orange2',magenta:'--magenta',teal:'--teal',
+  blue:'--blue',muted:'--muted',fg:'--fg',fgdim:'--fgdim',red:'--red',
+  pub:'--pub',field:'--field',regex:'--regex',ns:'--ns',
+};
+
+const swatchDefs = [
+  ['bg0','background',true],['cyan','fns/imports'],['csoft','interpolation'],
+  ['green','strings'],['lime','numbers'],['orange','classes'],['orange2','enums/params'],
+  ['pub','pub/visibility'],['field','struct fields'],['regex','regex'],['ns','namespaces'],
+  ['magenta','keywords'],['teal','operators'],['blue','self/$vars'],['red','errors'],['muted','comments'],
+];
+
+const notes = {
+  dark:'Original — UV neon on near-black #0D1117',
+  inverted:'Mathematical inversion of every hex — jewel tones on warm grey',
+  dusk:'Backgrounds shifted warm/sienna — strings and lime adjusted warmer',
+  deep:'Backgrounds shifted cold/midnight — cyan and green pushed colder',
+  rotated:'120° hue rotation — every color\'s hue shifted around the wheel',
+  dust:'45% desaturation — same hues, drained toward grey',
+  ultra:'High contrast push — backgrounds darkened, tokens pushed lighter',
+  split:'Backgrounds 180° rotated, token colors kept original',
+  mono:'Cyan monochromatic — all colors mapped to cyan hue family',
+  swap:'Warm/cool role swap — strings↔functions, keywords↔operators',
+};
+
+function setVariant(v) {
+  const t = T[v];
+  const r = document.documentElement.style;
+  Object.entries(cssKeys).forEach(([k,css]) => r.setProperty(css, t[k]));
+  document.querySelectorAll('.vbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+v).classList.add('active');
+  document.getElementById('subtitle').textContent = t.label;
+  document.getElementById('pal-mode').textContent = v;
+  document.getElementById('note').innerHTML =
+    `<span class="note-tag">${v}</span> ${notes[v]}`;
+  renderSwatches(v);
+}
+
+function renderSwatches(v) {
+  const sw = document.getElementById('swatches');
+  sw.innerHTML = '';
+  const t = T[v];
+  swatchDefs.forEach(([key,label,border]) => {
+    const hex = t[key];
+    const d = document.createElement('div');
+    d.className = 'sw';
+    const ds = border
+      ? `background:${hex};border:1px solid ${t.muted};box-shadow:none`
+      : `background:${hex};box-shadow:0 0 4px ${hex}`;
+    const fc = border ? t.fgdim : hex;
+    d.innerHTML = `<div class="dot" style="${ds}"></div>`
+      +`<span style="color:${fc}">${label}</span>`
+      +`<span class="sw-hex">${hex}</span>`;
+    sw.appendChild(d);
+  });
+}
+
+function switchTab(lang,btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+lang).classList.add('active');
+  buildGutter(lang);
+}
+
+function buildGutter(lang) {
+  const pre = document.querySelector('#panel-'+lang+' pre');
+  const lines = pre.innerHTML.split('\n').length;
+  const g = document.getElementById('gutter');
+  g.innerHTML = '';
+  const mid = Math.floor(lines/2);
+  for(let i=1;i<=lines;i++){
+    const s=document.createElement('span');
+    s.className='ln'+(i===mid?' act':'');
+    s.textContent=i;
+    g.appendChild(s);
+  }
+}
+
+renderSwatches('dark');
+buildGutter('rust');
+</script>
+</body>
+</html>

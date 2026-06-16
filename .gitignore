@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# VS Code extension build output
+*.vsix
+vscode/.vscode-test/
+vscode/node_modules/
+vscode/out/
+
+# JetBrains local project files
+.idea/
+
+# Editor swap files
+*.swp
+*.swo
+*~

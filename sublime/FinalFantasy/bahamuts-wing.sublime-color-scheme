@@ -1,0 +1,271 @@
+{
+  "name": "Bahamut's Wing",
+  "author": "CyberSteveOn",
+  "variables": {
+    "bg0": "#050814",
+    "bg1": "#030610",
+    "bg2": "#0A1020",
+    "bg3": "#101830",
+    "ui_fn": "#1E90FF",
+    "ui_bi": "#1468C8",
+    "ui_kw": "#FFD700",
+    "ui_cl": "#4060C0",
+    "ui_en": "#C8A000",
+    "ui_st": "#7898D0",
+    "ui_st_dim": "#485878",
+    "ui_nu": "#FFE860",
+    "ui_op": "#40A8E0",
+    "ui_va": "#5870A0",
+    "ui_dim": "#304060",
+    "ui_cm": "#101828",
+    "ui_dc": "#D04080",
+    "ui_pa": "#C8A000",
+    "ui_sl": "#60D0F8",
+    "ui_im": "#283858",
+    "ui_er": "#FF3040",
+    "ui_rx": "#A08030",
+    "ui_pb": "#203050",
+    "ui_fd": "#305060"
+  },
+  "globals": {
+    "background": "var(bg0)",
+    "foreground": "#5870A0",
+    "invisibles": "#101828",
+    "caret": "#1E90FF",
+    "line_highlight": "var(bg2)",
+    "selection": "#1E90FF1A",
+    "selection_border": "#1E90FF44",
+    "selection_border_width": "1",
+    "inactive_selection": "#1E90FF0D",
+    "find_highlight": "#FFE860",
+    "find_highlight_foreground": "var(bg0)",
+    "brackets_options": "underline",
+    "brackets_foreground": "#40A8E0",
+    "bracket_contents_options": "stippled_underline",
+    "bracket_contents_foreground": "#40A8E0",
+    "shadow": "#00000099",
+    "shadow_width": "4",
+    "active_guide": "#1E90FF22",
+    "stack_guide": "#10182866",
+    "highlight": "#1E90FF",
+    "accent": "#1E90FF"
+  },
+  "rules": [
+    {
+      "name": "Comments",
+      "scope": "comment, punctuation.definition.comment",
+      "foreground": "#101828",
+      "font_style": "italic"
+    },
+    {
+      "name": "Strings",
+      "scope": "string, string.quoted, string.template",
+      "foreground": "#7898D0"
+    },
+    {
+      "name": "Escape",
+      "scope": "constant.character.escape, string.regexp",
+      "foreground": "#A08030"
+    },
+    {
+      "name": "Interp",
+      "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
+      "foreground": "#485878"
+    },
+    {
+      "name": "Keywords",
+      "scope": "keyword, keyword.control, keyword.operator.logical, keyword.other, storage.type, storage.modifier",
+      "foreground": "#FFD700"
+    },
+    {
+      "name": "Builtins",
+      "scope": "support.function.builtin, support.function, support.type.python",
+      "foreground": "#1468C8",
+      "font_style": "bold"
+    },
+    {
+      "name": "Functions",
+      "scope": "entity.name.function, meta.function-call.generic, meta.function-call",
+      "foreground": "#1E90FF",
+      "font_style": "bold"
+    },
+    {
+      "name": "Classes",
+      "scope": "entity.name.class, entity.name.type, entity.other.inherited-class, support.class",
+      "foreground": "#4060C0",
+      "font_style": "bold"
+    },
+    {
+      "name": "Enums",
+      "scope": "entity.name.enum, constant.other.enum, meta.enum",
+      "foreground": "#C8A000",
+      "font_style": "bold"
+    },
+    {
+      "name": "Decorators",
+      "scope": "entity.name.function.decorator, punctuation.definition.decorator, meta.decorator",
+      "foreground": "#D04080"
+    },
+    {
+      "name": "Variables",
+      "scope": "variable, variable.other, variable.other.readwrite, variable.other.object",
+      "foreground": "#5870A0"
+    },
+    {
+      "name": "Params",
+      "scope": "variable.parameter, meta.function.parameters",
+      "foreground": "#C8A000",
+      "font_style": "italic"
+    },
+    {
+      "name": "Numbers",
+      "scope": "constant.numeric, constant.numeric.integer, constant.numeric.float",
+      "foreground": "#FFE860"
+    },
+    {
+      "name": "Booleans",
+      "scope": "constant.language, constant.language.boolean, variable.language.special",
+      "foreground": "#D04080"
+    },
+    {
+      "name": "Operators",
+      "scope": "keyword.operator, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.assignment",
+      "foreground": "#40A8E0"
+    },
+    {
+      "name": "Punctuation",
+      "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
+      "foreground": "#304060"
+    },
+    {
+      "name": "Types",
+      "scope": "meta.type.annotation, support.type, entity.name.type.instance",
+      "foreground": "#C8A000"
+    },
+    {
+      "name": "Self",
+      "scope": "variable.language.this, variable.language.self",
+      "foreground": "#60D0F8",
+      "font_style": "italic"
+    },
+    {
+      "name": "Imports",
+      "scope": "entity.name.module, support.module, keyword.control.import",
+      "foreground": "#283858"
+    },
+    {
+      "name": "Tags",
+      "scope": "entity.name.tag, meta.tag",
+      "foreground": "#1E90FF"
+    },
+    {
+      "name": "Attributes",
+      "scope": "entity.other.attribute-name",
+      "foreground": "#C8A000"
+    },
+    {
+      "name": "Invalid",
+      "scope": "invalid, invalid.deprecated",
+      "foreground": "#FF3040",
+      "font_style": "underline"
+    },
+    {
+      "name": "Rust lifetimes",
+      "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
+      "foreground": "#A08030",
+      "font_style": "italic"
+    },
+    {
+      "name": "Rust macros",
+      "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
+      "foreground": "#485878",
+      "font_style": "bold"
+    },
+    {
+      "name": "Rust traits",
+      "scope": "entity.name.trait.rust",
+      "foreground": "#4060C0",
+      "font_style": "bold italic"
+    },
+    {
+      "name": "Rust enum variants",
+      "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
+      "foreground": "#C8A000"
+    },
+    {
+      "name": "Rust derive",
+      "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
+      "foreground": "#D04080"
+    },
+    {
+      "name": "Visibility",
+      "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
+      "foreground": "#203050"
+    },
+    {
+      "name": "Struct fields",
+      "scope": "variable.other.member, variable.other.property, meta.path variable.other",
+      "foreground": "#305060"
+    },
+    {
+      "name": "Regex",
+      "scope": "string.regexp, source.regexp, meta.regex",
+      "foreground": "#A08030"
+    },
+    {
+      "name": "Namespaces",
+      "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
+      "foreground": "#304060"
+    },
+    {
+      "name": "PS cmdlets",
+      "scope": "support.function.powershell, entity.name.function.powershell",
+      "foreground": "#1E90FF",
+      "font_style": "bold"
+    },
+    {
+      "name": "PS vars",
+      "scope": "variable.other.readwrite.powershell",
+      "foreground": "#60D0F8"
+    },
+    {
+      "name": "PS params",
+      "scope": "variable.parameter.powershell",
+      "foreground": "#C8A000",
+      "font_style": "italic"
+    },
+    {
+      "name": "MD headings",
+      "scope": "markup.heading, punctuation.definition.heading.markdown",
+      "foreground": "#FFD700",
+      "font_style": "bold"
+    },
+    {
+      "name": "MD bold",
+      "scope": "markup.bold",
+      "foreground": "#1E90FF",
+      "font_style": "bold"
+    },
+    {
+      "name": "MD italic",
+      "scope": "markup.italic",
+      "foreground": "#304060",
+      "font_style": "italic"
+    },
+    {
+      "name": "MD code",
+      "scope": "markup.raw.inline, markup.raw.block",
+      "foreground": "#7898D0"
+    },
+    {
+      "name": "MD links",
+      "scope": "markup.underline.link, string.other.link",
+      "foreground": "#40A8E0"
+    },
+    {
+      "name": "Data keys",
+      "scope": "meta.mapping.key.json, string.quoted.double.json meta.structure.dictionary.key.json, keyword.key.toml, support.type.property-name.toml, entity.name.tag.yaml, string.unquoted.plain.out.yaml",
+      "foreground": "#FFD700"
+    }
+  ]
+}

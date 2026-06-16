@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberSteveOn Fantasy Pack — All 7 Themes</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg0:#0E0804;--bg1:#0A0502;--bg2:#180E08;--bg3:#231408;
+    --fn:#C0392B;--kw:#D4AF37;--cl:#E25822;--st:#E8D5B0;--nu:#D4AF37;
+    --op:#4A9E6B;--va:#C4A882;--dim:#8A7055;--cm:#8E7560;
+    --en:#B8972E;--dc:#8B2500;--pa:#E25822;--im:#B87333;
+    --sl:#5B8FA8;--bi:#4A9E6B;--er:#FF4500;--se:#B87333;
+    --si:#C4A882;--tr:#E25822;--pb:#7C6010;--fd:#B8972E;
+    --rx:#B87333;--ns:#8A7055;--bo:#8B2500;--ma:#C4A882;
+    --lf:#B87333;--lv:#7A8A8C;--accent:#D4AF37;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg1);color:var(--va);font-family:'JetBrains Mono',monospace;min-height:100vh;}
+
+  .topbar{background:var(--bg1);border-bottom:1px solid var(--bg3);
+    padding:16px 28px 12px;display:flex;align-items:center;gap:12px;position:relative;}
+  .topbar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--fn) 0%,var(--er) 12%,var(--pa) 24%,
+      var(--kw) 36%,var(--nu) 48%,var(--op) 60%,var(--im) 72%,var(--sl) 84%,var(--st) 100%);}
+  .title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.3px;}
+  .title em{color:var(--kw);font-style:normal;}
+  .title span{color:var(--fn);}
+  .subtitle{font-size:9px;color:var(--cm);text-transform:uppercase;letter-spacing:.1em;flex:1;}
+
+  .vtoggle{display:flex;gap:4px;flex-wrap:wrap;align-items:center;}
+  .vt-label{font-size:8.5px;color:var(--cm);text-transform:uppercase;letter-spacing:.08em;margin-right:2px;}
+  .vbtn{background:var(--bg2);border:1px solid var(--bg3);border-radius:3px;color:var(--cm);
+    cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:4px 10px;
+    transition:all .2s;white-space:nowrap;}
+  .vbtn.active{background:var(--accent);border-color:var(--accent);color:var(--bg0);font-weight:bold;}
+  .vbtn:hover:not(.active){color:var(--va);}
+
+  .note{background:var(--bg2);border-left:2px solid var(--accent);font-size:9px;
+    color:var(--dim);padding:5px 12px;border-bottom:1px solid var(--bg3);
+    min-height:22px;display:flex;align-items:center;gap:8px;}
+  .note-tag{color:var(--accent);font-weight:bold;text-transform:uppercase;font-size:8px;letter-spacing:.06em;}
+
+  .tabs{background:var(--bg1);border-bottom:1px solid var(--bg3);display:flex;padding:0 28px;overflow-x:auto;}
+  .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--cm);
+    cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:8px 13px 7px;
+    white-space:nowrap;transition:color .15s;}
+  .tab.active{color:var(--va);border-bottom-color:var(--accent);background:var(--bg0);}
+  .tab:hover:not(.active){color:var(--dim);}
+
+  .editor{display:flex;background:var(--bg0);min-height:420px;}
+  .gutter{background:var(--bg0);border-right:1px solid var(--bg3);flex-shrink:0;
+    min-width:44px;padding:14px 0;text-align:right;user-select:none;}
+  .ln{display:block;font-size:11px;line-height:21px;color:var(--cm);padding-right:10px;}
+  .ln.act{color:var(--accent);}
+  .code-wrap{flex:1;padding:14px 0 14px 16px;overflow-x:auto;}
+  .panel{display:none;}.panel.active{display:block;}
+  pre{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:21px;white-space:pre;}
+
+  .c  {color:var(--cm);font-style:italic;}
+  .s  {color:var(--st);}
+  .se {color:var(--se);}
+  .si {color:var(--si);}
+  .kw {color:var(--kw);}
+  .fn {color:var(--fn);font-weight:bold;}
+  .bi {color:var(--bi);font-weight:bold;}
+  .cl {color:var(--cl);font-weight:bold;}
+  .tr {color:var(--tr);font-weight:bold;font-style:italic;}
+  .en {color:var(--en);font-weight:bold;}
+  .dc {color:var(--dc);}
+  .va {color:var(--va);}
+  .lv {color:var(--lv);}
+  .lvi{color:var(--lv);font-style:italic;}
+  .pa {color:var(--pa);font-style:italic;}
+  .nu {color:var(--nu);}
+  .bo {color:var(--bo);}
+  .op {color:var(--op);}
+  .br {color:var(--dim);}
+  .ty {color:var(--en);}
+  .lf {color:var(--lf);font-style:italic;}
+  .ma {color:var(--ma);font-weight:bold;}
+  .im {color:var(--im);}
+  .er {color:var(--er);text-decoration:underline;}
+  .or {color:var(--pa);}
+  .pb {color:var(--pb);}
+  .fd {color:var(--fd);}
+  .rx {color:var(--rx);}
+  .ns {color:var(--ns);}
+
+  .palette-section{background:var(--bg1);border-top:1px solid var(--bg3);padding:12px 28px;}
+  .pal-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+  .pal-label{font-size:8.5px;color:var(--cm);text-transform:uppercase;letter-spacing:.12em;}
+  .swatches{display:flex;flex-wrap:wrap;gap:6px 12px;}
+  .sw{display:flex;align-items:center;gap:5px;font-size:9px;}
+  .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 4px currentColor;}
+  .sw-hex{color:var(--cm);font-size:8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="title"><em id="t1">Royal</em> <span id="t2">Dragon</span></div>
+  <div class="subtitle" id="subtitle">Auburn + Metallic Gold — dark fantasy fire and shadow</div>
+  <div class="vtoggle">
+    <span class="vt-label">theme</span>
+    <button class="vbtn active" id="btn-dragon"  onclick="sv('dragon')">Royal Dragon</button>
+    <button class="vbtn"        id="btn-elf"     onclick="sv('elf')">Regal Elf</button>
+    <button class="vbtn"        id="btn-lion"    onclick="sv('lion')">Lion's Pride</button>
+    <button class="vbtn"        id="btn-wyrm"    onclick="sv('wyrm')">Shadow Wyrm</button>
+    <button class="vbtn"        id="btn-forge"   onclick="sv('forge')">Ember Forge</button>
+    <button class="vbtn"        id="btn-frost"   onclick="sv('frost')">Frost Warden</button>
+    <button class="vbtn"        id="btn-storm"   onclick="sv('storm')">Storm Herald</button>
+  </div>
+</div>
+
+<div class="note" id="note">
+  <span class="note-tag" id="note-tag">Royal Dragon</span>
+  <span id="note-text">Auburn #8B2500 + Metallic Gold #D4AF37 — fire, crimson functions, ember classes</span>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('rust',this)">main.rs</button>
+  <button class="tab"        onclick="switchTab('python',this)">scanner.py</button>
+  <button class="tab"        onclick="switchTab('ps',this)">Install-Package.ps1</button>
+  <button class="tab"        onclick="switchTab('java',this)">ScanEngine.java</button>
+  <button class="tab"        onclick="switchTab('js',this)">scanner.js</button>
+  <button class="tab"        onclick="switchTab('go',this)">scanner.go</button>
+</div>
+
+<div class="editor">
+  <div class="gutter" id="gutter"></div>
+  <div class="code-wrap">
+
+    <div class="panel active" id="panel-rust"><pre>
+<span class="c">// SecurelyScoped — scan engine core</span>
+<span class="im">use</span> <span class="cl">std</span><span class="ns">::</span><span class="cl">path</span><span class="ns">::</span><span class="cl">PathBuf</span><span class="br">;</span>
+<span class="im">use</span> <span class="cl">walkdir</span><span class="ns">::</span><span class="cl">WalkDir</span><span class="br">;</span>
+
+<span class="dc">#[derive(Debug, Clone)]</span>
+<span class="pb">pub</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span>
+    <span class="en">Critical</span><span class="br">,</span> <span class="en">High</span><span class="br">,</span> <span class="en">Medium</span><span class="br">,</span> <span class="en">Low</span><span class="br">,</span>
+<span class="br">}</span>
+
+<span class="dc">#[derive(Debug)]</span>
+<span class="pb">pub</span> <span class="kw">struct</span> <span class="cl">FindingVuln</span> <span class="br">{</span>
+    <span class="pb">pub</span> <span class="fd">file</span><span class="op">:</span>     <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">line</span><span class="op">:</span>     <span class="ty">u32</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">message</span><span class="op">:</span>  <span class="cl">String</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">severity</span><span class="op">:</span> <span class="cl">Severity</span><span class="br">,</span>
+<span class="br">}</span>
+
+<span class="pb">pub</span> <span class="kw">trait</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="kw">fn</span> <span class="fn">scan</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span><span class="br">;</span>
+    <span class="kw">fn</span> <span class="fn">is_allowed</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">,</span> <span class="pa">ext</span><span class="op">:</span> <span class="op">&amp;</span><span class="ty">str</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">bool</span><span class="br">;</span>
+<span class="br">}</span>
+
+<span class="kw">const</span> <span class="va">MAX_SIZE</span><span class="op">:</span> <span class="ty">u64</span>  <span class="op">=</span> <span class="nu">10_485_760</span><span class="br">;</span>
+<span class="kw">const</span> <span class="va">LDAP_RE</span><span class="op">:</span>  <span class="op">&amp;</span><span class="ty">str</span> <span class="op">=</span> <span class="rx">r"LDAP://[\w\.]+"</span><span class="br">;</span>
+
+<span class="pb">pub</span> <span class="kw">fn</span> <span class="fn">scan_file</span><span class="op">&lt;</span><span class="lf">'a</span><span class="op">&gt;</span><span class="br">(</span>
+    <span class="pa">path</span><span class="op">:</span>     <span class="op">&amp;</span><span class="lf">'a</span> <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pa">patterns</span><span class="op">:</span> <span class="op">&amp;</span><span class="br">[(</span><span class="op">&amp;</span><span class="ty">str</span><span class="br">,</span> <span class="cl">Severity</span><span class="br">)],</span>
+<span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="br">{</span>
+    <span class="kw">let</span> <span class="va">contents</span> <span class="op">=</span> <span class="bi">std::fs::read_to_string</span><span class="br">(</span><span class="va">path</span><span class="br">)</span>
+        <span class="op">.</span><span class="fn">unwrap_or_default</span><span class="br">();</span>
+    <span class="kw">let mut</span> <span class="va">findings</span><span class="op">:</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="op">=</span> <span class="cl">Vec</span><span class="op">::</span><span class="fn">new</span><span class="br">();</span>
+    <span class="kw">for</span> <span class="br">(</span><span class="va">i</span><span class="br">,</span> <span class="va">line</span><span class="br">)</span> <span class="kw">in</span> <span class="va">contents</span><span class="op">.</span><span class="fn">lines</span><span class="br">()</span><span class="op">.</span><span class="fn">enumerate</span><span class="br">()</span> <span class="br">{</span>
+        <span class="kw">for</span> <span class="br">(</span><span class="va">pat</span><span class="br">,</span> <span class="va">sev</span><span class="br">)</span> <span class="kw">in</span> <span class="va">patterns</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">line</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">pat</span><span class="br">)</span> <span class="br">{</span>
+                <span class="va">findings</span><span class="op">.</span><span class="fn">push</span><span class="br">(</span><span class="cl">FindingVuln</span> <span class="br">{</span>
+                    <span class="fd">file</span><span class="op">:</span>    <span class="va">path</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                    <span class="fd">line</span><span class="op">:</span>    <span class="va">i</span> <span class="kw">as</span> <span class="ty">u32</span> <span class="op">+</span> <span class="nu">1</span><span class="br">,</span>
+                    <span class="fd">message</span><span class="op">:</span> <span class="ma">format!</span><span class="br">(</span><span class="s">"Match: </span><span class="si">{pat}</span><span class="s">"</span><span class="br">),</span>
+                    <span class="fd">severity</span><span class="op">:</span><span class="va">sev</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                <span class="br">});</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="va">findings</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-python"><pre>
+<span class="c"># scanner.py — domain-specific pattern layer</span>
+<span class="kw">from</span> <span class="im">dataclasses</span> <span class="kw">import</span> <span class="va">dataclass</span><span class="br">,</span> <span class="va">field</span>
+<span class="kw">from</span> <span class="im">pathlib</span>    <span class="kw">import</span> <span class="cl">Path</span>
+<span class="kw">import</span> <span class="im">re</span>
+
+<span class="va">MAX_FINDINGS</span> <span class="op">=</span> <span class="nu">500</span>
+<span class="va">LDAP_RE</span>      <span class="op">=</span> <span class="rx">re.compile(r"LDAP://[\w\.]+")</span>
+<span class="va">DEFAULT_SEV</span>  <span class="op">=</span> <span class="s">"medium"</span>
+
+<span class="kw">class</span> <span class="cl">Severity</span><span class="br">:</span>
+    <span class="en">CRITICAL</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">HIGH</span>     <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">MEDIUM</span>   <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">LOW</span>      <span class="op">=</span> <span class="s">"low"</span>
+
+<span class="dc">@dataclass</span>
+<span class="kw">class</span> <span class="cl">ScanResult</span><span class="br">:</span>
+    <span class="fd">file_path</span><span class="op">:</span>  <span class="ty">Path</span>
+    <span class="fd">line_no</span><span class="op">:</span>    <span class="ty">int</span>
+    <span class="fd">pattern</span><span class="op">:</span>   <span class="ty">str</span>
+    <span class="fd">severity</span><span class="op">:</span>  <span class="ty">str</span>  <span class="op">=</span> <span class="va">DEFAULT_SEV</span>
+    <span class="fd">findings</span><span class="op">:</span>  <span class="ty">list</span> <span class="op">=</span> <span class="bi">field</span><span class="br">(</span><span class="va">default_factory</span><span class="op">=</span><span class="ty">list</span><span class="br">)</span>
+
+<span class="kw">def</span> <span class="fn">scan_file</span><span class="br">(</span>
+    <span class="pa">path</span><span class="op">:</span>     <span class="cl">Path</span><span class="br">,</span>
+    <span class="pa">rules</span><span class="op">:</span>    <span class="ty">list</span><span class="br">[</span><span class="cl">ScanResult</span><span class="br">],</span>
+    <span class="pa">max_size</span><span class="op">:</span> <span class="ty">int</span> <span class="op">=</span> <span class="nu">10_485_760</span><span class="br">,</span>
+<span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">list</span><span class="br">[</span><span class="cl">ScanResult</span><span class="br">]:</span>
+    <span class="s">"""Scan a file against all pattern rules."""</span>
+    <span class="kw">if not</span> <span class="va">path</span><span class="op">.</span><span class="fn">exists</span><span class="br">()</span><span class="op">:</span> <span class="kw">return</span> <span class="br">[]</span>
+    <span class="va">results</span> <span class="op">=</span> <span class="br">[]</span>
+    <span class="va">text</span> <span class="op">=</span> <span class="va">path</span><span class="op">.</span><span class="fn">read_text</span><span class="br">(</span><span class="va">encoding</span><span class="op">=</span><span class="s">"utf-8"</span><span class="br">)</span>
+    <span class="kw">for</span> <span class="va">n</span><span class="br">,</span> <span class="va">line</span> <span class="kw">in</span> <span class="bi">enumerate</span><span class="br">(</span><span class="va">text</span><span class="op">.</span><span class="fn">splitlines</span><span class="br">(),</span> <span class="nu">1</span><span class="br">):</span>
+        <span class="kw">for</span> <span class="va">rule</span> <span class="kw">in</span> <span class="va">rules</span><span class="op">:</span>
+            <span class="kw">if</span> <span class="bi">re</span><span class="op">.</span><span class="fn">search</span><span class="br">(</span><span class="va">rule</span><span class="op">.</span><span class="fd">regex</span><span class="br">,</span> <span class="va">line</span><span class="br">):</span>
+                <span class="va">results</span><span class="op">.</span><span class="fn">append</span><span class="br">(</span><span class="cl">ScanResult</span><span class="br">(</span>
+                    <span class="fd">file_path</span><span class="op">=</span><span class="va">path</span><span class="br">,</span> <span class="fd">line_no</span><span class="op">=</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">pattern</span><span class="op">=</span><span class="va">rule</span><span class="op">.</span><span class="fd">name</span><span class="br">,</span>  <span class="fd">severity</span><span class="op">=</span><span class="va">rule</span><span class="op">.</span><span class="fd">severity</span><span class="br">,</span>
+                <span class="br">))</span>
+    <span class="kw">return</span> <span class="va">results</span><span class="br">[:</span><span class="va">MAX_FINDINGS</span><span class="br">]</span>
+
+<span class="kw">if</span> <span class="bo">__name__</span> <span class="op">==</span> <span class="s">"__main__"</span><span class="op">:</span>
+    <span class="va">hits</span> <span class="op">=</span> <span class="fn">scan_file</span><span class="br">(</span><span class="cl">Path</span><span class="br">(</span><span class="s">"./test.ps1"</span><span class="br">),</span> <span class="br">[])</span>
+    <span class="bi">print</span><span class="br">(</span><span class="s">f"Found </span><span class="si">{len(hits)}</span><span class="s"> issue(s)"</span><span class="br">)</span>
+</pre></div>
+
+    <div class="panel" id="panel-ps"><pre>
+<span class="c"># Install-Package.ps1 — winget wrapper</span>
+<span class="kw">function</span> <span class="fn">Install-Package</span> <span class="br">{</span>
+    <span class="br">[</span><span class="cl">CmdletBinding</span><span class="br">()]</span>
+    <span class="kw">param</span> <span class="br">(</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">(</span><span class="va">Mandatory</span><span class="op">=$</span><span class="bo">true</span><span class="br">)]</span> <span class="br">[</span><span class="ty">string</span><span class="br">]</span> <span class="pa">$Query</span><span class="br">,</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">()]</span>               <span class="br">[</span><span class="ty">switch</span><span class="br">]</span> <span class="pa">$Uninstall</span><span class="br">,</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">()]</span>               <span class="br">[</span><span class="ty">int</span><span class="br">]</span>    <span class="pa">$MaxWidth</span> <span class="op">=</span> <span class="nu">120</span>
+    <span class="br">)</span>
+    <span class="lv">$raw</span> <span class="op">=</span> <span class="fn">winget</span> <span class="or">search</span> <span class="op">--</span><span class="or">query</span> <span class="lv">$Query</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="op">-not</span> <span class="lv">$raw</span><span class="br">)</span> <span class="br">{</span> <span class="fn">Write-Warning</span> <span class="s">"No results"</span><span class="br">;</span> <span class="kw">return</span> <span class="br">}</span>
+    <span class="lv">$packages</span> <span class="op">=</span> <span class="lv">$raw</span> <span class="op">|</span> <span class="fn">Select-Object</span> <span class="op">-Skip</span> <span class="nu">2</span> <span class="op">|</span> <span class="fn">ForEach-Object</span> <span class="br">{</span>
+        <span class="lv">$cols</span> <span class="op">=</span> <span class="lv">$_</span> <span class="op">-split</span> <span class="rx">'\s{2,}'</span><span class="br">,</span> <span class="nu">4</span>
+        <span class="br">[</span><span class="cl">PSCustomObject</span><span class="br">]</span> <span class="op">@</span><span class="br">{</span>
+            <span class="va">Name</span>    <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">0</span><span class="br">]</span> <span class="op">-replace</span> <span class="rx">'\u2026$'</span><span class="br">,</span><span class="s">''</span>
+            <span class="va">Id</span>      <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">1</span><span class="br">];</span>
+            <span class="va">Version</span> <span class="op">=</span> <span class="lv">$cols</span><span class="br">[</span><span class="nu">2</span><span class="br">]</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="lv">$packages</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="op">-AutoSize</span>
+    <span class="lv">$idx</span> <span class="op">=</span> <span class="br">[</span><span class="ty">int</span><span class="br">]</span><span class="br">(</span><span class="fn">Read-Host</span> <span class="s">"Pick"</span><span class="br">)</span> <span class="op">-</span> <span class="nu">1</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="lv">$Uninstall</span><span class="br">)</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">uninstall</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$packages</span><span class="br">[</span><span class="lv">$idx</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span>
+    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">install</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$packages</span><span class="br">[</span><span class="lv">$idx</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span> <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-java"><pre>
+<span class="c">// ScanEngine.java</span>
+<span class="kw">package</span> <span class="ns">com.securelyscoped</span><span class="ns">.</span><span class="im">scanner</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Files</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Path</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.util.regex.Pattern</span><span class="br">;</span>
+
+<span class="pb">public</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span> <span class="en">CRITICAL</span><span class="br">,</span> <span class="en">HIGH</span><span class="br">,</span> <span class="en">MEDIUM</span><span class="br">,</span> <span class="en">LOW</span> <span class="br">}</span>
+
+<span class="pb">public</span> <span class="kw">record</span> <span class="cl">FindingVuln</span><span class="br">(</span>
+    <span class="cl">Path</span> <span class="fd">file</span><span class="br">,</span> <span class="ty">int</span> <span class="fd">line</span><span class="br">,</span>
+    <span class="cl">String</span> <span class="fd">message</span><span class="br">,</span> <span class="cl">Severity</span> <span class="fd">severity</span>
+<span class="br">) {}</span>
+
+<span class="pb">public</span> <span class="kw">interface</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">);</span>
+<span class="br">}</span>
+
+<span class="pb">public</span> <span class="kw">class</span> <span class="cl">ScanEngine</span> <span class="kw">implements</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="pb">private</span> <span class="kw">static final</span> <span class="ty">long</span>    <span class="va">MAX</span>     <span class="op">=</span> <span class="nu">10_485_760L</span><span class="br">;</span>
+    <span class="pb">private</span> <span class="kw">static final</span> <span class="cl">Pattern</span> <span class="va">LDAP_RE</span> <span class="op">=</span> <span class="cl">Pattern</span><span class="op">.</span><span class="fn">compile</span><span class="br">(</span><span class="rx">"LDAP://[\\w\\.]+"</span><span class="br">);</span>
+    <span class="pb">private final</span> <span class="cl">Path</span> <span class="fd">root</span><span class="br">;</span>
+
+    <span class="pb">public</span> <span class="fn">ScanEngine</span><span class="br">(</span><span class="cl">Path</span> <span class="pa">root</span><span class="br">) {</span> <span class="lvi">this</span><span class="op">.</span><span class="fd">root</span> <span class="op">=</span> <span class="va">root</span><span class="br">; }</span>
+
+    <span class="dc">@Override</span>
+    <span class="pb">public</span> <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">) {</span>
+        <span class="kw">return</span> <span class="cl">java.util.List</span><span class="op">.</span><span class="fn">of</span><span class="br">(</span><span class="s">"rs"</span><span class="br">,</span><span class="s">"py"</span><span class="br">,</span><span class="s">"java"</span><span class="br">,</span><span class="s">"go"</span><span class="br">)</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">ext</span><span class="br">);</span>
+    <span class="br">}</span>
+    <span class="pb">public</span> <span class="ty">void</span> <span class="fn">run</span><span class="br">() {</span>
+        <span class="kw">try</span> <span class="br">{</span>
+            <span class="cl">Files</span><span class="op">.</span><span class="fn">walk</span><span class="br">(</span><span class="fd">root</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">filter</span><span class="br">(</span><span class="cl">Files</span><span class="op">::</span><span class="fn">isRegularFile</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">forEach</span><span class="br">(</span><span class="cl">System</span><span class="op">.</span><span class="va">out</span><span class="op">::</span><span class="fn">println</span><span class="br">);</span>
+        <span class="br">}</span> <span class="kw">catch</span> <span class="br">(</span><span class="cl">Exception</span> <span class="va">e</span><span class="br">) {</span>
+            <span class="cl">System</span><span class="op">.</span><span class="va">err</span><span class="op">.</span><span class="fn">println</span><span class="br">(</span><span class="s">"Error: "</span> <span class="op">+</span> <span class="va">e</span><span class="op">.</span><span class="fn">getMessage</span><span class="br">());</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+
+    <div class="panel" id="panel-js"><pre>
+<span class="c">// scanner.js — Tauri frontend bridge</span>
+<span class="kw">import</span> <span class="br">{</span> <span class="va">invoke</span> <span class="br">}</span> <span class="kw">from</span> <span class="s">'@tauri-apps/api/tauri'</span><span class="br">;</span>
+<span class="kw">import</span> <span class="br">{</span> <span class="va">open</span>   <span class="br">}</span> <span class="kw">from</span> <span class="s">'@tauri-apps/api/dialog'</span><span class="br">;</span>
+
+<span class="kw">const</span> <span class="va">LDAP_RE</span>  <span class="op">=</span> <span class="rx">/LDAP:\/\/[\w\.]+/gi</span><span class="br">;</span>
+<span class="kw">const</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="bi">Object</span><span class="op">.</span><span class="fn">freeze</span><span class="br">({</span>
+    <span class="en">CRITICAL</span><span class="op">:</span><span class="s">'critical'</span><span class="br">,</span> <span class="en">HIGH</span><span class="op">:</span><span class="s">'high'</span><span class="br">,</span>
+    <span class="en">MEDIUM</span><span class="op">:</span><span class="s">'medium'</span><span class="br">,</span>     <span class="en">LOW</span><span class="op">:</span><span class="s">'low'</span><span class="br">,</span>
+<span class="br">});</span>
+
+<span class="kw">async function</span> <span class="fn">scanFile</span><span class="br">(</span><span class="pa">path</span><span class="br">,</span> <span class="pa">patterns</span><span class="br">) {</span>
+    <span class="kw">try</span> <span class="br">{</span>
+        <span class="kw">const</span> <span class="va">res</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">invoke</span><span class="br">(</span><span class="s">'scan_file'</span><span class="br">,</span> <span class="br">{</span><span class="va">path</span><span class="br">,</span><span class="va">patterns</span><span class="br">});</span>
+        <span class="kw">return</span> <span class="va">res</span><span class="op">.</span><span class="fn">slice</span><span class="br">(</span><span class="nu">0</span><span class="br">,</span><span class="nu">500</span><span class="br">);</span>
+    <span class="br">}</span> <span class="kw">catch</span> <span class="br">(</span><span class="va">err</span><span class="br">) {</span>
+        <span class="bi">console</span><span class="op">.</span><span class="fn">error</span><span class="br">(</span><span class="s">`Scan failed:`</span><span class="br">,</span><span class="va">err</span><span class="br">);</span>
+        <span class="kw">return</span> <span class="br">[];</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+<span class="kw">async function</span> <span class="fn">pickAndScan</span><span class="br">() {</span>
+    <span class="kw">const</span> <span class="va">sel</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">open</span><span class="br">({</span><span class="va">multiple</span><span class="op">:</span><span class="bo">false</span><span class="br">,</span>
+        <span class="va">filters</span><span class="op">:</span><span class="br">[{</span><span class="va">name</span><span class="op">:</span><span class="s">'Source'</span><span class="br">,</span><span class="va">extensions</span><span class="op">:</span><span class="br">[</span><span class="s">'rs'</span><span class="br">,</span><span class="s">'py'</span><span class="br">,</span><span class="s">'js'</span><span class="br">,</span><span class="s">'go'</span><span class="br">]}]});</span>
+    <span class="kw">if</span> <span class="br">(!</span><span class="va">sel</span><span class="br">)</span> <span class="kw">return</span><span class="br">;</span>
+    <span class="kw">const</span> <span class="va">hits</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">scanFile</span><span class="br">(</span><span class="va">sel</span><span class="br">,</span><span class="br">[</span><span class="s">'password'</span><span class="br">,</span><span class="s">'LDAP://'</span><span class="br">]);</span>
+    <span class="bi">console</span><span class="op">.</span><span class="fn">log</span><span class="br">(</span><span class="s">`Found </span><span class="si">${hits.length}</span><span class="s"> issue(s)`</span><span class="br">);</span>
+<span class="br">}</span>
+<span class="kw">export</span> <span class="br">{</span><span class="va">scanFile</span><span class="br">,</span><span class="va">pickAndScan</span><span class="br">,</span><span class="va">Severity</span><span class="br">};</span>
+</pre></div>
+
+    <div class="panel" id="panel-go"><pre>
+<span class="c">// scanner.go — SecurelyScoped Go edition</span>
+<span class="kw">package</span> <span class="im">scanner</span>
+
+<span class="kw">import</span> <span class="br">(</span>
+    <span class="s">"bufio"</span><span class="br">;</span> <span class="s">"fmt"</span><span class="br">;</span> <span class="s">"os"</span><span class="br">;</span> <span class="s">"regexp"</span>
+<span class="br">)</span>
+
+<span class="kw">var</span> <span class="va">LDAPRegex</span> <span class="op">=</span> <span class="bi">regexp</span><span class="op">.</span><span class="fn">MustCompile</span><span class="br">(</span><span class="rx">`LDAP://[\w\.]+`</span><span class="br">)</span>
+
+<span class="kw">type</span> <span class="cl">Severity</span> <span class="ty">string</span>
+<span class="kw">const</span> <span class="br">(</span>
+    <span class="en">Critical</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">High</span>     <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">Medium</span>   <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">Low</span>      <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"low"</span>
+<span class="br">)</span>
+
+<span class="kw">type</span> <span class="cl">FindingVuln</span> <span class="kw">struct</span> <span class="br">{</span>
+    <span class="fd">File</span>     <span class="ty">string</span>
+    <span class="fd">Line</span>     <span class="ty">int</span>
+    <span class="fd">Message</span>  <span class="ty">string</span>
+    <span class="fd">Severity</span> <span class="cl">Severity</span>
+<span class="br">}</span>
+
+<span class="kw">type</span> <span class="tr">Scannable</span> <span class="kw">interface</span> <span class="br">{</span>
+    <span class="fn">Scan</span><span class="br">()</span> <span class="br">[]</span><span class="cl">FindingVuln</span>
+    <span class="fn">IsAllowed</span><span class="br">(</span><span class="pa">ext</span> <span class="ty">string</span><span class="br">)</span> <span class="ty">bool</span>
+<span class="br">}</span>
+
+<span class="kw">func</span> <span class="fn">ScanFile</span><span class="br">(</span><span class="pa">path</span> <span class="ty">string</span><span class="br">,</span> <span class="pa">pats</span> <span class="br">[]*</span><span class="cl">regexp</span><span class="op">.</span><span class="cl">Regexp</span><span class="br">)</span> <span class="br">([]</span><span class="cl">FindingVuln</span><span class="br">,</span> <span class="ty">error</span><span class="br">) {</span>
+    <span class="va">f</span><span class="br">,</span> <span class="va">err</span> <span class="op">:=</span> <span class="bi">os</span><span class="op">.</span><span class="fn">Open</span><span class="br">(</span><span class="va">path</span><span class="br">)</span>
+    <span class="kw">if</span> <span class="va">err</span> <span class="op">!=</span> <span class="bo">nil</span> <span class="br">{</span> <span class="kw">return</span> <span class="bo">nil</span><span class="br">,</span> <span class="va">err</span> <span class="br">}</span>
+    <span class="kw">defer</span> <span class="va">f</span><span class="op">.</span><span class="fn">Close</span><span class="br">()</span>
+    <span class="kw">var</span> <span class="va">out</span> <span class="br">[]</span><span class="cl">FindingVuln</span>
+    <span class="va">sc</span><span class="br">,</span> <span class="va">n</span> <span class="op">:=</span> <span class="bi">bufio</span><span class="op">.</span><span class="fn">NewScanner</span><span class="br">(</span><span class="va">f</span><span class="br">),</span> <span class="nu">0</span>
+    <span class="kw">for</span> <span class="va">sc</span><span class="op">.</span><span class="fn">Scan</span><span class="br">() {</span>
+        <span class="va">n</span><span class="op">++</span>
+        <span class="kw">for</span> <span class="va">_</span><span class="br">,</span> <span class="va">p</span> <span class="op">:=</span> <span class="kw">range</span> <span class="va">pats</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">p</span><span class="op">.</span><span class="fn">MatchString</span><span class="br">(</span><span class="va">sc</span><span class="op">.</span><span class="fn">Text</span><span class="br">()) {</span>
+                <span class="va">out</span> <span class="op">=</span> <span class="bi">append</span><span class="br">(</span><span class="va">out</span><span class="br">,</span> <span class="cl">FindingVuln</span><span class="br">{</span>
+                    <span class="fd">File</span><span class="op">:</span><span class="va">path</span><span class="br">,</span> <span class="fd">Line</span><span class="op">:</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">Message</span><span class="op">:</span><span class="bi">fmt</span><span class="op">.</span><span class="fn">Sprintf</span><span class="br">(</span><span class="s">"match: %s"</span><span class="br">,</span><span class="va">p</span><span class="br">),</span>
+                    <span class="fd">Severity</span><span class="op">:</span><span class="en">High</span><span class="br">,</span>
+                <span class="br">})</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="kw">return</span> <span class="va">out</span><span class="br">,</span> <span class="va">sc</span><span class="op">.</span><span class="fn">Err</span><span class="br">()</span>
+<span class="br">}</span>
+</pre></div>
+
+  </div>
+</div>
+
+<div class="palette-section">
+  <div class="pal-top"><div class="pal-label">palette — <span id="pal-mode">Royal Dragon</span></div></div>
+  <div class="swatches" id="swatches"></div>
+</div>
+
+<script>
+const T = {
+  dragon:{
+    t1:"Royal",t2:"Dragon",
+    subtitle:"Auburn #8B2500 + Metallic Gold #D4AF37 — fire, crimson functions, ember classes",
+    note:"Auburn + Gold — crimson functions, ember classes, scale-green operators, bone strings",
+    vars:{"--bg0":"#0E0804","--bg1":"#0A0502","--bg2":"#180E08","--bg3":"#231408","--fn":"#C0392B","--kw":"#D4AF37","--cl":"#E25822","--st":"#E8D5B0","--nu":"#D4AF37","--op":"#4A9E6B","--va":"#C4A882","--dim":"#8A7055","--cm":"#8E7560","--en":"#B8972E","--dc":"#8B2500","--pa":"#E25822","--im":"#B87333","--sl":"#5B8FA8","--bi":"#4A9E6B","--er":"#FF4500","--se":"#B87333","--si":"#C4A882","--tr":"#E25822","--pb":"#7C6010","--fd":"#B8972E","--rx":"#B87333","--ns":"#8A7055","--bo":"#8B2500","--ma":"#C4A882","--lf":"#B87333","--lv":"#7A8A8C","--accent":"#D4AF37"},
+    sw:[["#0E0804","background",true],["#C0392B","functions / crimson"],["#D4AF37","keywords / gold"],["#E25822","classes / ember"],["#B8972E","enums / aged gold"],["#E8D5B0","strings / bone"],["#8B2500","decorators / auburn"],["#B87333","imports / copper"],["#4A9E6B","operators / scale green"],["#7C6010","pub / brass"],["#5B8FA8","self / cold steel"],["#7A8A8C","$vars / steel"],["#FF4500","errors / fire"],["#8E7560","comments / smoke"]]
+  },
+  elf:{
+    t1:"Regal",t2:"Elf",
+    subtitle:"Metallic Gold #D4AF37 + Elvish Green #2ECC71 — ancient forest, moon and canopy",
+    note:"Gold + Elvish Green — forest functions, moss classes, rune-blue operators, mithril strings, moonlight self",
+    vars:{"--bg0":"#060D08","--bg1":"#040A06","--bg2":"#0C1A0E","--bg3":"#132616","--fn":"#1A8A47","--kw":"#D4AF37","--cl":"#4CAF7D","--st":"#C8D8E0","--nu":"#2ECC71","--op":"#5DADE2","--va":"#A8B8C0","--dim":"#6A8088","--cm":"#4A3520","--en":"#A8882A","--dc":"#9B59B6","--pa":"#4CAF7D","--im":"#8B6914","--sl":"#D0E8F0","--bi":"#5DADE2","--er":"#E74C3C","--se":"#E67E22","--si":"#90A8B0","--tr":"#4CAF7D","--pb":"#7CBA6A","--fd":"#A8882A","--rx":"#E67E22","--ns":"#6A8088","--bo":"#9B59B6","--ma":"#90A8B0","--lf":"#E67E22","--lv":"#D0E8F0","--accent":"#D4AF37"},
+    sw:[["#060D08","background",true],["#1A8A47","functions / forest"],["#D4AF37","keywords / gold"],["#4CAF7D","classes / moss"],["#A8882A","enums / aged gold"],["#C8D8E0","strings / mithril"],["#9B59B6","decorators / arcane"],["#8B6914","imports / copper"],["#5DADE2","operators / rune blue"],["#7CBA6A","pub / leaf"],["#D0E8F0","self / moonlight"],["#A8B8C0","$vars / silver"],["#E74C3C","errors / poison"],["#2ECC71","numbers / elvish green"],["#4A3520","comments / bark"]]
+  },
+  lion:{
+    t1:"Lion's",t2:"Pride",
+    subtitle:"Mane Gold #C8860A + Ember #E8782A + Dusk Blue #4A6FA5 — savanna warmth",
+    note:"Mane gold keywords, ember functions, tawny classes, dusk-blue operators cutting cold through the warmth",
+    vars:{"--bg0":"#0C0804","--bg1":"#080502","--bg2":"#161008","--bg3":"#201808","--fn":"#E8782A","--kw":"#C8860A","--cl":"#C4854A","--st":"#D8C090","--nu":"#D4A820","--op":"#4A6FA5","--va":"#A89060","--dim":"#786040","--cm":"#604828","--en":"#A06830","--dc":"#8B1A1A","--pa":"#C4854A","--im":"#B8722A","--sl":"#8090A0","--bi":"#6A8FC0","--er":"#CC2200","--se":"#D4901A","--si":"#A89060","--tr":"#C4854A","--pb":"#906818","--fd":"#5A8040","--rx":"#D4901A","--ns":"#786040","--bo":"#8B1A1A","--ma":"#A89060","--lf":"#D4901A","--lv":"#8090A0","--accent":"#C8860A"},
+    sw:[["#0C0804","background",true],["#E8782A","functions / ember"],["#C8860A","keywords / mane gold"],["#C4854A","classes / tawny"],["#A06830","enums / dark tawny"],["#D8C090","strings / bone"],["#8B1A1A","decorators / crimson"],["#B8722A","imports / copper"],["#4A6FA5","operators / dusk blue"],["#6A8FC0","builtins / light dusk"],["#906818","pub / dark gold"],["#5A8040","struct fields / acacia"],["#8090A0","self / grey-blue"],["#D4A820","numbers / ochre"],["#CC2200","errors / blood"],["#604828","comments / smoke"]]
+  },
+  wyrm:{
+    t1:"Shadow",t2:"Wyrm",
+    subtitle:"Venomous Green #4AE54A + Toxic Purple #9B30C8 — deep void, poison and shadow",
+    note:"Venom-green functions, toxic-purple keywords, fang-yellow classes, sinew-blue operators, cold mist self",
+    vars:{"--bg0":"#08060E","--bg1":"#050408","--bg2":"#100D1A","--bg3":"#181428","--fn":"#4AE54A","--kw":"#9B30C8","--cl":"#E8E060","--st":"#C8C0A8","--nu":"#C060F0","--op":"#6890A0","--va":"#A890C0","--dim":"#705888","--cm":"#6848A0","--en":"#B0A840","--dc":"#D040A0","--pa":"#B0A840","--im":"#6848A0","--sl":"#60A8C0","--bi":"#2EA82E","--er":"#C82828","--se":"#C89030","--si":"#908870","--tr":"#E8E060","--pb":"#8050B0","--fd":"#508050","--rx":"#C89030","--ns":"#705888","--bo":"#D040A0","--ma":"#908870","--lf":"#C89030","--lv":"#60A8C0","--accent":"#4AE54A"},
+    sw:[["#08060E","background",true],["#4AE54A","functions / venom"],["#9B30C8","keywords / toxin"],["#E8E060","classes / fang"],["#B0A840","enums / aged fang"],["#C8C0A8","strings / bone"],["#D040A0","decorators / vile"],["#6848A0","imports / shadow"],["#6890A0","operators / sinew"],["#8050B0","pub / dark violet"],["#60A8C0","self / cold mist"],["#A890C0","$vars / pale claw"],["#C060F0","numbers / bright toxin"],["#C82828","errors / wyrm blood"],["#508050","struct fields / dark moss"]]
+  },
+  forge:{
+    t1:"Ember",t2:"Forge",
+    subtitle:"Molten #FF5500 + Forge Gold #FFB300 + Cold Smoke Blue #5080A0 — fire and iron",
+    note:"Molten functions, forge-gold keywords, ember classes, cold-smoke operators — the one cool color in the heat",
+    vars:{"--bg0":"#0A0806","--bg1":"#070504","--bg2":"#141008","--bg3":"#1E1810","--fn":"#FF5500","--kw":"#FFB300","--cl":"#FF8C00","--st":"#A8B8C0","--nu":"#FFD700","--op":"#5080A0","--va":"#8090A0","--dim":"#506070","--cm":"#504030","--en":"#C08800","--dc":"#C04020","--pa":"#D06020","--im":"#B87040","--sl":"#70A0C0","--bi":"#CC4400","--er":"#CC2200","--se":"#B87040","--si":"#708090","--tr":"#FF8C00","--pb":"#784828","--fd":"#5A9060","--rx":"#B87040","--ns":"#506070","--bo":"#C04020","--ma":"#708090","--lf":"#B87040","--lv":"#70A0C0","--accent":"#FFB300"},
+    sw:[["#0A0806","background",true],["#FF5500","functions / molten"],["#FFB300","keywords / forge gold"],["#FF8C00","classes / ember"],["#C08800","enums / aged gold"],["#A8B8C0","strings / steel"],["#C04020","decorators / rust"],["#B87040","imports / copper"],["#5080A0","operators / cold smoke"],["#784828","pub / anvil"],["#70A0C0","self / smoke"],["#8090A0","$vars / iron"],["#FFD700","numbers / spark"],["#CC2200","errors / forge blood"],["#5A9060","struct fields / verdigris"],["#504030","comments / coal"]]
+  },
+  frost:{
+    t1:"Frost",t2:"Warden",
+    subtitle:"Glacier Blue #5BC8F0 + Ice #D0EEF8 + Aurora Green #40D4A0 — arctic cold",
+    note:"Glacier functions, ice keywords, snow classes, aurora-green operators — warm amber trapped in ice for regex",
+    vars:{"--bg0":"#060C12","--bg1":"#040A0E","--bg2":"#0C1620","--bg3":"#122030","--fn":"#5BC8F0","--kw":"#D0EEF8","--cl":"#C8D8E8","--st":"#A8D8F0","--nu":"#90C8E0","--op":"#40D4A0","--va":"#A8B8C8","--dim":"#607080","--cm":"#304858","--en":"#90A8B8","--dc":"#8070C0","--pa":"#90A8B8","--im":"#406880","--sl":"#60D8E0","--bi":"#28A878","--er":"#D04040","--se":"#C09040","--si":"#6898B0","--tr":"#C8D8E8","--pb":"#7090A0","--fd":"#3A7860","--rx":"#C09040","--ns":"#607080","--bo":"#8070C0","--ma":"#6898B0","--lf":"#C09040","--lv":"#60D8E0","--accent":"#5BC8F0"},
+    sw:[["#060C12","background",true],["#5BC8F0","functions / glacier"],["#D0EEF8","keywords / ice"],["#C8D8E8","classes / snow"],["#90A8B8","enums / aged snow"],["#A8D8F0","strings / frost"],["#8070C0","decorators / warden purple"],["#406880","imports / tundra"],["#40D4A0","operators / aurora"],["#7090A0","pub / pale blue"],["#60D8E0","self / crystal"],["#A8B8C8","$vars / silver"],["#90C8E0","numbers / soft ice"],["#D04040","errors / frost-cracked"],["#3A7860","struct fields / frost pine"],["#304858","comments / cold mist"]]
+  },
+  storm:{
+    t1:"Storm",t2:"Herald",
+    subtitle:"Electric Yellow #FFE040 + Storm Blue #5890C8 + Charged Purple #A070D0 — lightning",
+    note:"Lightning functions, charged-purple keywords, storm-blue classes, wind-teal operators, arc-flash decorators",
+    vars:{"--bg0":"#080C12","--bg1":"#060A0E","--bg2":"#101820","--bg3":"#182028","--fn":"#FFE040","--kw":"#A070D0","--cl":"#5890C8","--st":"#C0C8D0","--nu":"#C090F0","--op":"#60D0B0","--va":"#90A8C0","--dim":"#506070","--cm":"#384858","--en":"#4070A0","--dc":"#FF6040","--pa":"#4070A0","--im":"#3868A0","--sl":"#70A8D0","--bi":"#40A890","--er":"#FF4444","--se":"#D08030","--si":"#808898","--tr":"#5890C8","--pb":"#6058A0","--fd":"#508060","--rx":"#D08030","--ns":"#506070","--bo":"#FF6040","--ma":"#808898","--lf":"#D08030","--lv":"#70A8D0","--accent":"#FFE040"},
+    sw:[["#080C12","background",true],["#FFE040","functions / lightning"],["#A070D0","keywords / charged purple"],["#5890C8","classes / storm blue"],["#4070A0","enums / deep storm"],["#C0C8D0","strings / stormcloud"],["#FF6040","decorators / arc flash"],["#3868A0","imports / hail"],["#60D0B0","operators / wind teal"],["#6058A0","pub / static"],["#70A8D0","self / cold rain"],["#90A8C0","$vars / gale"],["#C090F0","numbers / bright purple"],["#FF4444","errors / lightning strike"],["#508060","struct fields / storm moss"],["#384858","comments / fog"]]
+  }
+};
+
+function sv(v) {
+  const t = T[v];
+  const r = document.documentElement.style;
+  Object.entries(t.vars).forEach(([k,val]) => r.setProperty(k,val));
+  document.querySelectorAll('.vbtn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('btn-'+v).classList.add('active');
+  document.getElementById('t1').textContent = t.t1;
+  document.getElementById('t2').textContent = t.t2;
+  document.getElementById('subtitle').textContent = t.subtitle;
+  document.getElementById('note-tag').textContent = t.t1+' '+t.t2;
+  document.getElementById('note-text').textContent = t.note;
+  document.getElementById('pal-mode').textContent = t.t1+' '+t.t2;
+  renderSwatches(v);
+}
+
+function renderSwatches(v) {
+  const sw = document.getElementById('swatches');
+  sw.innerHTML = '';
+  T[v].sw.forEach(([hex,label,border])=>{
+    const d=document.createElement('div'); d.className='sw';
+    const ds=border
+      ?`background:${hex};border:1px solid ${T[v].vars['--cm']};box-shadow:none`
+      :`background:${hex};box-shadow:0 0 4px ${hex}`;
+    const fc=border?T[v].vars['--dim']:hex;
+    d.innerHTML=`<div class="dot" style="${ds}"></div>`
+      +`<span style="color:${fc}">${label}</span>`
+      +`<span class="sw-hex">${hex}</span>`;
+    sw.appendChild(d);
+  });
+}
+
+function switchTab(lang,btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+lang).classList.add('active');
+  buildGutter(lang);
+}
+
+function buildGutter(lang) {
+  const pre=document.querySelector('#panel-'+lang+' pre');
+  const lines=pre.innerHTML.split('\n').length;
+  const g=document.getElementById('gutter'); g.innerHTML='';
+  const mid=Math.floor(lines/2);
+  for(let i=1;i<=lines;i++){
+    const s=document.createElement('span');
+    s.className='ln'+(i===mid?' act':'');
+    s.textContent=i; g.appendChild(s);
+  }
+}
+
+renderSwatches('dragon');
+buildGutter('rust');
+</script>
+</body>
+</html>

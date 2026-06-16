@@ -1,0 +1,259 @@
+{
+  "name": "Aztec Resin (Navy)",
+  "author": "CyberSteveOn",
+  "variables": {
+    "bg0":           "#232048",
+    "bg1":           "#1a1838",
+    "bg2":           "#2c2a58",
+    "bg3":           "#363370",
+    "ui_accent":     "#3A12C8",
+    "ui_indigo":     "#5533CC",
+    "ui_cyan":       "#7FEDF0",
+    "ui_cyan_soft":  "#aff5f7",
+    "ui_orange":     "#e8892b",
+    "ui_keyword":    "#B48EF0",
+    "ui_amber":      "#F0C674",
+    "ui_iceblue":    "#A8D8EA",
+    "ui_lavender":   "#C6A0F6",
+    "ui_pink":       "#c9789e",
+    "ui_green":      "#9be963",
+    "ui_gold":       "#D4A017",
+    "ui_red":        "#ED8796",
+    "ui_fg":         "#e8d5c0",
+    "ui_fg_dim":     "#c8bfda",
+    "ui_muted":      "#4a4468"
+  },
+  "globals": {
+    "background":                    "var(bg0)",
+    "foreground":                    "var(ui_fg)",
+    "invisibles":                    "var(ui_muted)",
+    "caret":                         "var(ui_cyan)",
+    "line_highlight":                "var(bg2)",
+    "selection":                     "#3A12C844",
+    "selection_border":              "#3A12C888",
+    "selection_border_width":        "1",
+    "inactive_selection":            "#3A12C822",
+    "find_highlight":                "var(ui_green)",
+    "find_highlight_foreground":     "var(bg0)",
+    "brackets_options":              "underline",
+    "brackets_foreground":           "var(ui_cyan)",
+    "bracket_contents_options":      "stippled_underline",
+    "bracket_contents_foreground":   "var(ui_cyan_soft)",
+    "tags_options":                  "stippled_underline",
+    "tags_foreground":               "var(ui_cyan)",
+    "shadow":                        "#0e0b1c",
+    "shadow_width":                  "4",
+    "active_guide":                  "#3A12C866",
+    "stack_guide":                   "#2e285088",
+    "highlight":                     "var(ui_green)",
+    "accent":                        "var(ui_cyan)"
+  },
+  "rules": [
+    {
+      "name": "Comments",
+      "scope": "comment, punctuation.definition.comment",
+      "foreground": "var(ui_muted)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Strings",
+      "scope": "string, string.quoted, string.template",
+      "foreground": "var(ui_cyan)"
+    },
+    {
+      "name": "String escape sequences",
+      "scope": "constant.character.escape, string.regexp",
+      "foreground": "var(ui_pink)"
+    },
+    {
+      "name": "Template / f-string interpolation",
+      "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
+      "foreground": "var(ui_cyan_soft)"
+    },
+    {
+      "name": "Keywords",
+      "scope": "keyword, keyword.control, keyword.operator.logical, keyword.other, storage.type, storage.modifier",
+      "foreground": "var(ui_keyword)"
+    },
+    {
+      "name": "Built-in functions",
+      "scope": "support.function.builtin, support.function, support.type.python",
+      "foreground": "var(ui_indigo)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Functions and methods",
+      "scope": "entity.name.function, meta.function-call.generic, meta.function-call",
+      "foreground": "var(ui_cyan)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Classes and types",
+      "scope": "entity.name.class, entity.name.type, entity.other.inherited-class, support.class",
+      "foreground": "var(ui_orange)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Enum variants",
+      "scope": "entity.name.enum, constant.other.enum, meta.enum",
+      "foreground": "var(ui_gold)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Decorators and annotations",
+      "scope": "entity.name.function.decorator, punctuation.definition.decorator, meta.decorator",
+      "foreground": "var(ui_pink)"
+    },
+    {
+      "name": "Variables and identifiers",
+      "scope": "variable, variable.other, variable.other.readwrite, variable.other.object",
+      "foreground": "var(ui_fg)"
+    },
+    {
+      "name": "Function parameters",
+      "scope": "variable.parameter, meta.function.parameters",
+      "foreground": "var(ui_orange)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Numbers",
+      "scope": "constant.numeric, constant.numeric.integer, constant.numeric.float",
+      "foreground": "var(ui_green)"
+    },
+    {
+      "name": "Constants and booleans",
+      "scope": "constant.language, constant.language.boolean, variable.language.special",
+      "foreground": "var(ui_pink)"
+    },
+    {
+      "name": "Operators",
+      "scope": "keyword.operator, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.assignment",
+      "foreground": "var(ui_indigo)"
+    },
+    {
+      "name": "Punctuation — brackets and braces",
+      "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
+      "foreground": "var(ui_accent)"
+    },
+    {
+      "name": "Type annotations",
+      "scope": "meta.type.annotation, support.type, entity.name.type.instance",
+      "foreground": "var(ui_gold)"
+    },
+    {
+      "name": "Self / this",
+      "scope": "variable.language.this, variable.language.self",
+      "foreground": "var(ui_iceblue)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Import / module names",
+      "scope": "entity.name.module, support.module, keyword.control.import",
+      "foreground": "var(ui_amber)"
+    },
+    {
+      "name": "Tags (HTML/JSX/XML)",
+      "scope": "entity.name.tag, meta.tag",
+      "foreground": "var(ui_cyan)"
+    },
+    {
+      "name": "Attributes (HTML/JSX)",
+      "scope": "entity.other.attribute-name",
+      "foreground": "var(ui_gold)"
+    },
+    {
+      "name": "Invalid / deprecated",
+      "scope": "invalid, invalid.deprecated",
+      "foreground": "var(ui_red)",
+      "font_style": "underline"
+    },
+    {
+      "name": "Rust — lifetimes",
+      "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
+      "foreground": "var(ui_green)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Rust — macros",
+      "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
+      "foreground": "var(ui_cyan_soft)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Rust — traits",
+      "scope": "entity.name.trait.rust",
+      "foreground": "var(ui_gold)",
+      "font_style": "bold italic"
+    },
+    {
+      "name": "Rust — enum variants",
+      "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
+      "foreground": "var(ui_gold)"
+    },
+    {
+      "name": "Rust — derive attributes",
+      "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
+      "foreground": "var(ui_pink)"
+    },
+    {
+      "name": "PowerShell — cmdlets",
+      "scope": "support.function.powershell, entity.name.function.powershell",
+      "foreground": "var(ui_cyan)",
+      "font_style": "bold"
+    },
+    {
+      "name": "PowerShell — variables ($var)",
+      "scope": "variable.other.readwrite.powershell",
+      "foreground": "var(ui_iceblue)"
+    },
+    {
+      "name": "PowerShell — parameters (-Flag)",
+      "scope": "variable.parameter.powershell",
+      "foreground": "var(ui_orange)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Markdown — headings",
+      "scope": "markup.heading, punctuation.definition.heading.markdown",
+      "foreground": "var(ui_cyan)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markdown — bold",
+      "scope": "markup.bold",
+      "foreground": "var(ui_iceblue)",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markdown — italic",
+      "scope": "markup.italic",
+      "foreground": "var(ui_fg_dim)",
+      "font_style": "italic"
+    },
+    {
+      "name": "Markdown — inline code",
+      "scope": "markup.raw.inline, markup.raw.block",
+      "foreground": "var(ui_green)"
+    },
+    {
+      "name": "Markdown — links",
+      "scope": "markup.underline.link, string.other.link",
+      "foreground": "var(ui_indigo)"
+    },
+    {
+      "name": "JSON keys",
+      "scope": "meta.mapping.key.json, string.quoted.double.json meta.structure.dictionary.key.json",
+      "foreground": "var(ui_cyan)"
+    },
+    {
+      "name": "TOML keys",
+      "scope": "keyword.key.toml, support.type.property-name.toml",
+      "foreground": "var(ui_cyan)"
+    },
+    {
+      "name": "YAML keys",
+      "scope": "entity.name.tag.yaml, string.unquoted.plain.out.yaml",
+      "foreground": "var(ui_cyan)"
+    }
+  ]
+}

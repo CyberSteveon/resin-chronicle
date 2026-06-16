@@ -1,0 +1,57 @@
+{
+  "name": "resin-chronicle",
+  "displayName": "Resin Chronicle",
+  "description": "35 dark IDE themes spanning Neon Resin, Aztec Resin, Fantasy, and Final Fantasy worlds.",
+  "version": "1.0.0",
+  "publisher": "CyberSteveOn",
+  "author": "CyberSteveOn",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CyberSteveon/resin-chronicle"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "resin", "fantasy", "neon", "color scheme"],
+  "contributes": {
+    "themes": [
+      {"label": "Resin Chronicle: Neon Resin Dark",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-dark-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Inverted",         "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-inverted-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Dusk",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-dusk-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Deep",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-deep-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Rotated",          "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-rotated-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Dust",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-dust-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Ultra",            "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-ultra-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Split",            "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-split-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Mono",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-mono-color-theme.json"},
+      {"label": "Resin Chronicle: Neon Resin Swap",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-neon-resin-swap-color-theme.json"},
+      {"label": "Resin Chronicle: Aztec Resin Navy",            "uiTheme": "vs-dark", "path": "./themes/cybersteveon-aztec-resin-navy-color-theme.json"},
+      {"label": "Resin Chronicle: Aztec Resin Void",            "uiTheme": "vs-dark", "path": "./themes/cybersteveon-aztec-resin-void-color-theme.json"},
+      {"label": "Resin Chronicle: Royal Dragon",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-royal-dragon-color-theme.json"},
+      {"label": "Resin Chronicle: Regal Elf",                   "uiTheme": "vs-dark", "path": "./themes/cybersteveon-regal-elf-color-theme.json"},
+      {"label": "Resin Chronicle: Lion's Pride",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-lions-pride-color-theme.json"},
+      {"label": "Resin Chronicle: Shadow Wyrm",                 "uiTheme": "vs-dark", "path": "./themes/cybersteveon-shadow-wyrm-color-theme.json"},
+      {"label": "Resin Chronicle: Ember Forge",                 "uiTheme": "vs-dark", "path": "./themes/cybersteveon-ember-forge-color-theme.json"},
+      {"label": "Resin Chronicle: Frost Warden",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-frost-warden-color-theme.json"},
+      {"label": "Resin Chronicle: Storm Herald",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-storm-herald-color-theme.json"},
+      {"label": "Resin Chronicle: Bahamut's Wing",              "uiTheme": "vs-dark", "path": "./themes/cybersteveon-bahamuts-wing-color-theme.json"},
+      {"label": "Resin Chronicle: Ifrit's Ember",               "uiTheme": "vs-dark", "path": "./themes/cybersteveon-ifrits-ember-color-theme.json"},
+      {"label": "Resin Chronicle: Shiva's Frost",               "uiTheme": "vs-dark", "path": "./themes/cybersteveon-shivas-frost-color-theme.json"},
+      {"label": "Resin Chronicle: Ramuh's Storm",               "uiTheme": "vs-dark", "path": "./themes/cybersteveon-ramuhs-storm-color-theme.json"},
+      {"label": "Resin Chronicle: Leviathan's Deep",            "uiTheme": "vs-dark", "path": "./themes/cybersteveon-leviathans-deep-color-theme.json"},
+      {"label": "Resin Chronicle: Alexander's Light",           "uiTheme": "vs-dark", "path": "./themes/cybersteveon-alexanders-light-color-theme.json"},
+      {"label": "Resin Chronicle: Odin's Shade",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-odins-shade-color-theme.json"},
+      {"label": "Resin Chronicle: Titan's Mantle",              "uiTheme": "vs-dark", "path": "./themes/cybersteveon-titans-mantle-color-theme.json"},
+      {"label": "Resin Chronicle: Phoenix Ash",                 "uiTheme": "vs-dark", "path": "./themes/cybersteveon-phoenix-ash-color-theme.json"},
+      {"label": "Resin Chronicle: Midgar Slums",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-midgar-slums-color-theme.json"},
+      {"label": "Resin Chronicle: Mako Reactor",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-mako-reactor-color-theme.json"},
+      {"label": "Resin Chronicle: Zanarkand Ruins",             "uiTheme": "vs-dark", "path": "./themes/cybersteveon-zanarkand-ruins-color-theme.json"},
+      {"label": "Resin Chronicle: Ivalice Dusk",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-ivalice-dusk-color-theme.json"},
+      {"label": "Resin Chronicle: Eorzea Night",                "uiTheme": "vs-dark", "path": "./themes/cybersteveon-eorzea-night-color-theme.json"},
+      {"label": "Resin Chronicle: Fallen Rome",                 "uiTheme": "vs-dark", "path": "./themes/cybersteveon-fallen-rome-color-theme.json"},
+      {"label": "Resin Chronicle: Clive's Flame",               "uiTheme": "vs-dark", "path": "./themes/cybersteveon-clives-flame-color-theme.json"}
+    ]
+  }
+}

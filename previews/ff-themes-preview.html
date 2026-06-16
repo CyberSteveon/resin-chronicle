@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Fantasy Themes v2 -- All 16</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg0:#060E08;--bg1:#040B06;--bg2:#0C1A0E;--bg3:#122016;
+    --fn:#39FF14;--kw:#00C070;--cl:#C08000;--st:#A0B0B8;--nu:#A0FF60;
+    --op:#40A8C0;--va:#708090;--dim:#4A5A6A;--cm:#304030;
+    --en:#906000;--dc:#8060D0;--im:#406050;--sl:#5090C0;
+    --bi:#1EC400;--er:#CC2040;--rx:#FFB000;--pb:#306040;
+    --fd:#208050;--accent:#39FF14;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg1);color:var(--va);font-family:'JetBrains Mono',monospace;min-height:100vh;}
+  .topbar{background:var(--bg1);border-bottom:1px solid var(--bg3);
+    padding:14px 20px 10px;display:flex;align-items:flex-start;gap:12px;position:relative;flex-wrap:wrap;}
+  .topbar::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--fn) 0%,var(--kw) 14%,var(--cl) 26%,
+      var(--en) 38%,var(--nu) 50%,var(--op) 62%,var(--sl) 74%,var(--dc) 86%,var(--st) 100%);}
+  .title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.3px;white-space:nowrap;padding-top:3px;}
+  .title em{color:var(--fn);font-style:normal;} .title span{color:var(--kw);}
+  .topright{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0;}
+  .subtitle{font-size:9px;color:var(--cm);text-transform:uppercase;letter-spacing:.1em;}
+  .vtoggle{display:flex;gap:3px;flex-wrap:wrap;align-items:center;}
+  .vt-label{font-size:8px;color:var(--cm);text-transform:uppercase;letter-spacing:.08em;margin-right:2px;white-space:nowrap;}
+  .vbtn{background:var(--bg2);border:1px solid var(--bg3);border-radius:3px;color:var(--dim);
+    cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 7px;
+    transition:all .15s;white-space:nowrap;}
+  .vbtn.active{background:var(--accent);border-color:var(--accent);color:var(--bg0);font-weight:bold;}
+  .vbtn:hover:not(.active){color:var(--va);border-color:var(--fn);}
+  .note{background:var(--bg2);border-left:2px solid var(--accent);font-size:9px;
+    color:var(--dim);padding:4px 12px;border-bottom:1px solid var(--bg3);
+    min-height:22px;display:flex;align-items:center;gap:8px;}
+  .note-tag{color:var(--accent);font-weight:bold;text-transform:uppercase;font-size:8px;letter-spacing:.06em;white-space:nowrap;}
+  .tabs{background:var(--bg1);border-bottom:1px solid var(--bg3);display:flex;padding:0 20px;overflow-x:auto;}
+  .tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--dim);
+    cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:10px;padding:7px 11px 6px;
+    white-space:nowrap;transition:color .15s;}
+  .tab.active{color:var(--va);border-bottom-color:var(--accent);background:var(--bg0);}
+  .tab:hover:not(.active){color:var(--va);}
+  .editor{display:flex;background:var(--bg0);min-height:380px;}
+  .gutter{background:var(--bg0);border-right:1px solid var(--bg3);flex-shrink:0;
+    min-width:38px;padding:12px 0;text-align:right;user-select:none;}
+  .ln{display:block;font-size:10px;line-height:20px;color:var(--cm);padding-right:7px;}
+  .ln.act{color:var(--accent);}
+  .code-wrap{flex:1;padding:12px 0 12px 14px;overflow-x:auto;}
+  .panel{display:none;}.panel.active{display:block;}
+  pre{font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:20px;white-space:pre;}
+  .c{color:var(--cm);font-style:italic;} .s{color:var(--st);} .se{color:var(--rx);}
+  .si{color:var(--dim);} .kw{color:var(--kw);} .fn{color:var(--fn);font-weight:bold;}
+  .bi{color:var(--bi);font-weight:bold;} .cl{color:var(--cl);font-weight:bold;}
+  .tr{color:var(--cl);font-weight:bold;font-style:italic;} .en{color:var(--en);font-weight:bold;}
+  .dc{color:var(--dc);} .va{color:var(--va);} .lv{color:var(--sl);}
+  .lvi{color:var(--sl);font-style:italic;} .pa{color:var(--en);font-style:italic;}
+  .nu{color:var(--nu);} .bo{color:var(--dc);} .op{color:var(--op);} .br{color:var(--dim);}
+  .ty{color:var(--en);} .lf{color:var(--rx);font-style:italic;} .ma{color:var(--dim);font-weight:bold;}
+  .im{color:var(--im);} .er{color:var(--er);text-decoration:underline;} .or{color:var(--en);}
+  .pb{color:var(--pb);} .fd{color:var(--fd);} .rx{color:var(--rx);} .ns{color:var(--dim);}
+  .palette-section{background:var(--bg1);border-top:1px solid var(--bg3);padding:10px 20px;}
+  .pal-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+  .pal-label{font-size:8px;color:var(--cm);text-transform:uppercase;letter-spacing:.12em;}
+  .swatches{display:flex;flex-wrap:wrap;gap:5px 10px;}
+  .sw{display:flex;align-items:center;gap:4px;font-size:8.5px;}
+  .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;box-shadow:0 0 4px currentColor;}
+  .sw-hex{color:var(--cm);font-size:7.5px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="title"><em>Final</em> <span>Fantasy</span></div>
+  <div class="topright">
+    <div class="subtitle" id="subtitle">FF7 &mdash; Mako Reactor</div>
+    <div class="vtoggle">
+      <span class="vt-label">theme</span>
+      <button class="vbtn active" id="btn-mako-reactor" onclick="sv('mako-reactor')">Mako Reactor</button>
+      <button class="vbtn" id="btn-lifestream" onclick="sv('lifestream')">Lifestream</button>
+      <button class="vbtn" id="btn-zanarkand-ruins" onclick="sv('zanarkand-ruins')">Zanarkand Ruins</button>
+      <button class="vbtn" id="btn-blitzball-tide" onclick="sv('blitzball-tide')">Blitzball Tide</button>
+      <button class="vbtn" id="btn-archadian-empire" onclick="sv('archadian-empire')">Archadian Empire</button>
+      <button class="vbtn" id="btn-dalmasca-desert" onclick="sv('dalmasca-desert')">Dalmasca Desert</button>
+      <button class="vbtn" id="btn-uldah-sands" onclick="sv('uldah-sands')">Ul'dah Sands</button>
+      <button class="vbtn" id="btn-crystarium-spire" onclick="sv('crystarium-spire')">Crystarium Spire</button>
+      <button class="vbtn" id="btn-crystalline-dominion" onclick="sv('crystalline-dominion')">Crystalline Dominion</button>
+      <button class="vbtn" id="btn-ifrits-flame" onclick="sv('ifrits-flame')">Ifrit's Flame</button>
+      <button class="vbtn" id="btn-shivas-embrace" onclick="sv('shivas-embrace')">Shiva's Embrace</button>
+      <button class="vbtn" id="btn-bahamuts-wing" onclick="sv('bahamuts-wing')">Bahamut's Wing</button>
+      <button class="vbtn" id="btn-ramuhs-storm" onclick="sv('ramuhs-storm')">Ramuh's Storm</button>
+      <button class="vbtn" id="btn-alexanders-light" onclick="sv('alexanders-light')">Alexander's Light</button>
+      <button class="vbtn" id="btn-odins-eclipse" onclick="sv('odins-eclipse')">Odin's Eclipse</button>
+      <button class="vbtn" id="btn-carbuncle" onclick="sv('carbuncle')">Carbuncle</button>
+    </div>
+  </div>
+</div>
+<div class="note" id="note">
+  <span class="note-tag" id="note-tag">FF7</span>
+  <span id="note-text">Industrial mako green on reactor black, Shinra steel, machinery glow</span>
+</div>
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('rust',this)">main.rs</button>
+  <button class="tab"        onclick="switchTab('python',this)">scanner.py</button>
+  <button class="tab"        onclick="switchTab('ps',this)">Install-Package.ps1</button>
+  <button class="tab"        onclick="switchTab('java',this)">ScanEngine.java</button>
+  <button class="tab"        onclick="switchTab('js',this)">scanner.js</button>
+  <button class="tab"        onclick="switchTab('go',this)">scanner.go</button>
+</div>
+<div class="editor">
+  <div class="gutter" id="gutter"></div>
+  <div class="code-wrap">
+
+    <div class="panel active" id="panel-rust"><pre>
+<span class="c">// SecurelyScoped -- scan engine core</span>
+<span class="im">use</span> <span class="cl">std</span><span class="ns">::</span><span class="cl">path</span><span class="ns">::</span><span class="cl">PathBuf</span><span class="br">;</span>
+<span class="im">use</span> <span class="cl">walkdir</span><span class="ns">::</span><span class="cl">WalkDir</span><span class="br">;</span>
+
+<span class="dc">#[derive(Debug, Clone)]</span>
+<span class="pb">pub</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span>
+    <span class="en">Critical</span><span class="br">,</span> <span class="en">High</span><span class="br">,</span> <span class="en">Medium</span><span class="br">,</span> <span class="en">Low</span><span class="br">,</span>
+<span class="br">}</span>
+<span class="dc">#[derive(Debug)]</span>
+<span class="pb">pub</span> <span class="kw">struct</span> <span class="cl">FindingVuln</span> <span class="br">{</span>
+    <span class="pb">pub</span> <span class="fd">file</span><span class="op">:</span>     <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">line</span><span class="op">:</span>     <span class="ty">u32</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">message</span><span class="op">:</span>  <span class="cl">String</span><span class="br">,</span>
+    <span class="pb">pub</span> <span class="fd">severity</span><span class="op">:</span> <span class="cl">Severity</span><span class="br">,</span>
+<span class="br">}</span>
+<span class="pb">pub</span> <span class="kw">trait</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="kw">fn</span> <span class="fn">scan</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span><span class="br">;</span>
+    <span class="kw">fn</span> <span class="fn">is_ok</span><span class="br">(</span><span class="op">&amp;</span><span class="lvi">self</span><span class="br">,</span> <span class="pa">ext</span><span class="op">:</span> <span class="op">&amp;</span><span class="ty">str</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">bool</span><span class="br">;</span>
+<span class="br">}</span>
+<span class="kw">const</span> <span class="va">MAX</span><span class="op">:</span> <span class="ty">u64</span> <span class="op">=</span> <span class="nu">10_485_760</span><span class="br">;</span>
+<span class="kw">const</span> <span class="va">RE</span><span class="op">:</span>  <span class="op">&amp;</span><span class="ty">str</span> <span class="op">=</span> <span class="rx">r"LDAP://[\w\.]+"</span><span class="br">;</span>
+<span class="pb">pub</span> <span class="kw">fn</span> <span class="fn">scan_file</span><span class="op">&lt;</span><span class="lf">'a</span><span class="op">&gt;</span><span class="br">(</span>
+    <span class="pa">path</span><span class="op">:</span> <span class="op">&amp;</span><span class="lf">'a</span> <span class="cl">PathBuf</span><span class="br">,</span>
+    <span class="pa">pats</span><span class="op">:</span> <span class="op">&amp;</span><span class="br">[(</span><span class="op">&amp;</span><span class="ty">str</span><span class="br">,</span> <span class="cl">Severity</span><span class="br">)],</span>
+<span class="br">)</span> <span class="op">-&gt;</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="br">{</span>
+    <span class="kw">let</span> <span class="va">text</span> <span class="op">=</span> <span class="bi">std::fs::read_to_string</span><span class="br">(</span><span class="va">path</span><span class="br">)</span><span class="op">.</span><span class="fn">unwrap_or_default</span><span class="br">();</span>
+    <span class="kw">let mut</span> <span class="va">out</span><span class="op">:</span> <span class="cl">Vec</span><span class="op">&lt;</span><span class="cl">FindingVuln</span><span class="op">&gt;</span> <span class="op">=</span> <span class="cl">Vec</span><span class="op">::</span><span class="fn">new</span><span class="br">();</span>
+    <span class="kw">for</span> <span class="br">(</span><span class="va">i</span><span class="br">,</span> <span class="va">ln</span><span class="br">)</span> <span class="kw">in</span> <span class="va">text</span><span class="op">.</span><span class="fn">lines</span><span class="br">()</span><span class="op">.</span><span class="fn">enumerate</span><span class="br">()</span> <span class="br">{</span>
+        <span class="kw">for</span> <span class="br">(</span><span class="va">p</span><span class="br">,</span> <span class="va">s</span><span class="br">)</span> <span class="kw">in</span> <span class="va">pats</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">ln</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">p</span><span class="br">)</span> <span class="br">{</span>
+                <span class="va">out</span><span class="op">.</span><span class="fn">push</span><span class="br">(</span><span class="cl">FindingVuln</span> <span class="br">{</span>
+                    <span class="fd">file</span><span class="op">:</span>     <span class="va">path</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                    <span class="fd">line</span><span class="op">:</span>     <span class="va">i</span> <span class="kw">as</span> <span class="ty">u32</span> <span class="op">+</span> <span class="nu">1</span><span class="br">,</span>
+                    <span class="fd">message</span><span class="op">:</span>  <span class="ma">format!</span><span class="br">(</span><span class="s">"match:{p}"</span><span class="br">),</span>
+                    <span class="fd">severity</span><span class="op">:</span> <span class="va">s</span><span class="op">.</span><span class="fn">clone</span><span class="br">(),</span>
+                <span class="br">});</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="va">out</span>
+<span class="br">}</span>
+</pre></div>
+    <div class="panel" id="panel-python"><pre>
+<span class="c"># scanner.py -- domain pattern layer</span>
+<span class="kw">from</span> <span class="im">dataclasses</span> <span class="kw">import</span> <span class="va">dataclass</span><span class="br">,</span> <span class="va">field</span>
+<span class="kw">from</span> <span class="im">pathlib</span>    <span class="kw">import</span> <span class="cl">Path</span>
+<span class="kw">import</span> <span class="im">re</span>
+
+<span class="va">MAX</span>     <span class="op">=</span> <span class="nu">500</span>
+<span class="va">LDAP_RE</span> <span class="op">=</span> <span class="rx">re.compile(r"LDAP://[\w\.]+")</span>
+
+<span class="kw">class</span> <span class="cl">Severity</span><span class="br">:</span>
+    <span class="en">CRITICAL</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">HIGH</span>     <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">MEDIUM</span>   <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">LOW</span>      <span class="op">=</span> <span class="s">"low"</span>
+
+<span class="dc">@dataclass</span>
+<span class="kw">class</span> <span class="cl">ScanResult</span><span class="br">:</span>
+    <span class="fd">file_path</span><span class="op">:</span> <span class="ty">Path</span>
+    <span class="fd">line_no</span><span class="op">:</span>   <span class="ty">int</span>
+    <span class="fd">pattern</span><span class="op">:</span>  <span class="ty">str</span>
+    <span class="fd">severity</span><span class="op">:</span> <span class="ty">str</span>  <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="fd">hits</span><span class="op">:</span>     <span class="ty">list</span> <span class="op">=</span> <span class="bi">field</span><span class="br">(</span><span class="va">default_factory</span><span class="op">=</span><span class="ty">list</span><span class="br">)</span>
+
+<span class="kw">def</span> <span class="fn">scan</span><span class="br">(</span><span class="pa">path</span><span class="op">:</span><span class="cl">Path</span><span class="br">,</span> <span class="pa">rules</span><span class="op">:</span><span class="ty">list</span><span class="br">)</span> <span class="op">-&gt;</span> <span class="ty">list</span><span class="br">:</span>
+    <span class="s">"""Scan file against all rules."""</span>
+    <span class="kw">if not</span> <span class="va">path</span><span class="op">.</span><span class="fn">exists</span><span class="br">()</span><span class="op">:</span> <span class="kw">return</span> <span class="br">[]</span>
+    <span class="va">out</span><span class="br">,</span> <span class="va">text</span> <span class="op">=</span> <span class="br">[],</span> <span class="va">path</span><span class="op">.</span><span class="fn">read_text</span><span class="br">()</span>
+    <span class="kw">for</span> <span class="va">n</span><span class="br">,</span> <span class="va">line</span> <span class="kw">in</span> <span class="bi">enumerate</span><span class="br">(</span><span class="va">text</span><span class="op">.</span><span class="fn">splitlines</span><span class="br">(),</span> <span class="nu">1</span><span class="br">):</span>
+        <span class="kw">for</span> <span class="va">r</span> <span class="kw">in</span> <span class="va">rules</span><span class="op">:</span>
+            <span class="kw">if</span> <span class="bi">re</span><span class="op">.</span><span class="fn">search</span><span class="br">(</span><span class="va">r</span><span class="op">.</span><span class="fd">regex</span><span class="br">,</span><span class="va">line</span><span class="br">):</span>
+                <span class="va">out</span><span class="op">.</span><span class="fn">append</span><span class="br">(</span><span class="cl">ScanResult</span><span class="br">(</span>
+                    <span class="fd">file_path</span><span class="op">=</span><span class="va">path</span><span class="br">,</span> <span class="fd">line_no</span><span class="op">=</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">pattern</span><span class="op">=</span><span class="va">r</span><span class="op">.</span><span class="fd">name</span><span class="br">,</span> <span class="fd">severity</span><span class="op">=</span><span class="va">r</span><span class="op">.</span><span class="fd">severity</span><span class="br">,</span>
+                <span class="br">))</span>
+    <span class="kw">return</span> <span class="va">out</span><span class="br">[:</span><span class="va">MAX</span><span class="br">]</span>
+
+<span class="kw">if</span> <span class="bo">__name__</span> <span class="op">==</span> <span class="s">"__main__"</span><span class="op">:</span>
+    <span class="bi">print</span><span class="br">(</span><span class="s">f"Found {len(scan(Path('t.ps1'),[]))} issues"</span><span class="br">)</span>
+</pre></div>
+    <div class="panel" id="panel-ps"><pre>
+<span class="c"># Install-Package.ps1 -- winget wrapper</span>
+<span class="kw">function</span> <span class="fn">Install-Package</span> <span class="br">{</span>
+    <span class="br">[</span><span class="cl">CmdletBinding</span><span class="br">()]</span>
+    <span class="kw">param</span> <span class="br">(</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">(</span><span class="va">Mandatory</span><span class="op">=$</span><span class="bo">true</span><span class="br">)]</span> <span class="br">[</span><span class="ty">string</span><span class="br">]</span> <span class="pa">$Query</span><span class="br">,</span>
+        <span class="br">[</span><span class="cl">Parameter</span><span class="br">()]</span>               <span class="br">[</span><span class="ty">switch</span><span class="br">]</span> <span class="pa">$Uninstall</span>
+    <span class="br">)</span>
+    <span class="lv">$raw</span> <span class="op">=</span> <span class="fn">winget</span> <span class="or">search</span> <span class="op">--</span><span class="or">query</span> <span class="lv">$Query</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="op">-not</span> <span class="lv">$raw</span><span class="br">)</span> <span class="br">{</span> <span class="fn">Write-Warning</span> <span class="s">"No results"</span><span class="br">;</span> <span class="kw">return</span> <span class="br">}</span>
+    <span class="lv">$pkgs</span> <span class="op">=</span> <span class="lv">$raw</span> <span class="op">|</span> <span class="fn">Select-Object</span> <span class="op">-Skip</span> <span class="nu">2</span> <span class="op">|</span> <span class="fn">ForEach-Object</span> <span class="br">{</span>
+        <span class="lv">$c</span> <span class="op">=</span> <span class="lv">$_</span> <span class="op">-split</span> <span class="rx">'\s{2,}'</span><span class="br">,</span> <span class="nu">4</span>
+        <span class="br">[</span><span class="cl">PSCustomObject</span><span class="br">]</span> <span class="op">@</span><span class="br">{</span>
+            <span class="va">Name</span> <span class="op">=</span> <span class="lv">$c</span><span class="br">[</span><span class="nu">0</span><span class="br">];</span> <span class="va">Id</span> <span class="op">=</span> <span class="lv">$c</span><span class="br">[</span><span class="nu">1</span><span class="br">];</span> <span class="va">Ver</span> <span class="op">=</span> <span class="lv">$c</span><span class="br">[</span><span class="nu">2</span><span class="br">]</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="lv">$pkgs</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="op">-AutoSize</span>
+    <span class="lv">$i</span> <span class="op">=</span> <span class="br">[</span><span class="ty">int</span><span class="br">]</span><span class="br">(</span><span class="fn">Read-Host</span> <span class="s">"Pick"</span><span class="br">)</span> <span class="op">-</span> <span class="nu">1</span>
+    <span class="kw">if</span> <span class="br">(</span><span class="lv">$Uninstall</span><span class="br">)</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">uninstall</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$pkgs</span><span class="br">[</span><span class="lv">$i</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span>
+    <span class="br">}</span> <span class="kw">else</span> <span class="br">{</span> <span class="fn">winget</span> <span class="or">install</span> <span class="op">--</span><span class="or">id</span> <span class="lv">$pkgs</span><span class="br">[</span><span class="lv">$i</span><span class="br">]</span><span class="op">.</span><span class="fd">Id</span> <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+    <div class="panel" id="panel-java"><pre>
+<span class="c">// ScanEngine.java</span>
+<span class="kw">package</span> <span class="ns">com.securelyscoped</span><span class="ns">.</span><span class="im">scanner</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Files</span><span class="br">;</span>
+<span class="kw">import</span> <span class="im">java.nio.file.Path</span><span class="br">;</span>
+
+<span class="pb">public</span> <span class="kw">enum</span> <span class="cl">Severity</span> <span class="br">{</span> <span class="en">CRITICAL</span><span class="br">,</span> <span class="en">HIGH</span><span class="br">,</span> <span class="en">MEDIUM</span><span class="br">,</span> <span class="en">LOW</span> <span class="br">}</span>
+<span class="pb">public</span> <span class="kw">record</span> <span class="cl">FindingVuln</span><span class="br">(</span>
+    <span class="cl">Path</span> <span class="fd">file</span><span class="br">,</span> <span class="ty">int</span> <span class="fd">line</span><span class="br">,</span> <span class="cl">String</span> <span class="fd">msg</span><span class="br">,</span> <span class="cl">Severity</span> <span class="fd">sev</span>
+<span class="br">) {}</span>
+<span class="pb">public</span> <span class="kw">interface</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">);</span>
+<span class="br">}</span>
+<span class="pb">public</span> <span class="kw">class</span> <span class="cl">ScanEngine</span> <span class="kw">implements</span> <span class="tr">Scannable</span> <span class="br">{</span>
+    <span class="pb">private</span> <span class="kw">static final</span> <span class="ty">long</span> <span class="va">MAX</span> <span class="op">=</span> <span class="nu">10_485_760L</span><span class="br">;</span>
+    <span class="pb">private final</span> <span class="cl">Path</span> <span class="fd">root</span><span class="br">;</span>
+    <span class="pb">public</span> <span class="fn">ScanEngine</span><span class="br">(</span><span class="cl">Path</span> <span class="pa">root</span><span class="br">) {</span> <span class="lvi">this</span><span class="op">.</span><span class="fd">root</span> <span class="op">=</span> <span class="va">root</span><span class="br">; }</span>
+    <span class="dc">@Override</span>
+    <span class="pb">public</span> <span class="ty">boolean</span> <span class="fn">isAllowed</span><span class="br">(</span><span class="cl">String</span> <span class="pa">ext</span><span class="br">) {</span>
+        <span class="kw">return</span> <span class="cl">java.util.List</span><span class="op">.</span><span class="fn">of</span><span class="br">(</span><span class="s">"rs"</span><span class="br">,</span><span class="s">"py"</span><span class="br">,</span><span class="s">"java"</span><span class="br">)</span><span class="op">.</span><span class="fn">contains</span><span class="br">(</span><span class="va">ext</span><span class="br">);</span>
+    <span class="br">}</span>
+    <span class="pb">public</span> <span class="ty">void</span> <span class="fn">run</span><span class="br">() {</span>
+        <span class="kw">try</span> <span class="br">{</span>
+            <span class="cl">Files</span><span class="op">.</span><span class="fn">walk</span><span class="br">(</span><span class="fd">root</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">filter</span><span class="br">(</span><span class="cl">Files</span><span class="op">::</span><span class="fn">isRegularFile</span><span class="br">)</span>
+                 <span class="op">.</span><span class="fn">forEach</span><span class="br">(</span><span class="cl">System</span><span class="op">.</span><span class="va">out</span><span class="op">::</span><span class="fn">println</span><span class="br">);</span>
+        <span class="br">}</span> <span class="kw">catch</span> <span class="br">(</span><span class="cl">Exception</span> <span class="va">e</span><span class="br">) {</span>
+            <span class="cl">System</span><span class="op">.</span><span class="va">err</span><span class="op">.</span><span class="fn">println</span><span class="br">(</span><span class="va">e</span><span class="op">.</span><span class="fn">getMessage</span><span class="br">());</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+</pre></div>
+    <div class="panel" id="panel-js"><pre>
+<span class="c">// scanner.js -- Tauri bridge</span>
+<span class="kw">import</span> <span class="br">{</span> <span class="va">invoke</span> <span class="br">}</span> <span class="kw">from</span> <span class="s">'@tauri-apps/api/tauri'</span><span class="br">;</span>
+<span class="kw">const</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="bi">Object</span><span class="op">.</span><span class="fn">freeze</span><span class="br">({</span>
+    <span class="en">CRITICAL</span><span class="op">:</span><span class="s">'critical'</span><span class="br">,</span> <span class="en">HIGH</span><span class="op">:</span><span class="s">'high'</span><span class="br">,</span>
+    <span class="en">MEDIUM</span><span class="op">:</span><span class="s">'medium'</span><span class="br">,</span>     <span class="en">LOW</span><span class="op">:</span><span class="s">'low'</span><span class="br">,</span>
+<span class="br">});</span>
+<span class="kw">const</span> <span class="va">RE</span> <span class="op">=</span> <span class="rx">/LDAP:\/\/[\w\.]+/gi</span><span class="br">;</span>
+<span class="kw">async function</span> <span class="fn">scanFile</span><span class="br">(</span><span class="pa">path</span><span class="br">,</span> <span class="pa">pats</span><span class="br">) {</span>
+    <span class="kw">try</span> <span class="br">{</span>
+        <span class="kw">const</span> <span class="va">res</span> <span class="op">=</span> <span class="kw">await</span> <span class="fn">invoke</span><span class="br">(</span><span class="s">'scan_file'</span><span class="br">,{</span><span class="va">path</span><span class="br">,</span><span class="va">pats</span><span class="br">});</span>
+        <span class="kw">return</span> <span class="va">res</span><span class="op">.</span><span class="fn">slice</span><span class="br">(</span><span class="nu">0</span><span class="br">,</span><span class="nu">500</span><span class="br">);</span>
+    <span class="br">}</span> <span class="kw">catch</span><span class="br">(</span><span class="va">e</span><span class="br">) {</span>
+        <span class="bi">console</span><span class="op">.</span><span class="fn">error</span><span class="br">(</span><span class="s">'Scan failed:'</span><span class="br">,</span><span class="va">e</span><span class="br">);</span>
+        <span class="kw">return</span> <span class="br">[];</span>
+    <span class="br">}</span>
+<span class="br">}</span>
+<span class="kw">export</span> <span class="br">{</span> <span class="va">scanFile</span><span class="br">,</span> <span class="va">Severity</span> <span class="br">};</span>
+</pre></div>
+    <div class="panel" id="panel-go"><pre>
+<span class="c">// scanner.go -- Go edition</span>
+<span class="kw">package</span> <span class="im">scanner</span>
+<span class="kw">import</span> <span class="br">(</span> <span class="s">"bufio"</span><span class="br">;</span> <span class="s">"fmt"</span><span class="br">;</span> <span class="s">"os"</span><span class="br">;</span> <span class="s">"regexp"</span> <span class="br">)</span>
+<span class="kw">var</span> <span class="va">RE</span> <span class="op">=</span> <span class="bi">regexp</span><span class="op">.</span><span class="fn">MustCompile</span><span class="br">(</span><span class="rx">`LDAP://[\w\.]+`</span><span class="br">)</span>
+<span class="kw">type</span> <span class="cl">Severity</span> <span class="ty">string</span>
+<span class="kw">const</span> <span class="br">(</span>
+    <span class="en">Critical</span> <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"critical"</span>
+    <span class="en">High</span>     <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"high"</span>
+    <span class="en">Medium</span>   <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"medium"</span>
+    <span class="en">Low</span>      <span class="cl">Severity</span> <span class="op">=</span> <span class="s">"low"</span>
+<span class="br">)</span>
+<span class="kw">type</span> <span class="cl">FindingVuln</span> <span class="kw">struct</span> <span class="br">{</span>
+    <span class="fd">File</span><span class="br">,</span><span class="fd">Message</span> <span class="ty">string</span>
+    <span class="fd">Line</span>        <span class="ty">int</span>
+    <span class="fd">Severity</span>    <span class="cl">Severity</span>
+<span class="br">}</span>
+<span class="kw">func</span> <span class="fn">ScanFile</span><span class="br">(</span><span class="pa">path</span> <span class="ty">string</span><span class="br">,</span> <span class="pa">pats</span> <span class="br">[]*</span><span class="cl">regexp</span><span class="op">.</span><span class="cl">Regexp</span><span class="br">)</span> <span class="br">([]</span><span class="cl">FindingVuln</span><span class="br">,</span> <span class="ty">error</span><span class="br">) {</span>
+    <span class="va">f</span><span class="br">,</span><span class="va">err</span> <span class="op">:=</span> <span class="bi">os</span><span class="op">.</span><span class="fn">Open</span><span class="br">(</span><span class="va">path</span><span class="br">)</span>
+    <span class="kw">if</span> <span class="va">err</span> <span class="op">!=</span> <span class="bo">nil</span> <span class="br">{</span> <span class="kw">return</span> <span class="bo">nil</span><span class="br">,</span><span class="va">err</span> <span class="br">}</span>
+    <span class="kw">defer</span> <span class="va">f</span><span class="op">.</span><span class="fn">Close</span><span class="br">()</span>
+    <span class="kw">var</span> <span class="va">out</span> <span class="br">[]</span><span class="cl">FindingVuln</span>
+    <span class="va">sc</span><span class="br">,</span><span class="va">n</span> <span class="op">:=</span> <span class="bi">bufio</span><span class="op">.</span><span class="fn">NewScanner</span><span class="br">(</span><span class="va">f</span><span class="br">),</span><span class="nu">0</span>
+    <span class="kw">for</span> <span class="va">sc</span><span class="op">.</span><span class="fn">Scan</span><span class="br">() {</span>
+        <span class="va">n</span><span class="op">++</span>
+        <span class="kw">for</span> <span class="va">_</span><span class="br">,</span><span class="va">p</span> <span class="op">:=</span> <span class="kw">range</span> <span class="va">pats</span> <span class="br">{</span>
+            <span class="kw">if</span> <span class="va">p</span><span class="op">.</span><span class="fn">MatchString</span><span class="br">(</span><span class="va">sc</span><span class="op">.</span><span class="fn">Text</span><span class="br">()) {</span>
+                <span class="va">out</span><span class="op">=</span><span class="bi">append</span><span class="br">(</span><span class="va">out</span><span class="br">,</span><span class="cl">FindingVuln</span><span class="br">{</span>
+                    <span class="fd">File</span><span class="op">:</span><span class="va">path</span><span class="br">,</span><span class="fd">Line</span><span class="op">:</span><span class="va">n</span><span class="br">,</span>
+                    <span class="fd">Message</span><span class="op">:</span><span class="bi">fmt</span><span class="op">.</span><span class="fn">Sprintf</span><span class="br">(</span><span class="s">"match:%s"</span><span class="br">,</span><span class="va">p</span><span class="br">),</span>
+                    <span class="fd">Severity</span><span class="op">:</span><span class="en">High</span><span class="br">,</span>
+                <span class="br">})</span>
+            <span class="br">}</span>
+        <span class="br">}</span>
+    <span class="br">}</span>
+    <span class="kw">return</span> <span class="va">out</span><span class="br">,</span><span class="va">sc</span><span class="op">.</span><span class="fn">Err</span><span class="br">()</span>
+<span class="br">}</span>
+</pre></div>
+  </div>
+</div>
+<div class="palette-section">
+  <div class="pal-top"><div class="pal-label">palette &mdash; <span id="pal-mode">Mako Reactor</span></div></div>
+  <div class="swatches" id="swatches"></div>
+</div>
+<script>
+const T = {
+  'mako-reactor':{
+    name:"Mako Reactor",group:"FF7",note:"FF7 — Industrial mako green on reactor black, Shinra steel, machinery glow",
+    accent:"#39FF14",bg0:"#060E08",bg1:"#040B06",bg2:"#0C1A0E",bg3:"#122016",
+    fn:"#39FF14",kw:"#00C070",cl:"#C08000",st:"#A0B0B8",nu:"#A0FF60",op:"#40A8C0",
+    va:"#888888",dim:"#888888",cm:"#304030",en:"#906000",dc:"#8060D0",im:"#406050",
+    sl:"#5090C0",er:"#CC2040",pb:"#306040",fd:"#208050",rx:"#FFB000",bi:"#39FF14",
+    sw:[["#060E08","bg0",true],["#040B06","bg1",true],["#0C1A0E","bg2",true],["#122016","bg3",true],["#39FF14","mako",false],["#1EC400","mako2",false],["#00C070","reactor",false],["#708090","steel",false],["#4A5A6A","steel2",false],["#A0B0B8","girder",false],["#607080","girder2",false],["#304030","slag",false],["#8060D0","materia",false],["#C08000","shinra",false]]
+  },
+  'lifestream':{
+    name:"Lifestream",group:"FF7",note:"FF7 — Flowing Cetra life energy, Aerith pink, ancient planet green",
+    accent:"#40E0A0",bg0:"#04080A",bg1:"#030608",bg2:"#081410",bg3:"#0E1E18",
+    fn:"#40E0A0",kw:"#60D8B0",cl:"#B090E0",st:"#888888",nu:"#A0FFD0",op:"#888888",
+    va:"#80C0A0",dim:"#406050",cm:"#888888",en:"#806AB0",dc:"#FF90B0",im:"#1A6040",
+    sl:"#888888",er:"#C04060",pb:"#205040",fd:"#408060",rx:"#888888",bi:"#40E0A0",
+    sw:[["#04080A","bg0",true],["#030608","bg1",true],["#081410","bg2",true],["#0E1E18","bg3",true],["#40E0A0","life",false],["#28A870","life2",false],["#60D8B0","spirit",false],["#1A6040","planet",false],["#B090E0","ancient",false],["#806AB0","ancient2",false],["#80C0A0","flow",false],["#406050","flow dim",false],["#203830","void",false],["#60A8E0","pyrefly",false]]
+  },
+  'zanarkand-ruins':{
+    name:"Zanarkand Ruins",group:"FF10",note:"FF10 — Pyrefly blue, moonlit amber gold, ancient ruins, Yuna purple",
+    accent:"#70C8F8",bg0:"#060810",bg1:"#040610",bg2:"#0C1020",bg3:"#101828",
+    fn:"#70C8F8",kw:"#E8C060",cl:"#C88040",st:"#B0C8E0",nu:"#FFE080",op:"#50A0C0",
+    va:"#788898",dim:"#405060",cm:"#202838",en:"#A06030",dc:"#B060D0",im:"#506080",
+    sl:"#A0D8F0",er:"#C83050",pb:"#304860",fd:"#408898",rx:"#906040",bi:"#4898D0",
+    sw:[["#060810","bg0",true],["#040610","bg1",true],["#0C1020","bg2",true],["#101828","bg3",true],["#70C8F8","fn",false],["#4898D0","bi",false],["#E8C060","kw",false],["#C88040","cl",false],["#A06030","en",false],["#B0C8E0","st",false],["#607888","st dim",false],["#FFE080","nu",false],["#50A0C0","op",false],["#788898","va",false]]
+  },
+  'blitzball-tide':{
+    name:"Blitzball Tide",group:"FF10",note:"FF10 — Neon electric blue, deep crimson, Aurochs gold, turquoise water on black",
+    accent:"#00C8FF",bg0:"#080408",bg1:"#060208",bg2:"#100814",bg3:"#180C20",
+    fn:"#00C8FF",kw:"#FFB800",cl:"#CC1430",st:"#00E5CC",nu:"#FFE040",op:"#00A8D8",
+    va:"#7898B0",dim:"#304860",cm:"#182030",en:"#A81020",dc:"#E040A0",im:"#0040A0",
+    sl:"#80D8F0",er:"#FF2040",pb:"#203858",fd:"#308060",rx:"#C08820",bi:"#0090C8",
+    sw:[["#080408","bg0",true],["#060208","bg1",true],["#100814","bg2",true],["#180C20","bg3",true],["#00C8FF","fn",false],["#0090C8","bi",false],["#FFB800","kw",false],["#CC1430","cl",false],["#A81020","en",false],["#00E5CC","st",false],["#006858","st dim",false],["#FFE040","nu",false],["#00A8D8","op",false],["#7898B0","va",false]]
+  },
+  'archadian-empire':{
+    name:"Archadian Empire",group:"FF12",note:"FF12 — Imperial gold, royal purple, Ivalice sandstone, nethicite pink",
+    accent:"#C0900A",bg0:"#0C0808",bg1:"#090606",bg2:"#181010",bg3:"#221818",
+    fn:"#C0900A",kw:"#C0900A",cl:"#E08040",st:"#D0B080",nu:"#888888",op:"#308880",
+    va:"#A0B0C0",dim:"#607080",cm:"#888888",en:"#906800",dc:"#D040A0",im:"#806030",
+    sl:"#888888",er:"#C03030",pb:"#604010",fd:"#608060",rx:"#888888",bi:"#C0900A",
+    sw:[["#0C0808","bg0",true],["#090606","bg1",true],["#181010","bg2",true],["#221818","bg3",true],["#C0900A","imperial",false],["#906800","imperial2",false],["#8040C0","purple",false],["#6030A0","purple2",false],["#D0B080","sand",false],["#907050","sand dim",false],["#A0B0C0","judge",false],["#607080","judge dim",false],["#302018","crypt",false],["#E08040","vaan",false]]
+  },
+  'dalmasca-desert':{
+    name:"Dalmasca Desert",group:"FF12",note:"FF12 — Burning ochre, terracotta sand, oasis teal contrast, desert night",
+    accent:"#E0A020",bg0:"#0C0902",bg1:"#090700",bg2:"#181206",bg3:"#221C0A",
+    fn:"#E0A020",kw:"#E0A020",cl:"#888888",st:"#D4B870",nu:"#FFD040",op:"#30A880",
+    va:"#B09070",dim:"#706040",cm:"#888888",en:"#888888",dc:"#D060A0",im:"#806030",
+    sl:"#888888",er:"#C03020",pb:"#504020",fd:"#608050",rx:"#907050",bi:"#E0A020",
+    sw:[["#0C0902","bg0",true],["#090700","bg1",true],["#181206","bg2",true],["#221C0A","bg3",true],["#E0A020","ochre",false],["#B07810","ochre2",false],["#C06820","terra",false],["#D4B870","dune",false],["#907840","dune dim",false],["#B09070","haze",false],["#706040","haze dim",false],["#302010","night",false],["#30A880","oasis",false],["#208060","oasis2",false]]
+  },
+  'uldah-sands':{
+    name:"Ul'dah Sands",group:"FF14",note:"FF14 — Merchant gold, ruby red, warm worn stone, cool lapis contrast",
+    accent:"#D4900A",bg0:"#0E0A04",bg1:"#0A0702",bg2:"#1A1208",bg3:"#241C0C",
+    fn:"#D4900A",kw:"#D4900A",cl:"#888888",st:"#D0B878",nu:"#888888",op:"#888888",
+    va:"#888888",dim:"#706048",cm:"#382010",en:"#A86A00",dc:"#D050A0",im:"#806030",
+    sl:"#888888",er:"#C02820",pb:"#503010",fd:"#608050",rx:"#907050",bi:"#D4900A",
+    sw:[["#0E0A04","bg0",true],["#0A0702","bg1",true],["#1A1208","bg2",true],["#241C0C","bg3",true],["#D4900A","gold",false],["#A86A00","gold2",false],["#C04030","ruby",false],["#902820","ruby2",false],["#D0B878","sand",false],["#907848","sand dim",false],["#B09878","stone",false],["#706048","stone dim",false],["#382010","bazaar",false],["#5070C0","lapis",false]]
+  },
+  'crystarium-spire':{
+    name:"Crystarium Spire",group:"FF14",note:"FF14 — Dawn gold dominant, Crystarium violet keywords, lucent teal, nightbloom",
+    accent:"#E0C060",bg0:"#08080E",bg1:"#06060C",bg2:"#100F1C",bg3:"#181728",
+    fn:"#E0C060",kw:"#A060E0",cl:"#80B8F0",st:"#C0A8E0",nu:"#F0D860",op:"#60C0B0",
+    va:"#9088A8",dim:"#504870",cm:"#201830",en:"#C09030",dc:"#E080C0",im:"#604890",
+    sl:"#80E0D0",er:"#C04050",pb:"#504070",fd:"#508060",rx:"#806080",bi:"#B89040",
+    sw:[["#08080E","bg0",true],["#06060C","bg1",true],["#100F1C","bg2",true],["#181728","bg3",true],["#E0C060","fn",false],["#B89040","bi",false],["#A060E0","kw",false],["#80B8F0","cl",false],["#C09030","en",false],["#C0A8E0","st",false],["#806898","st dim",false],["#F0D860","nu",false],["#60C0B0","op",false],["#9088A8","va",false]]
+  },
+  'crystalline-dominion':{
+    name:"Crystalline Dominion",group:"FF16",note:"FF16 — Mothercrystal blue on warm stone dark, judgment gold, sanctum purple, Eikon fire",
+    accent:"#90C8F0",bg0:"#0A0806",bg1:"#080604",bg2:"#141010",bg3:"#1C1818",
+    fn:"#90C8F0",kw:"#D0A830",cl:"#B060D0",st:"#E0E8FF",nu:"#F0D060",op:"#60D8C0",
+    va:"#8898A8",dim:"#506070",cm:"#181420",en:"#A07820",dc:"#E06040",im:"#405080",
+    sl:"#60D8C0",er:"#C03040",pb:"#405080",fd:"#407860",rx:"#806080",bi:"#6098C8",
+    sw:[["#0A0806","bg0",true],["#080604","bg1",true],["#141010","bg2",true],["#1C1818","bg3",true],["#90C8F0","fn",false],["#6098C8","bi",false],["#D0A830","kw",false],["#B060D0","cl",false],["#A07820","en",false],["#E0E8FF","st",false],["#8090B0","st dim",false],["#F0D060","nu",false],["#60D8C0","op",false],["#8898A8","va",false]]
+  },
+  'ifrits-flame':{
+    name:"Ifrit's Flame",group:"FF16",note:"FF16 — Inferno red-orange, magma keywords, volcanic ash strings, cool steel contrast",
+    accent:"#FF4400",bg0:"#0A0402",bg1:"#080300",bg2:"#180806",bg3:"#220C08",
+    fn:"#FF4400",kw:"#E0A020",cl:"#FF6020",st:"#C09080",nu:"#888888",op:"#888888",
+    va:"#888888",dim:"#604030",cm:"#888888",en:"#CC3810",dc:"#888888",im:"#604030",
+    sl:"#888888",er:"#888888",pb:"#602010",fd:"#508060",rx:"#D0C020",bi:"#FF4400",
+    sw:[["#0A0402","bg0",true],["#080300","bg1",true],["#180806","bg2",true],["#220C08","bg3",true],["#FF4400","inferno",false],["#CC2800","inferno2",false],["#FF8000","magma",false],["#FF6020","lava",false],["#CC3810","lava2",false],["#D04010","ember",false],["#C09080","ash",false],["#806050","ash dim",false],["#301008","char",false],["#907060","smoke",false]]
+  },
+  'shivas-embrace':{
+    name:"Shiva's Embrace",group:"Eikon",note:"Eikon — Diamond dust on frozen void, Shiva violet keywords, absolute cold blue-white",
+    accent:"#A0E8FF",bg0:"#04080E",bg1:"#030610",bg2:"#080F1C",bg3:"#0E1828",
+    fn:"#A0E8FF",kw:"#C060E0",cl:"#80D0F0",st:"#D0EEFF",nu:"#E0F8FF",op:"#50A8D8",
+    va:"#7890A0",dim:"#384858",cm:"#101820",en:"#9848C0",dc:"#A050C8",im:"#285068",
+    sl:"#60D8F0",er:"#D03050",pb:"#284860",fd:"#3A7860",rx:"#807040",bi:"#68C0E8",
+    sw:[["#04080E","bg0",true],["#030610","bg1",true],["#080F1C","bg2",true],["#0E1828","bg3",true],["#A0E8FF","fn",false],["#68C0E8","bi",false],["#C060E0","kw",false],["#80D0F0","cl",false],["#9848C0","en",false],["#D0EEFF","st",false],["#6890A8","st dim",false],["#E0F8FF","nu",false],["#50A8D8","op",false],["#7890A0","va",false]]
+  },
+  'bahamuts-wing':{
+    name:"Bahamut's Wing",group:"Eikon",note:"Eikon — Megaflare azure functions, cosmic gold keywords, deep space navy, comet self",
+    accent:"#1E90FF",bg0:"#050814",bg1:"#030610",bg2:"#0A1020",bg3:"#101830",
+    fn:"#1E90FF",kw:"#FFD700",cl:"#4060C0",st:"#7898D0",nu:"#FFE860",op:"#40A8E0",
+    va:"#5870A0",dim:"#304060",cm:"#101828",en:"#C8A000",dc:"#D04080",im:"#283858",
+    sl:"#60D0F8",er:"#FF3040",pb:"#203050",fd:"#305060",rx:"#A08030",bi:"#1468C8",
+    sw:[["#050814","bg0",true],["#030610","bg1",true],["#0A1020","bg2",true],["#101830","bg3",true],["#1E90FF","fn",false],["#1468C8","bi",false],["#FFD700","kw",false],["#4060C0","cl",false],["#C8A000","en",false],["#7898D0","st",false],["#485878","st dim",false],["#FFE860","nu",false],["#40A8E0","op",false],["#5870A0","va",false]]
+  },
+  'ramuhs-storm':{
+    name:"Ramuh's Storm",group:"Eikon",note:"Eikon — Elder violet keywords, crackling purple-white functions, storm charcoal, NOT yellow",
+    accent:"#7B2FBE",bg0:"#06060C",bg1:"#04040A",bg2:"#0C0A18",bg3:"#14103A",
+    fn:"#C8A8FF",kw:"#7B2FBE",cl:"#A060D8",st:"#B8A8D0",nu:"#E0D0FF",op:"#60C8B0",
+    va:"#8878A0",dim:"#504860",cm:"#302840",en:"#805AB0",dc:"#D060C8",im:"#504878",
+    sl:"#80C0E0",er:"#E04050",pb:"#403860",fd:"#507860",rx:"#C8A030",bi:"#9060E0",
+    sw:[["#06060C","bg0",true],["#04040A","bg1",true],["#0C0A18","bg2",true],["#14103A","bg3",true],["#C8A8FF","fn",false],["#9060E0","bi",false],["#7B2FBE","kw",false],["#A060D8","cl",false],["#805AB0","en",false],["#B8A8D0","st",false],["#706080","st dim",false],["#E0D0FF","nu",false],["#60C8B0","op",false],["#8878A0","va",false]]
+  },
+  'alexanders-light':{
+    name:"Alexander's Light",group:"Eikon",note:"Eikon — Holy gold keywords, divine blue functions, judgment light strings, chrome classes",
+    accent:"#E0D080",bg0:"#080A08",bg1:"#060806",bg2:"#101410",bg3:"#181C18",
+    fn:"#E0D080",kw:"#C0E0FF",cl:"#A0B0C0",st:"#888888",nu:"#F0E880",op:"#888888",
+    va:"#888888",dim:"#888888",cm:"#888888",en:"#B0A050",dc:"#E080C0",im:"#888888",
+    sl:"#888888",er:"#888888",pb:"#405860",fd:"#508060",rx:"#607868",bi:"#E0D080",
+    sw:[["#080A08","bg0",true],["#060806","bg1",true],["#101410","bg2",true],["#181C18","bg3",true],["#E0D080","holy",false],["#B0A050","holy2",false],["#90C0F0","divine",false],["#6090C8","divine2",false],["#C0E0FF","judgment",false],["#7090A8","judg dim",false],["#808898","mech",false],["#485058","mech dim",false],["#141C14","shadow",false],["#A0B0C0","chrome",false]]
+  },
+  'odins-eclipse':{
+    name:"Odin's Eclipse",group:"Eikon",note:"Eikon — Zantetsuken steel functions, eclipse violet keywords, Sleipnir gold classes",
+    accent:"#C0C0D8",bg0:"#080608",bg1:"#060406",bg2:"#100C10",bg3:"#181218",
+    fn:"#C0C0D8",kw:"#888888",cl:"#E0A030",st:"#8090C0",nu:"#D0C060",op:"#888888",
+    va:"#888888",dim:"#484058",cm:"#888888",en:"#B07810",dc:"#888888",im:"#504878",
+    sl:"#8090C0",er:"#C03050",pb:"#503860",fd:"#507060",rx:"#706080",bi:"#C0C0D8",
+    sw:[["#080608","bg0",true],["#060406","bg1",true],["#100C10","bg2",true],["#181218","bg3",true],["#C0C0D8","zantetsu",false],["#9090A8","zantetsu2",false],["#6040A0","eclipse",false],["#8060C0","eclipse2",false],["#E0A030","sleipnir",false],["#B07810","sleipnir2",false],["#9080A0","shadow",false],["#504060","shadow dim",false],["#140C14","void",false],["#807090","dusk",false]]
+  },
+  'carbuncle':{
+    name:"Carbuncle",group:"Summon",note:"Summon — Ruby red functions, topaz gold keywords, emerald classes, sapphire operators, amethyst",
+    accent:"#E04060",bg0:"#080608",bg1:"#060408",bg2:"#100C10",bg3:"#181218",
+    fn:"#E04060",kw:"#E0A020",cl:"#30C870",st:"#888888",nu:"#F0E060",op:"#5080E0",
+    va:"#888888",dim:"#605870",cm:"#888888",en:"#B07810",dc:"#A050D0",im:"#806090",
+    sl:"#3060C0",er:"#C03040",pb:"#503870",fd:"#407060",rx:"#806850",bi:"#E04060",
+    sw:[["#080608","bg0",true],["#060408","bg1",true],["#100C10","bg2",true],["#181218","bg3",true],["#E04060","ruby",false],["#B02840","ruby2",false],["#E0A020","topaz",false],["#B07810","topaz2",false],["#30C870","emerald",false],["#20A050","emerald2",false],["#C0D8F0","crystal",false],["#708898","crys dim",false],["#140C18","deep",false],["#A090B8","gem",false]]
+  }
+};
+function sv(slug) {
+  const t = T[slug];
+  if (!t) return;
+  const r = document.documentElement.style;
+  r.setProperty('--bg0',t.bg0); r.setProperty('--bg1',t.bg1);
+  r.setProperty('--bg2',t.bg2); r.setProperty('--bg3',t.bg3);
+  r.setProperty('--fn',t.fn);   r.setProperty('--kw',t.kw);
+  r.setProperty('--cl',t.cl);   r.setProperty('--st',t.st);
+  r.setProperty('--nu',t.nu);   r.setProperty('--op',t.op);
+  r.setProperty('--va',t.va);   r.setProperty('--dim',t.dim);
+  r.setProperty('--cm',t.cm);   r.setProperty('--en',t.en);
+  r.setProperty('--dc',t.dc);   r.setProperty('--im',t.im);
+  r.setProperty('--sl',t.sl);   r.setProperty('--er',t.er);
+  r.setProperty('--pb',t.pb);   r.setProperty('--fd',t.fd);
+  r.setProperty('--rx',t.rx);   r.setProperty('--bi',t.bi);
+  r.setProperty('--accent',t.accent);
+  document.querySelectorAll('.vbtn').forEach(b=>b.classList.remove('active'));
+  const btn=document.getElementById('btn-'+slug);
+  if(btn) btn.classList.add('active');
+  document.getElementById('subtitle').textContent=t.group+' — '+t.name;
+  document.getElementById('note-tag').textContent=t.group;
+  document.getElementById('note-text').textContent=t.note;
+  document.getElementById('pal-mode').textContent=t.name;
+  renderSwatches(t);
+}
+function renderSwatches(t) {
+  const sw=document.getElementById('swatches');
+  sw.innerHTML='';
+  t.sw.forEach(([hex,label,border])=>{
+    const d=document.createElement('div'); d.className='sw';
+    const ds=border
+      ? 'background:'+hex+';border:1px solid '+t.dim+';box-shadow:none'
+      : 'background:'+hex+';box-shadow:0 0 4px '+hex;
+    const fc=border?t.dim:hex;
+    d.innerHTML='<div class="dot" style="'+ds+'"></div>'
+      +'<span style="color:'+fc+'">'+label+'</span>'
+      +'<span class="sw-hex">'+hex+'</span>';
+    sw.appendChild(d);
+  });
+}
+function switchTab(lang,btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-'+lang).classList.add('active');
+  buildGutter(lang);
+}
+function buildGutter(lang) {
+  const pre=document.querySelector('#panel-'+lang+' pre');
+  const lines=pre.innerHTML.split('\n').length;
+  const g=document.getElementById('gutter'); g.innerHTML='';
+  const mid=Math.floor(lines/2);
+  for(let i=1;i<=lines;i++){
+    const s=document.createElement('span');
+    s.className='ln'+(i===mid?' act':'');
+    s.textContent=i; g.appendChild(s);
+  }
+}
+sv('mako-reactor');
+buildGutter('rust');
+
+</script>
+</body>
+</html>
