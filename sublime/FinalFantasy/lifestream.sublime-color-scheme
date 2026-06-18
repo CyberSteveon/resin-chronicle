@@ -14,7 +14,7 @@
     "ui_ancient2": "#806AB0",
     "ui_flow": "#80C0A0",
     "ui_flow_dim": "#406050",
-    "ui_void": "#203830",
+    "ui_void": "#407160",
     "ui_pyrefly": "#60A8E0",
     "ui_aerith": "#FF90B0",
     "ui_sorrow": "#C04060",
@@ -62,12 +62,12 @@
     {
       "name": "Escape",
       "scope": "constant.character.escape, string.regexp",
-      "foreground": "var(ui_mist)"
+      "foreground": "#974354"
     },
     {
       "name": "Interpolation",
       "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
-      "foreground": "var(ui_flow_dim)"
+      "foreground": "#446655"
     },
     {
       "name": "Keywords",
@@ -132,7 +132,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "var(ui_flow_dim)"
+      "foreground": "#446655"
     },
     {
       "name": "Types",
@@ -148,7 +148,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "var(ui_planet)"
+      "foreground": "#20764E"
     },
     {
       "name": "Tags",
@@ -169,13 +169,13 @@
     {
       "name": "Rust lifetimes",
       "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
-      "foreground": "var(ui_mist)",
+      "foreground": "#974354",
       "font_style": "italic"
     },
     {
       "name": "Rust macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
-      "foreground": "var(ui_flow_dim)",
+      "foreground": "#446655",
       "font_style": "bold"
     },
     {
@@ -197,7 +197,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#2D725B"
     },
     {
       "name": "Struct fields",
@@ -207,12 +207,12 @@
     {
       "name": "Regex",
       "scope": "string.regexp, source.regexp, meta.regex",
-      "foreground": "var(ui_mist)"
+      "foreground": "#974354"
     },
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "var(ui_flow_dim)"
+      "foreground": "#446655"
     },
     {
       "name": "PS cmdlets",
@@ -246,7 +246,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "var(ui_flow_dim)",
+      "foreground": "#446655",
       "font_style": "italic"
     },
     {

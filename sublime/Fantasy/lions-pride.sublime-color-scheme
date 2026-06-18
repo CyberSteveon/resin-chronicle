@@ -21,7 +21,7 @@
     "ui_bone_dim": "#A89060",
     "ui_silver": "#8090A0",
     "ui_pub": "#906818",
-    "ui_smoke": "#604828",
+    "ui_smoke": "#826136",
     "ui_blood": "#CC2200",
     "ui_leaf": "#5A8040",
     "ui_amber": "#D4901A"
@@ -105,7 +105,7 @@
     {
       "name": "Decorators and annotations",
       "scope": "entity.name.function.decorator, punctuation.definition.decorator, meta.decorator",
-      "foreground": "var(ui_crimson)"
+      "foreground": "#B82222"
     },
     {
       "name": "Variables and identifiers",
@@ -126,7 +126,7 @@
     {
       "name": "Constants and booleans",
       "scope": "constant.language, constant.language.boolean, variable.language.special",
-      "foreground": "var(ui_crimson)"
+      "foreground": "#B82222"
     },
     {
       "name": "Operators",
@@ -134,7 +134,7 @@
       "foreground": "var(ui_dusk)"
     },
     {
-      "name": "Punctuation \u2014 brackets and braces",
+      "name": "Punctuation — brackets and braces",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
       "foreground": "var(ui_grass_dim)"
     },
@@ -171,32 +171,32 @@
       "font_style": "underline"
     },
     {
-      "name": "Rust \u2014 lifetimes",
+      "name": "Rust — lifetimes",
       "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
       "foreground": "var(ui_amber)",
       "font_style": "italic"
     },
     {
-      "name": "Rust \u2014 macros",
+      "name": "Rust — macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
       "foreground": "var(ui_bone_dim)",
       "font_style": "bold"
     },
     {
-      "name": "Rust \u2014 traits",
+      "name": "Rust — traits",
       "scope": "entity.name.trait.rust",
       "foreground": "var(ui_tawny)",
       "font_style": "bold italic"
     },
     {
-      "name": "Rust \u2014 enum variants",
+      "name": "Rust — enum variants",
       "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
       "foreground": "var(ui_tawny2)"
     },
     {
-      "name": "Rust \u2014 derive attributes",
+      "name": "Rust — derive attributes",
       "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
-      "foreground": "var(ui_crimson)"
+      "foreground": "#B82222"
     },
     {
       "name": "Visibility modifiers",
@@ -219,47 +219,47 @@
       "foreground": "var(ui_grass_dim)"
     },
     {
-      "name": "PowerShell \u2014 cmdlets",
+      "name": "PowerShell — cmdlets",
       "scope": "support.function.powershell, entity.name.function.powershell",
       "foreground": "var(ui_ember)",
       "font_style": "bold"
     },
     {
-      "name": "PowerShell \u2014 variables ($var)",
+      "name": "PowerShell — variables ($var)",
       "scope": "variable.other.readwrite.powershell",
       "foreground": "var(ui_silver)"
     },
     {
-      "name": "PowerShell \u2014 parameters (-Flag)",
+      "name": "PowerShell — parameters (-Flag)",
       "scope": "variable.parameter.powershell",
       "foreground": "var(ui_tawny)",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 headings",
+      "name": "Markdown — headings",
       "scope": "markup.heading, punctuation.definition.heading.markdown",
       "foreground": "var(ui_mane)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 bold",
+      "name": "Markdown — bold",
       "scope": "markup.bold",
       "foreground": "var(ui_tawny)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 italic",
+      "name": "Markdown — italic",
       "scope": "markup.italic",
       "foreground": "var(ui_grass_dim)",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 inline code",
+      "name": "Markdown — inline code",
       "scope": "markup.raw.inline, markup.raw.block",
       "foreground": "var(ui_bone)"
     },
     {
-      "name": "Markdown \u2014 links",
+      "name": "Markdown — links",
       "scope": "markup.underline.link, string.other.link",
       "foreground": "var(ui_dusk)"
     },

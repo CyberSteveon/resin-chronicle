@@ -6,9 +6,9 @@
     "bg1": "#171410",
     "bg2": "#252018",
     "bg3": "#2E2820",
-    "ui_cyan": "#80120F",
+    "ui_cyan": "#DE1F1A",
     "ui_cyansoft": "#47100E",
-    "ui_green": "#64169C",
+    "ui_green": "#9A35E2",
     "ui_lime": "#3300FF",
     "ui_orange": "#0092FF",
     "ui_orange2": "#006DBF",
@@ -16,7 +16,7 @@
     "ui_teal": "#FF3658",
     "ui_blue": "#472B00",
     "ui_muted": "#C2BAAA",
-    "ui_fg": "#57221F",
+    "ui_fg": "#BD4D47",
     "ui_fg_dim": "#85544F",
     "ui_red": "#00BBAA",
     "ui_pub": "#0064BA",
@@ -64,12 +64,12 @@
     {
       "name": "String escape sequences",
       "scope": "constant.character.escape, string.regexp",
-      "foreground": "var(ui_lime)"
+      "foreground": "#6943FF"
     },
     {
       "name": "Template / f-string interpolation",
       "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
-      "foreground": "var(ui_cyansoft)"
+      "foreground": "#C72C27"
     },
     {
       "name": "Keywords",
@@ -119,7 +119,7 @@
     {
       "name": "Numbers",
       "scope": "constant.numeric, constant.numeric.integer, constant.numeric.float",
-      "foreground": "var(ui_lime)"
+      "foreground": "#6943FF"
     },
     {
       "name": "Constants and booleans",
@@ -132,9 +132,9 @@
       "foreground": "var(ui_teal)"
     },
     {
-      "name": "Punctuation \u2014 brackets and braces",
+      "name": "Punctuation — brackets and braces",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "var(ui_fg_dim)"
+      "foreground": "#905B55"
     },
     {
       "name": "Type annotations",
@@ -144,7 +144,7 @@
     {
       "name": "Self / this",
       "scope": "variable.language.this, variable.language.self",
-      "foreground": "var(ui_blue)",
+      "foreground": "#995C00",
       "font_style": "italic"
     },
     {
@@ -169,75 +169,75 @@
       "font_style": "underline"
     },
     {
-      "name": "Rust \u2014 lifetimes",
+      "name": "Rust — lifetimes",
       "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
-      "foreground": "var(ui_lime)",
+      "foreground": "#6943FF",
       "font_style": "italic"
     },
     {
-      "name": "Rust \u2014 macros",
+      "name": "Rust — macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
-      "foreground": "var(ui_cyansoft)",
+      "foreground": "#C72C27",
       "font_style": "bold"
     },
     {
-      "name": "Rust \u2014 traits",
+      "name": "Rust — traits",
       "scope": "entity.name.trait.rust",
       "foreground": "var(ui_orange)",
       "font_style": "bold italic"
     },
     {
-      "name": "Rust \u2014 enum variants",
+      "name": "Rust — enum variants",
       "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
       "foreground": "var(ui_orange2)"
     },
     {
-      "name": "Rust \u2014 derive attributes",
+      "name": "Rust — derive attributes",
       "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
       "foreground": "var(ui_magenta)"
     },
     {
-      "name": "PowerShell \u2014 cmdlets",
+      "name": "PowerShell — cmdlets",
       "scope": "support.function.powershell, entity.name.function.powershell",
       "foreground": "var(ui_cyan)",
       "font_style": "bold"
     },
     {
-      "name": "PowerShell \u2014 variables ($var)",
+      "name": "PowerShell — variables ($var)",
       "scope": "variable.other.readwrite.powershell",
-      "foreground": "var(ui_blue)"
+      "foreground": "#995C00"
     },
     {
-      "name": "PowerShell \u2014 parameters (-Flag)",
+      "name": "PowerShell — parameters (-Flag)",
       "scope": "variable.parameter.powershell",
       "foreground": "var(ui_orange2)",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 headings",
+      "name": "Markdown — headings",
       "scope": "markup.heading, punctuation.definition.heading.markdown",
       "foreground": "var(ui_cyan)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 bold",
+      "name": "Markdown — bold",
       "scope": "markup.bold",
       "foreground": "var(ui_orange)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 italic",
+      "name": "Markdown — italic",
       "scope": "markup.italic",
-      "foreground": "var(ui_fg_dim)",
+      "foreground": "#905B55",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 inline code",
+      "name": "Markdown — inline code",
       "scope": "markup.raw.inline, markup.raw.block",
       "foreground": "var(ui_green)"
     },
     {
-      "name": "Markdown \u2014 links",
+      "name": "Markdown — links",
       "scope": "markup.underline.link, string.other.link",
       "foreground": "var(ui_teal)"
     },
@@ -249,17 +249,17 @@
     {
       "name": "Visibility modifiers (pub, private, protected)",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#0071D2"
     },
     {
       "name": "Struct fields / property access",
       "scope": "variable.other.member, variable.other.property, meta.path variable.other",
-      "foreground": "var(ui_field)"
+      "foreground": "#AF4167"
     },
     {
       "name": "Regex patterns",
       "scope": "string.regexp, source.regexp, meta.regex",
-      "foreground": "var(ui_regex)"
+      "foreground": "#0F57FF"
     },
     {
       "name": "Namespace / path separators",

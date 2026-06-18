@@ -17,7 +17,7 @@
     "ui_op": "#00A8D8",
     "ui_va": "#7898B0",
     "ui_dim": "#304860",
-    "ui_cm": "#182030",
+    "ui_cm": "#4D669A",
     "ui_dc": "#E040A0",
     "ui_pa": "#A81020",
     "ui_sl": "#80D8F0",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#182030",
+      "foreground": "#4D669A",
       "font_style": "italic"
     },
     {
@@ -98,7 +98,7 @@
     {
       "name": "Enums",
       "scope": "entity.name.enum, constant.other.enum, meta.enum",
-      "foreground": "#A81020",
+      "foreground": "#BB1123",
       "font_style": "bold"
     },
     {
@@ -114,7 +114,7 @@
     {
       "name": "Params",
       "scope": "variable.parameter, meta.function.parameters",
-      "foreground": "#A81020",
+      "foreground": "#BB1123",
       "font_style": "italic"
     },
     {
@@ -135,12 +135,12 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "#304860"
+      "foreground": "#406081"
     },
     {
       "name": "Types",
       "scope": "meta.type.annotation, support.type, entity.name.type.instance",
-      "foreground": "#A81020"
+      "foreground": "#BB1123"
     },
     {
       "name": "Self",
@@ -151,7 +151,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "#0040A0"
+      "foreground": "#005BE5"
     },
     {
       "name": "Tags",
@@ -161,7 +161,7 @@
     {
       "name": "Attributes",
       "scope": "entity.other.attribute-name",
-      "foreground": "#A81020"
+      "foreground": "#BB1123"
     },
     {
       "name": "Invalid",
@@ -190,7 +190,7 @@
     {
       "name": "Rust enum variants",
       "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
-      "foreground": "#A81020"
+      "foreground": "#BB1123"
     },
     {
       "name": "Rust derive",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#203858"
+      "foreground": "#3B67A2"
     },
     {
       "name": "Struct fields",
@@ -215,7 +215,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "#304860"
+      "foreground": "#406081"
     },
     {
       "name": "PS cmdlets",
@@ -231,7 +231,7 @@
     {
       "name": "PS params",
       "scope": "variable.parameter.powershell",
-      "foreground": "#A81020",
+      "foreground": "#BB1123",
       "font_style": "italic"
     },
     {
@@ -249,7 +249,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "#304860",
+      "foreground": "#406081",
       "font_style": "italic"
     },
     {

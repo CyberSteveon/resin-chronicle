@@ -20,7 +20,7 @@
     "ui_arcane": "#9B59B6",
     "ui_rune": "#5DADE2",
     "ui_poison": "#E74C3C",
-    "ui_bark": "#4A3520",
+    "ui_bark": "#88613B",
     "ui_leaf": "#7CBA6A",
     "ui_amber": "#E67E22"
   },
@@ -132,7 +132,7 @@
       "foreground": "var(ui_rune)"
     },
     {
-      "name": "Punctuation \u2014 brackets and braces",
+      "name": "Punctuation — brackets and braces",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
       "foreground": "var(ui_silver_dim)"
     },
@@ -169,30 +169,30 @@
       "font_style": "underline"
     },
     {
-      "name": "Rust \u2014 lifetimes",
+      "name": "Rust — lifetimes",
       "scope": "storage.modifier.lifetime.rust, entity.name.lifetime.rust, punctuation.definition.lifetime.rust",
       "foreground": "var(ui_amber)",
       "font_style": "italic"
     },
     {
-      "name": "Rust \u2014 macros",
+      "name": "Rust — macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
       "foreground": "var(ui_mithril_dim)",
       "font_style": "bold"
     },
     {
-      "name": "Rust \u2014 traits",
+      "name": "Rust — traits",
       "scope": "entity.name.trait.rust",
       "foreground": "var(ui_moss)",
       "font_style": "bold italic"
     },
     {
-      "name": "Rust \u2014 enum variants",
+      "name": "Rust — enum variants",
       "scope": "entity.name.enum.rust, meta.path.rust entity.name.type.rust",
       "foreground": "var(ui_gold2)"
     },
     {
-      "name": "Rust \u2014 derive attributes",
+      "name": "Rust — derive attributes",
       "scope": "meta.attribute.rust, punctuation.definition.attribute.rust",
       "foreground": "var(ui_arcane)"
     },
@@ -217,47 +217,47 @@
       "foreground": "var(ui_silver_dim)"
     },
     {
-      "name": "PowerShell \u2014 cmdlets",
+      "name": "PowerShell — cmdlets",
       "scope": "support.function.powershell, entity.name.function.powershell",
       "foreground": "var(ui_forest)",
       "font_style": "bold"
     },
     {
-      "name": "PowerShell \u2014 variables ($var)",
+      "name": "PowerShell — variables ($var)",
       "scope": "variable.other.readwrite.powershell",
       "foreground": "var(ui_moon)"
     },
     {
-      "name": "PowerShell \u2014 parameters (-Flag)",
+      "name": "PowerShell — parameters (-Flag)",
       "scope": "variable.parameter.powershell",
       "foreground": "var(ui_moss)",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 headings",
+      "name": "Markdown — headings",
       "scope": "markup.heading, punctuation.definition.heading.markdown",
       "foreground": "var(ui_gold)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 bold",
+      "name": "Markdown — bold",
       "scope": "markup.bold",
       "foreground": "var(ui_green)",
       "font_style": "bold"
     },
     {
-      "name": "Markdown \u2014 italic",
+      "name": "Markdown — italic",
       "scope": "markup.italic",
       "foreground": "var(ui_silver_dim)",
       "font_style": "italic"
     },
     {
-      "name": "Markdown \u2014 inline code",
+      "name": "Markdown — inline code",
       "scope": "markup.raw.inline, markup.raw.block",
       "foreground": "var(ui_mithril)"
     },
     {
-      "name": "Markdown \u2014 links",
+      "name": "Markdown — links",
       "scope": "markup.underline.link, string.other.link",
       "foreground": "var(ui_rune)"
     },

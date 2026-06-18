@@ -13,7 +13,7 @@
     "ui_dune_dim": "#907840",
     "ui_haze": "#B09070",
     "ui_haze_dim": "#706040",
-    "ui_night": "#302010",
+    "ui_night": "#8B5D2E",
     "ui_oasis": "#30A880",
     "ui_oasis2": "#208060",
     "ui_sky": "#6090D0",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#7E6532"
     },
     {
       "name": "Struct fields",

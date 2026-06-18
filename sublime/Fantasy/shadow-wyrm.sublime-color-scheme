@@ -12,7 +12,7 @@
     "ui_toxin2": "#C060F0",
     "ui_bone": "#C8C0A8",
     "ui_bone_dim": "#908870",
-    "ui_scale": "#1A1230",
+    "ui_scale": "#7053BE",
     "ui_shadow": "#6848A0",
     "ui_fang": "#E8E060",
     "ui_fang2": "#B0A840",
@@ -150,7 +150,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "var(ui_shadow)"
+      "foreground": "#7755B2"
     },
     {
       "name": "Tags",

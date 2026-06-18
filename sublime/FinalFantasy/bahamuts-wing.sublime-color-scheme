@@ -17,7 +17,7 @@
     "ui_op": "#40A8E0",
     "ui_va": "#5870A0",
     "ui_dim": "#304060",
-    "ui_cm": "#101828",
+    "ui_cm": "#4466AB",
     "ui_dc": "#D04080",
     "ui_pa": "#C8A000",
     "ui_sl": "#60D0F8",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#101828",
+      "foreground": "#4466AB",
       "font_style": "italic"
     },
     {
@@ -70,7 +70,7 @@
     {
       "name": "Interp",
       "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
-      "foreground": "#485878"
+      "foreground": "#4E6083"
     },
     {
       "name": "Keywords",
@@ -135,7 +135,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "#304060"
+      "foreground": "#475F8F"
     },
     {
       "name": "Types",
@@ -151,7 +151,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "#283858"
+      "foreground": "#4966A0"
     },
     {
       "name": "Tags",
@@ -178,7 +178,7 @@
     {
       "name": "Rust macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
-      "foreground": "#485878",
+      "foreground": "#4E6083",
       "font_style": "bold"
     },
     {
@@ -200,12 +200,12 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#203050"
+      "foreground": "#4466AA"
     },
     {
       "name": "Struct fields",
       "scope": "variable.other.member, variable.other.property, meta.path variable.other",
-      "foreground": "#305060"
+      "foreground": "#3D657A"
     },
     {
       "name": "Regex",
@@ -215,7 +215,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "#304060"
+      "foreground": "#475F8F"
     },
     {
       "name": "PS cmdlets",
@@ -249,7 +249,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "#304060",
+      "foreground": "#475F8F",
       "font_style": "italic"
     },
     {

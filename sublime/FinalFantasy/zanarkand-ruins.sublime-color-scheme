@@ -17,7 +17,7 @@
     "ui_op": "#50A0C0",
     "ui_va": "#788898",
     "ui_dim": "#405060",
-    "ui_cm": "#202838",
+    "ui_cm": "#526790",
     "ui_dc": "#B060D0",
     "ui_pa": "#A06030",
     "ui_sl": "#A0D8F0",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#202838",
+      "foreground": "#526790",
       "font_style": "italic"
     },
     {
@@ -135,7 +135,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "#405060"
+      "foreground": "#4E6175"
     },
     {
       "name": "Types",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#304860"
+      "foreground": "#476A8E"
     },
     {
       "name": "Struct fields",
@@ -215,7 +215,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "#405060"
+      "foreground": "#4E6175"
     },
     {
       "name": "PS cmdlets",
@@ -249,7 +249,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "#405060",
+      "foreground": "#4E6175",
       "font_style": "italic"
     },
     {

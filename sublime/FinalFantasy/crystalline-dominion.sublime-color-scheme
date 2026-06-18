@@ -17,7 +17,7 @@
     "ui_op": "#60D8C0",
     "ui_va": "#8898A8",
     "ui_dim": "#506070",
-    "ui_cm": "#181420",
+    "ui_cm": "#705D96",
     "ui_dc": "#E06040",
     "ui_pa": "#A07820",
     "ui_sl": "#60D8C0",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#181420",
+      "foreground": "#705D96",
       "font_style": "italic"
     },
     {
@@ -151,7 +151,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "#405080"
+      "foreground": "#5166A3"
     },
     {
       "name": "Tags",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#405080"
+      "foreground": "#5166A3"
     },
     {
       "name": "Struct fields",

@@ -14,7 +14,7 @@
     "ui_iron_dim": "#506070",
     "ui_steel": "#A8B8C0",
     "ui_steel_dim": "#708090",
-    "ui_coal": "#504030",
+    "ui_coal": "#7B624A",
     "ui_copper": "#B87040",
     "ui_rust": "#C04020",
     "ui_rust2": "#E05030",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_anvil)"
+      "foreground": "#935831"
     },
     {
       "name": "Struct fields",

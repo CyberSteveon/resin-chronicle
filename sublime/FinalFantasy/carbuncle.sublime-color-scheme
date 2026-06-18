@@ -14,7 +14,7 @@
     "ui_emerald2": "#20A050",
     "ui_crystal": "#C0D8F0",
     "ui_crys_dim": "#708898",
-    "ui_deep": "#140C18",
+    "ui_deep": "#8550A0",
     "ui_gem": "#A090B8",
     "ui_gem_dim": "#605870",
     "ui_sapphire": "#5080E0",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#7854A9"
     },
     {
       "name": "Struct fields",

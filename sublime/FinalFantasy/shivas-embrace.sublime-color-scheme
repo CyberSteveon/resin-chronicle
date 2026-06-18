@@ -17,7 +17,7 @@
     "ui_op": "#50A8D8",
     "ui_va": "#7890A0",
     "ui_dim": "#384858",
-    "ui_cm": "#101820",
+    "ui_cm": "#476B8F",
     "ui_dc": "#A050C8",
     "ui_pa": "#9848C0",
     "ui_sl": "#60D8F0",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#101820",
+      "foreground": "#476B8F",
       "font_style": "italic"
     },
     {
@@ -135,7 +135,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "#384858"
+      "foreground": "#4C6278"
     },
     {
       "name": "Types",
@@ -151,7 +151,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "#285068"
+      "foreground": "#366D8E"
     },
     {
       "name": "Tags",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#284860"
+      "foreground": "#3C6C90"
     },
     {
       "name": "Struct fields",
@@ -215,7 +215,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "#384858"
+      "foreground": "#4C6278"
     },
     {
       "name": "PS cmdlets",
@@ -249,7 +249,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "#384858",
+      "foreground": "#4C6278",
       "font_style": "italic"
     },
     {

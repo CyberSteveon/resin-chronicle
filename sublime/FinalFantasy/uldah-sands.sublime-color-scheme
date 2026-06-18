@@ -14,7 +14,7 @@
     "ui_sand_dim": "#907848",
     "ui_stone": "#B09878",
     "ui_stone_dim": "#706048",
-    "ui_bazaar": "#382010",
+    "ui_bazaar": "#9A582C",
     "ui_lapis": "#5070C0",
     "ui_lapis2": "#3858A8",
     "ui_copper": "#C07030",
@@ -80,7 +80,7 @@
     {
       "name": "Built-ins",
       "scope": "support.function.builtin, support.function, support.type.python",
-      "foreground": "var(ui_ruby2)",
+      "foreground": "#B03027",
       "font_style": "bold"
     },
     {
@@ -145,7 +145,7 @@
     {
       "name": "Self",
       "scope": "variable.language.this, variable.language.self",
-      "foreground": "var(ui_lapis2)",
+      "foreground": "#3A5CB0",
       "font_style": "italic"
     },
     {
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#975A1E"
     },
     {
       "name": "Struct fields",
@@ -226,7 +226,7 @@
     {
       "name": "PS variables",
       "scope": "variable.other.readwrite.powershell",
-      "foreground": "var(ui_lapis2)"
+      "foreground": "#3A5CB0"
     },
     {
       "name": "PS parameters",

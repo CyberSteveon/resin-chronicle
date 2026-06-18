@@ -14,7 +14,7 @@
     "ui_sand_dim": "#907050",
     "ui_judge": "#A0B0C0",
     "ui_judge_dim": "#607080",
-    "ui_crypt": "#302018",
+    "ui_crypt": "#8C5D46",
     "ui_vaan": "#E08040",
     "ui_vaan2": "#B05820",
     "ui_nethicite": "#D040A0",
@@ -79,7 +79,7 @@
     {
       "name": "Built-ins",
       "scope": "support.function.builtin, support.function, support.type.python",
-      "foreground": "var(ui_purple2)",
+      "foreground": "#793FC5",
       "font_style": "bold"
     },
     {
@@ -199,7 +199,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#8D5E17"
     },
     {
       "name": "Struct fields",

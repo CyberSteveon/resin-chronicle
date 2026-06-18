@@ -2,51 +2,51 @@
   "name": "Aztec Resin (Navy)",
   "author": "CyberSteveOn",
   "variables": {
-    "bg0":           "#232048",
-    "bg1":           "#1a1838",
-    "bg2":           "#2c2a58",
-    "bg3":           "#363370",
-    "ui_accent":     "#3A12C8",
-    "ui_indigo":     "#5533CC",
-    "ui_cyan":       "#7FEDF0",
-    "ui_cyan_soft":  "#aff5f7",
-    "ui_orange":     "#e8892b",
-    "ui_keyword":    "#B48EF0",
-    "ui_amber":      "#F0C674",
-    "ui_iceblue":    "#A8D8EA",
-    "ui_lavender":   "#C6A0F6",
-    "ui_pink":       "#c9789e",
-    "ui_green":      "#9be963",
-    "ui_gold":       "#D4A017",
-    "ui_red":        "#ED8796",
-    "ui_fg":         "#e8d5c0",
-    "ui_fg_dim":     "#c8bfda",
-    "ui_muted":      "#4a4468"
+    "bg0": "#232048",
+    "bg1": "#1a1838",
+    "bg2": "#2c2a58",
+    "bg3": "#363370",
+    "ui_accent": "#3A12C8",
+    "ui_indigo": "#5533CC",
+    "ui_cyan": "#7FEDF0",
+    "ui_cyan_soft": "#aff5f7",
+    "ui_orange": "#e8892b",
+    "ui_keyword": "#B48EF0",
+    "ui_amber": "#F0C674",
+    "ui_iceblue": "#A8D8EA",
+    "ui_lavender": "#C6A0F6",
+    "ui_pink": "#c9789e",
+    "ui_green": "#9be963",
+    "ui_gold": "#D4A017",
+    "ui_red": "#ED8796",
+    "ui_fg": "#e8d5c0",
+    "ui_fg_dim": "#c8bfda",
+    "ui_muted": "#7C74A4"
   },
   "globals": {
-    "background":                    "var(bg0)",
-    "foreground":                    "var(ui_fg)",
-    "invisibles":                    "var(ui_muted)",
-    "caret":                         "var(ui_cyan)",
-    "line_highlight":                "var(bg2)",
-    "selection":                     "#3A12C844",
-    "selection_border":              "#3A12C888",
-    "selection_border_width":        "1",
-    "inactive_selection":            "#3A12C822",
-    "find_highlight":                "var(ui_green)",
-    "find_highlight_foreground":     "var(bg0)",
-    "brackets_options":              "underline",
-    "brackets_foreground":           "var(ui_cyan)",
-    "bracket_contents_options":      "stippled_underline",
-    "bracket_contents_foreground":   "var(ui_cyan_soft)",
-    "tags_options":                  "stippled_underline",
-    "tags_foreground":               "var(ui_cyan)",
-    "shadow":                        "#0e0b1c",
-    "shadow_width":                  "4",
-    "active_guide":                  "#3A12C866",
-    "stack_guide":                   "#2e285088",
-    "highlight":                     "var(ui_green)",
-    "accent":                        "var(ui_cyan)"
+    "background": "var(bg0)",
+    "foreground": "var(ui_fg)",
+    "invisibles": "var(ui_muted)",
+    "caret": "var(ui_cyan)",
+    "line_highlight": "var(bg2)",
+    "selection": "#3A12C844",
+    "selection_border": "#3A12C888",
+    "selection_border_width": "1",
+    "inactive_selection": "#3A12C822",
+    "find_highlight": "var(ui_green)",
+    "find_highlight_foreground": "var(bg0)",
+    "brackets_options": "underline",
+    "brackets_foreground": "var(ui_cyan)",
+    "bracket_contents_options": "stippled_underline",
+    "bracket_contents_foreground": "var(ui_cyan_soft)",
+    "tags_options": "stippled_underline",
+    "tags_foreground": "var(ui_cyan)",
+    "shadow": "#0e0b1c",
+    "shadow_width": "4",
+    "active_guide": "#3A12C866",
+    "stack_guide": "#2e285088",
+    "highlight": "var(ui_green)",
+    "accent": "var(ui_cyan)"
   },
   "rules": [
     {
@@ -78,7 +78,7 @@
     {
       "name": "Built-in functions",
       "scope": "support.function.builtin, support.function, support.type.python",
-      "foreground": "var(ui_indigo)",
+      "foreground": "#785DD6",
       "font_style": "bold"
     },
     {
@@ -128,12 +128,12 @@
     {
       "name": "Operators",
       "scope": "keyword.operator, keyword.operator.arithmetic, keyword.operator.comparison, keyword.operator.assignment",
-      "foreground": "var(ui_indigo)"
+      "foreground": "#765BD6"
     },
     {
       "name": "Punctuation — brackets and braces",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "var(ui_accent)"
+      "foreground": "#7755EF"
     },
     {
       "name": "Type annotations",
@@ -238,7 +238,7 @@
     {
       "name": "Markdown — links",
       "scope": "markup.underline.link, string.other.link",
-      "foreground": "var(ui_indigo)"
+      "foreground": "#785DD6"
     },
     {
       "name": "JSON keys",

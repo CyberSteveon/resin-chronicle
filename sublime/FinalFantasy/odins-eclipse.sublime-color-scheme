@@ -8,13 +8,13 @@
     "bg3": "#181218",
     "ui_zantetsu": "#C0C0D8",
     "ui_zantetsu2": "#9090A8",
-    "ui_eclipse": "#6040A0",
+    "ui_eclipse": "#7552BA",
     "ui_eclipse2": "#8060C0",
     "ui_sleipnir": "#E0A030",
     "ui_sleipnir2": "#B07810",
     "ui_shadow": "#9080A0",
     "ui_shadow_dim": "#504060",
-    "ui_void": "#140C14",
+    "ui_void": "#8B538B",
     "ui_dusk": "#807090",
     "ui_dusk_dim": "#484058",
     "ui_rune": "#C060D0",
@@ -69,7 +69,7 @@
     {
       "name": "Interpolation",
       "scope": "meta.interpolation, punctuation.definition.template-expression, meta.embedded.expression, string.interpolated",
-      "foreground": "var(ui_shadow_dim)"
+      "foreground": "#6A5580"
     },
     {
       "name": "Keywords",
@@ -134,7 +134,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "var(ui_dusk_dim)"
+      "foreground": "#64597B"
     },
     {
       "name": "Types",
@@ -150,7 +150,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "var(ui_asgard)"
+      "foreground": "#695E9E"
     },
     {
       "name": "Tags",
@@ -177,7 +177,7 @@
     {
       "name": "Rust macros",
       "scope": "support.macro.rust, entity.name.macro.rust, meta.macro.rust",
-      "foreground": "var(ui_shadow_dim)",
+      "foreground": "#6A5580",
       "font_style": "bold"
     },
     {
@@ -199,7 +199,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#7D5796"
     },
     {
       "name": "Struct fields",
@@ -214,7 +214,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "var(ui_dusk_dim)"
+      "foreground": "#64597B"
     },
     {
       "name": "PS cmdlets",
@@ -248,7 +248,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "var(ui_dusk_dim)",
+      "foreground": "#64597B",
       "font_style": "italic"
     },
     {

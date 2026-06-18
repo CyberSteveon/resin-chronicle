@@ -8,7 +8,7 @@
     "bg3": "#14103A",
     "ui_fn": "#C8A8FF",
     "ui_bi": "#9060E0",
-    "ui_kw": "#7B2FBE",
+    "ui_kw": "#8B3ECF",
     "ui_cl": "#A060D8",
     "ui_en": "#805AB0",
     "ui_st": "#B8A8D0",
@@ -17,7 +17,7 @@
     "ui_op": "#60C8B0",
     "ui_va": "#8878A0",
     "ui_dim": "#504860",
-    "ui_cm": "#302840",
+    "ui_cm": "#705D95",
     "ui_dc": "#D060C8",
     "ui_pa": "#805AB0",
     "ui_sl": "#80C0E0",
@@ -54,7 +54,7 @@
     {
       "name": "Comments",
       "scope": "comment, punctuation.definition.comment",
-      "foreground": "#302840",
+      "foreground": "#705D95",
       "font_style": "italic"
     },
     {
@@ -75,7 +75,7 @@
     {
       "name": "Keywords",
       "scope": "keyword, keyword.control, keyword.operator.logical, keyword.other, storage.type, storage.modifier",
-      "foreground": "#7B2FBE"
+      "foreground": "#8B3ECF"
     },
     {
       "name": "Builtins",
@@ -135,7 +135,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "#504860"
+      "foreground": "#645A78"
     },
     {
       "name": "Types",
@@ -151,7 +151,7 @@
     {
       "name": "Imports",
       "scope": "entity.name.module, support.module, keyword.control.import",
-      "foreground": "#504878"
+      "foreground": "#695E9E"
     },
     {
       "name": "Tags",
@@ -200,7 +200,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "#403860"
+      "foreground": "#6A5DA0"
     },
     {
       "name": "Struct fields",
@@ -215,7 +215,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "#504860"
+      "foreground": "#645A78"
     },
     {
       "name": "PS cmdlets",
@@ -237,7 +237,7 @@
     {
       "name": "MD headings",
       "scope": "markup.heading, punctuation.definition.heading.markdown",
-      "foreground": "#7B2FBE",
+      "foreground": "#8231C9",
       "font_style": "bold"
     },
     {
@@ -249,7 +249,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "#504860",
+      "foreground": "#645A78",
       "font_style": "italic"
     },
     {
@@ -265,7 +265,7 @@
     {
       "name": "Data keys",
       "scope": "meta.mapping.key.json, string.quoted.double.json meta.structure.dictionary.key.json, keyword.key.toml, support.type.property-name.toml, entity.name.tag.yaml, string.unquoted.plain.out.yaml",
-      "foreground": "#7B2FBE"
+      "foreground": "#8B3ECF"
     }
   ]
 }

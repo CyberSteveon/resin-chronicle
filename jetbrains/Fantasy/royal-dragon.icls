@@ -3,35 +3,35 @@
     <property name="created">2026-06-11</property>
     <property name="ide">Idea</property>
     <property name="ideVersion">2023.1.0.0</property>
-    <property name="modified">2026-06-11</property>
+    <property name="modified">2026-06-17</property>
     <property name="originalScheme">Royal Dragon</property>
     <property name="author">CyberSteveOn</property>
   </metaInfo>
 
   <colors>
-        <option name="CARET_COLOR" value="D4AF37" />
-        <option name="CARET_ROW_COLOR" value="180E08" />
-        <option name="SELECTION_BACKGROUND" value="D4AF37" />
-        <option name="SELECTION_FOREGROUND" value="C4A882" />
-        <option name="GUTTER_BACKGROUND" value="0E0804" />
-        <option name="LINE_NUMBERS_COLOR" value="8E7560" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="D4AF37" />
-        <option name="INDENT_GUIDE" value="D4AF37" />
-        <option name="SELECTED_INDENT_GUIDE" value="D4AF3766" />
-        <option name="RIGHT_MARGIN_COLOR" value="D4AF37" />
-        <option name="WHITESPACES" value="8E7560" />
-        <option name="METHOD_SEPARATORS_COLOR" value="D4AF37" />
-        <option name="ANNOTATIONS_COLOR" value="8E7560" />
-        <option name="DOCUMENTATION_COLOR" value="0E0804" />
-        <option name="CONSOLE_BACKGROUND_KEY" value="0E0804" />
-        <option name="ADDED_LINES_COLOR" value="E8D5B0" />
-        <option name="MODIFIED_LINES_COLOR" value="B87333" />
-        <option name="DELETED_LINES_COLOR" value="FF4500" />
-        <option name="FILESTATUS_ADDED" value="E8D5B0" />
-        <option name="FILESTATUS_MODIFIED" value="C0392B" />
-        <option name="FILESTATUS_DELETED" value="FF4500" />
-        <option name="FILESTATUS_UNKNOWN" value="E25822" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="8E7560" />
+    <option name="CARET_COLOR" value="D4AF37" />
+    <option name="CARET_ROW_COLOR" value="180E08" />
+    <option name="SELECTION_BACKGROUND" value="D4AF37" />
+    <option name="SELECTION_FOREGROUND" value="C4A882" />
+    <option name="GUTTER_BACKGROUND" value="0E0804" />
+    <option name="LINE_NUMBERS_COLOR" value="8E7560" />
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="D4AF37" />
+    <option name="INDENT_GUIDE" value="D4AF37" />
+    <option name="SELECTED_INDENT_GUIDE" value="D4AF3766" />
+    <option name="RIGHT_MARGIN_COLOR" value="D4AF37" />
+    <option name="WHITESPACES" value="8E7560" />
+    <option name="METHOD_SEPARATORS_COLOR" value="D4AF37" />
+    <option name="ANNOTATIONS_COLOR" value="8E7560" />
+    <option name="DOCUMENTATION_COLOR" value="0E0804" />
+    <option name="CONSOLE_BACKGROUND_KEY" value="0E0804" />
+    <option name="ADDED_LINES_COLOR" value="E8D5B0" />
+    <option name="MODIFIED_LINES_COLOR" value="B87333" />
+    <option name="DELETED_LINES_COLOR" value="FF4500" />
+    <option name="FILESTATUS_ADDED" value="E8D5B0" />
+    <option name="FILESTATUS_MODIFIED" value="C0392B" />
+    <option name="FILESTATUS_DELETED" value="FF4500" />
+    <option name="FILESTATUS_UNKNOWN" value="E25822" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="8E7560" />
   </colors>
 
   <attributes>
@@ -114,7 +114,7 @@
     </option>
     <option name="DEFAULT_CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="DEFAULT_FUNCTION_DECLARATION">
@@ -227,7 +227,7 @@
     </option>
     <option name="DEFAULT_METADATA">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="DEFAULT_ATTRIBUTE">
@@ -282,7 +282,7 @@
     </option>
     <option name="ANNOTATION_NAME_ATTRIBUTES">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="ANNOTATION_ATTRIBUTE_NAME_ATTRIBUTES">
@@ -340,7 +340,7 @@
     </option>
     <option name="PY.DECORATOR">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="PY.INVALID_STRING_ESCAPE">
@@ -387,7 +387,7 @@
     </option>
     <option name="GO_BUILTIN_CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="GO_BUILTIN_TYPE_REFERENCE">
@@ -475,17 +475,17 @@
     </option>
     <option name="GO_PACKAGE_EXPORTED_CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="GO_PACKAGE_LOCAL_CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="GO_LOCAL_CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="GO_TYPE_REFERENCE">
@@ -656,7 +656,7 @@
     </option>
     <option name="org.rust.CONSTANT">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="org.rust.STATIC">
@@ -683,7 +683,7 @@
     </option>
     <option name="org.rust.ATTRIBUTE">
       <value>
-                <option name="FOREGROUND" value="8B2500" />
+                <option name="FOREGROUND" value="B22F00" />
       </value>
     </option>
     <option name="org.rust.CRATE">
@@ -704,7 +704,6 @@
     <option name="org.rust.INVALID_STRING_ESCAPE">
       <value>
                 <option name="FOREGROUND" value="FF4500" />
-                <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
 

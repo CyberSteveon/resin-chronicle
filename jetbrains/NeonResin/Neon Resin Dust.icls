@@ -3,35 +3,35 @@
     <property name="created">2026-06-11</property>
     <property name="ide">Idea</property>
     <property name="ideVersion">2023.1.0.0</property>
-    <property name="modified">2026-06-11</property>
+    <property name="modified">2026-06-17</property>
     <property name="originalScheme">Neon Resin Dust</property>
     <property name="author">CyberSteveOn</property>
   </metaInfo>
 
   <colors>
-        <option name="CARET_COLOR" value="98D4D6" />
-        <option name="CARET_ROW_COLOR" value="171B20" />
-        <option name="SELECTION_BACKGROUND" value="7FEDF0" />
-        <option name="SELECTION_FOREGROUND" value="B4D1D3" />
-        <option name="GUTTER_BACKGROUND" value="0F1114" />
-        <option name="LINE_NUMBERS_COLOR" value="42464F" />
-        <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="98D4D6" />
-        <option name="INDENT_GUIDE" value="7FEDF0" />
-        <option name="SELECTED_INDENT_GUIDE" value="98D4D666" />
-        <option name="RIGHT_MARGIN_COLOR" value="7FEDF0" />
-        <option name="WHITESPACES" value="42464F" />
-        <option name="METHOD_SEPARATORS_COLOR" value="7FEDF0" />
-        <option name="ANNOTATIONS_COLOR" value="42464F" />
-        <option name="DOCUMENTATION_COLOR" value="0F1114" />
-        <option name="CONSOLE_BACKGROUND_KEY" value="0F1114" />
-        <option name="ADDED_LINES_COLOR" value="9FCA81" />
-        <option name="MODIFIED_LINES_COLOR" value="A9C539" />
-        <option name="DELETED_LINES_COLOR" value="D46E77" />
-        <option name="FILESTATUS_ADDED" value="9FCA81" />
-        <option name="FILESTATUS_MODIFIED" value="98D4D6" />
-        <option name="FILESTATUS_DELETED" value="D46E77" />
-        <option name="FILESTATUS_UNKNOWN" value="D4986A" />
-        <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="42464F" />
+    <option name="CARET_COLOR" value="98D4D6" />
+    <option name="CARET_ROW_COLOR" value="171B20" />
+    <option name="SELECTION_BACKGROUND" value="7FEDF0" />
+    <option name="SELECTION_FOREGROUND" value="B4D1D3" />
+    <option name="GUTTER_BACKGROUND" value="0F1114" />
+    <option name="LINE_NUMBERS_COLOR" value="656B79" />
+    <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="98D4D6" />
+    <option name="INDENT_GUIDE" value="7FEDF0" />
+    <option name="SELECTED_INDENT_GUIDE" value="98D4D666" />
+    <option name="RIGHT_MARGIN_COLOR" value="7FEDF0" />
+    <option name="WHITESPACES" value="656B79" />
+    <option name="METHOD_SEPARATORS_COLOR" value="7FEDF0" />
+    <option name="ANNOTATIONS_COLOR" value="656B79" />
+    <option name="DOCUMENTATION_COLOR" value="0F1114" />
+    <option name="CONSOLE_BACKGROUND_KEY" value="0F1114" />
+    <option name="ADDED_LINES_COLOR" value="9FCA81" />
+    <option name="MODIFIED_LINES_COLOR" value="A9C539" />
+    <option name="DELETED_LINES_COLOR" value="D46E77" />
+    <option name="FILESTATUS_ADDED" value="9FCA81" />
+    <option name="FILESTATUS_MODIFIED" value="98D4D6" />
+    <option name="FILESTATUS_DELETED" value="D46E77" />
+    <option name="FILESTATUS_UNKNOWN" value="D4986A" />
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="656B79" />
   </colors>
 
   <attributes>
@@ -75,25 +75,25 @@
     </option>
     <option name="DEFAULT_LINE_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="DEFAULT_BLOCK_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="DEFAULT_DOC_COMMENT_TAG">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="1" />
       </value>
     </option>
@@ -104,7 +104,7 @@
     </option>
     <option name="DEFAULT_DOC_MARKUP">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_NUMBER">
@@ -197,22 +197,22 @@
     </option>
     <option name="DEFAULT_PARENTHS">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_BRACES">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_BRACKETS">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_COMMA">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_DOT">
@@ -222,7 +222,7 @@
     </option>
     <option name="DEFAULT_SEMICOLON">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="DEFAULT_METADATA">
@@ -506,13 +506,13 @@
     </option>
     <option name="GO_BLOCK_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="GO_LINE_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
@@ -523,27 +523,27 @@
     </option>
     <option name="GO_BRACES">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="GO_BRACKET">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="GO_PARENTHESES">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="GO_COMMA">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="GO_SEMICOLON">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="GO_DOT">
@@ -580,19 +580,19 @@
     </option>
     <option name="org.rust.COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="org.rust.DOC_COMMENT">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
                 <option name="FONT_TYPE" value="2" />
       </value>
     </option>
     <option name="org.rust.DOC_CODE">
       <value>
-                <option name="FOREGROUND" value="42464F" />
+                <option name="FOREGROUND" value="656B79" />
       </value>
     </option>
     <option name="org.rust.FUNCTION">
@@ -704,7 +704,6 @@
     <option name="org.rust.INVALID_STRING_ESCAPE">
       <value>
                 <option name="FOREGROUND" value="D46E77" />
-                <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
 

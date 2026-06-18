@@ -14,7 +14,7 @@
     "ui_judg_dim": "#7090A8",
     "ui_mech": "#808898",
     "ui_mech_dim": "#485058",
-    "ui_shadow": "#141C14",
+    "ui_shadow": "#4F6F4F",
     "ui_chrome": "#A0B0C0",
     "ui_chrome2": "#708090",
     "ui_sacred": "#E080C0",
@@ -134,7 +134,7 @@
     {
       "name": "Punctuation",
       "scope": "punctuation.definition, punctuation.separator, punctuation.terminator, meta.brace, punctuation.brackets",
-      "foreground": "var(ui_mech_dim)"
+      "foreground": "#58616B"
     },
     {
       "name": "Types",
@@ -199,7 +199,7 @@
     {
       "name": "Visibility",
       "scope": "storage.modifier.visibility, keyword.other.rust, storage.modifier.pub",
-      "foreground": "var(ui_pub)"
+      "foreground": "#4E6C76"
     },
     {
       "name": "Struct fields",
@@ -214,7 +214,7 @@
     {
       "name": "Namespaces",
       "scope": "punctuation.accessor, punctuation.separator.namespace, meta.path punctuation",
-      "foreground": "var(ui_mech_dim)"
+      "foreground": "#58616B"
     },
     {
       "name": "PS cmdlets",
@@ -248,7 +248,7 @@
     {
       "name": "MD italic",
       "scope": "markup.italic",
-      "foreground": "var(ui_mech_dim)",
+      "foreground": "#58616B",
       "font_style": "italic"
     },
     {
