@@ -32,7 +32,7 @@
     "invisibles": "var(ui_char)",
     "caret": "var(ui_inferno)",
     "line_highlight": "var(bg2)",
-    "selection": "#FF44001A",
+    "selection": "#471401",
     "selection_border": "#FF440044",
     "selection_border_width": "1",
     "inactive_selection": "#FF44000D",

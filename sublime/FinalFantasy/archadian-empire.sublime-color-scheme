@@ -32,7 +32,7 @@
     "invisibles": "var(ui_crypt)",
     "caret": "var(ui_imperial)",
     "line_highlight": "var(bg2)",
-    "selection": "#C0900A1A",
+    "selection": "#4A3708",
     "selection_border": "#C0900A44",
     "selection_border_width": "1",
     "inactive_selection": "#C0900A0D",

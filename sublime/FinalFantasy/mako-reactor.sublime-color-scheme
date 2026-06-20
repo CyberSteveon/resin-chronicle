@@ -32,7 +32,7 @@
     "invisibles": "var(ui_slag)",
     "caret": "var(ui_mako)",
     "line_highlight": "var(bg2)",
-    "selection": "#39FF141A",
+    "selection": "#103E0A",
     "selection_border": "#39FF1444",
     "selection_border_width": "1",
     "inactive_selection": "#39FF140D",

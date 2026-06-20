@@ -33,7 +33,7 @@
     "invisibles": "var(ui_deep)",
     "caret": "var(ui_ruby)",
     "line_highlight": "var(bg2)",
-    "selection": "#E040601A",
+    "selection": "#531A26",
     "selection_border": "#E0406044",
     "selection_border_width": "1",
     "inactive_selection": "#E040600D",

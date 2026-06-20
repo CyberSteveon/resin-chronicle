@@ -33,7 +33,7 @@
     "invisibles": "#302840",
     "caret": "#7B2FBE",
     "line_highlight": "var(bg2)",
-    "selection": "#7B2FBE1A",
+    "selection": "#2E144A",
     "selection_border": "#7B2FBE44",
     "selection_border_width": "1",
     "inactive_selection": "#7B2FBE0D",

@@ -33,7 +33,7 @@
     "invisibles": "var(ui_fog)",
     "caret": "var(ui_lightning)",
     "line_highlight": "var(bg2)",
-    "selection": "#FFE0401A",
+    "selection": "#5E5622",
     "selection_border": "#FFE04044",
     "selection_border_width": "1",
     "inactive_selection": "#FFE0400D",

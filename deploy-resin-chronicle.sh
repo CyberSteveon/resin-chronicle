@@ -188,13 +188,15 @@ git status --short
 if git diff --cached --quiet; then
   warn "Nothing to commit — repo is already up to date"
 else
-  git commit -m "fix: contrast audit — all 35 themes pass 3.0:1 minimum
+  git commit -m "fix: selection visibility and caret contrast across all 35 themes
 
-- Lightened low-contrast comment, keyword, string, and punctuation colors
-  across 33 of 35 themes while preserving hue and saturation
-- Worst offenders fixed: Odin's Eclipse, Bahamut's Wing, Carbuncle,
-  Crystalline Dominion (comment ratios were as low as 1.05:1)
-- Neon Resin Inverted fully corrected across all token roles
+- Selection background was matching or exceeding foreground brightness in
+  33 of 35 themes, making highlighted text invisible
+- Caret was blending into selection (as low as 1.01:1) in the same themes
+- Fixed by alpha-blending each theme's selection hue at 20-35% onto the
+  background, preserving the theme's color identity while restoring legibility
+- Worst case resolved: Neon Resin Mono selection contrast 1.01:1 → 5.10:1
+- Caret contrast against selection now >= 3.0:1 across all themes
 - All three IDE formats regenerated from fixed Sublime source"
 
   git push origin main

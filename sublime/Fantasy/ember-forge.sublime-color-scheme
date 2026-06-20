@@ -33,7 +33,7 @@
     "invisibles": "var(ui_coal)",
     "caret": "var(ui_forge)",
     "line_highlight": "var(bg2)",
-    "selection": "#FFB30018",
+    "selection": "#473204",
     "selection_border": "#FFB30044",
     "selection_border_width": "1",
     "inactive_selection": "#FFB3000D",

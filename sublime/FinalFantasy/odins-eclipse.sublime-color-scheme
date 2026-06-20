@@ -32,7 +32,7 @@
     "invisibles": "var(ui_void)",
     "caret": "var(ui_zantetsu)",
     "line_highlight": "var(bg2)",
-    "selection": "#C0C0D81A",
+    "selection": "#2C2B31",
     "selection_border": "#C0C0D844",
     "selection_border_width": "1",
     "inactive_selection": "#C0C0D80D",

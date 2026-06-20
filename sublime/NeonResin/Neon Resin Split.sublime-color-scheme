@@ -30,7 +30,7 @@
     "invisibles": "var(ui_muted)",
     "caret": "var(ui_cyan)",
     "line_highlight": "var(bg2)",
-    "selection": "#7FEDF022",
+    "selection": "#3A5F5C",
     "selection_border": "#7FEDF055",
     "selection_border_width": "1",
     "inactive_selection": "#7FEDF011",

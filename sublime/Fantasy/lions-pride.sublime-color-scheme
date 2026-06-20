@@ -32,7 +32,7 @@
     "invisibles": "var(ui_smoke)",
     "caret": "var(ui_mane)",
     "line_highlight": "var(bg2)",
-    "selection": "#C8860A22",
+    "selection": "#4D3406",
     "selection_border": "#C8860A55",
     "selection_border_width": "1",
     "inactive_selection": "#C8860A11",

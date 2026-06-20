@@ -33,7 +33,7 @@
     "invisibles": "var(ui_bazaar)",
     "caret": "var(ui_gold)",
     "line_highlight": "var(bg2)",
-    "selection": "#D4900A1A",
+    "selection": "#533806",
     "selection_border": "#D4900A44",
     "selection_border_width": "1",
     "inactive_selection": "#D4900A0D",

@@ -30,7 +30,7 @@
     "invisibles": "var(ui_bark)",
     "caret": "var(ui_gold)",
     "line_highlight": "var(bg2)",
-    "selection": "#D4AF3722",
+    "selection": "#4E4518",
     "selection_border": "#D4AF3755",
     "selection_border_width": "1",
     "inactive_selection": "#D4AF3711",

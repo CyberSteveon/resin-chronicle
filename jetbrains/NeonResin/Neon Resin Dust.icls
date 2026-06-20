@@ -11,16 +11,16 @@
   <colors>
     <option name="CARET_COLOR" value="98D4D6" />
     <option name="CARET_ROW_COLOR" value="171B20" />
-    <option name="SELECTION_BACKGROUND" value="7FEDF0" />
+    <option name="SELECTION_BACKGROUND" value="365D61" />
     <option name="SELECTION_FOREGROUND" value="B4D1D3" />
     <option name="GUTTER_BACKGROUND" value="0F1114" />
     <option name="LINE_NUMBERS_COLOR" value="656B79" />
     <option name="LINE_NUMBER_ON_CARET_ROW_COLOR" value="98D4D6" />
-    <option name="INDENT_GUIDE" value="7FEDF0" />
+    <option name="INDENT_GUIDE" value="365D61" />
     <option name="SELECTED_INDENT_GUIDE" value="98D4D666" />
-    <option name="RIGHT_MARGIN_COLOR" value="7FEDF0" />
+    <option name="RIGHT_MARGIN_COLOR" value="365D61" />
     <option name="WHITESPACES" value="656B79" />
-    <option name="METHOD_SEPARATORS_COLOR" value="7FEDF0" />
+    <option name="METHOD_SEPARATORS_COLOR" value="365D61" />
     <option name="ANNOTATIONS_COLOR" value="656B79" />
     <option name="DOCUMENTATION_COLOR" value="0F1114" />
     <option name="CONSOLE_BACKGROUND_KEY" value="0F1114" />
@@ -260,7 +260,7 @@
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
-                <option name="BACKGROUND" value="7FEDF0" />
+                <option name="BACKGROUND" value="365D61" />
                 <option name="FONT_TYPE" value="1" />
       </value>
     </option>

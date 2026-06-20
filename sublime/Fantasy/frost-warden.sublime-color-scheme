@@ -33,7 +33,7 @@
     "invisibles": "var(ui_mist)",
     "caret": "var(ui_glacier)",
     "line_highlight": "var(bg2)",
-    "selection": "#5BC8F01A",
+    "selection": "#234D5F",
     "selection_border": "#5BC8F044",
     "selection_border_width": "1",
     "inactive_selection": "#5BC8F00D",

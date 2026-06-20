@@ -32,7 +32,7 @@
     "invisibles": "var(ui_scale)",
     "caret": "var(ui_venom)",
     "line_highlight": "var(bg2)",
-    "selection": "#4AE54A1A",
+    "selection": "#1F5423",
     "selection_border": "#4AE54A44",
     "selection_border_width": "1",
     "inactive_selection": "#4AE54A0D",

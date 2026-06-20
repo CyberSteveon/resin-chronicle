@@ -33,7 +33,7 @@
     "invisibles": "var(ui_night)",
     "caret": "var(ui_ochre)",
     "line_highlight": "var(bg2)",
-    "selection": "#E0A0201A",
+    "selection": "#563D0C",
     "selection_border": "#E0A02044",
     "selection_border_width": "1",
     "inactive_selection": "#E0A0200D",

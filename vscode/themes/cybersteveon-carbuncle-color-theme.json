@@ -8,21 +8,21 @@
     "editor.foreground": "#A090B8",
     "editorCursor.foreground": "#E04060",
     "editor.lineHighlightBackground": "#100C10",
-    "editor.selectionBackground": "#E0406044",
-    "editor.selectionHighlightBackground": "#E0406022",
-    "editor.inactiveSelectionBackground": "#E0406022",
+    "editor.selectionBackground": "#531A26CC",
+    "editor.selectionHighlightBackground": "#531A2666",
+    "editor.inactiveSelectionBackground": "#531A2688",
     "editor.findMatchBackground": "#F0E06044",
     "editor.findMatchHighlightBackground": "#F0E06022",
     "editor.findMatchBorder": "#F0E060",
-    "editor.wordHighlightBackground": "#E0406022",
-    "editor.wordHighlightStrongBackground": "#E0406044",
+    "editor.wordHighlightBackground": "#531A2666",
+    "editor.wordHighlightStrongBackground": "#531A26CC",
     "editorLineNumber.foreground": "#8550A0",
     "editorLineNumber.activeForeground": "#E04060",
     "editorWhitespace.foreground": "#8550A0",
     "editorIndentGuide.background1": "#1A181A",
     "editorIndentGuide.activeBackground1": "#8550A0",
     "editorRuler.foreground": "#1A181A",
-    "editorBracketMatch.background": "#E0406022",
+    "editorBracketMatch.background": "#531A2666",
     "editorBracketMatch.border": "#605870",
     "editorError.foreground": "#C03040",
     "editorWarning.foreground": "#20A050",
@@ -52,7 +52,7 @@
     "sideBar.background": "#121012",
     "sideBar.foreground": "#A090B8",
     "sideBar.border": "#1A181A",
-    "list.activeSelectionBackground": "#E0406044",
+    "list.activeSelectionBackground": "#531A26CC",
     "list.activeSelectionForeground": "#A090B8",
     "list.hoverBackground": "#100C10",
     "list.highlightForeground": "#E04060",
@@ -100,7 +100,7 @@
     "diffEditor.insertedTextBackground": "#C0D8F018",
     "diffEditor.removedTextBackground": "#C0304018",
     "minimap.findMatchHighlight": "#F0E060",
-    "minimap.selectionHighlight": "#E0406044",
+    "minimap.selectionHighlight": "#531A26CC",
     "peekView.border": "#E04060",
     "peekViewEditor.background": "#121012",
     "peekViewResult.background": "#040204",
@@ -108,7 +108,7 @@
     "breadcrumb.focusForeground": "#A090B8",
     "editorWidget.background": "#121012",
     "editorSuggestWidget.background": "#121012",
-    "editorSuggestWidget.selectedBackground": "#E0406044",
+    "editorSuggestWidget.selectedBackground": "#531A26CC",
     "editorHoverWidget.background": "#121012"
   },
   "tokenColors": [
@@ -157,8 +157,7 @@
       "name": "Regex",
       "scope": [
         "string.regexp",
-        "source.regexp",
-        "meta.regex"
+        "source.regexp"
       ],
       "settings": {
         "foreground": "#806850"
@@ -247,7 +246,6 @@
       "name": "Decorators",
       "scope": [
         "entity.name.function.decorator",
-        "punctuation.definition.decorator",
         "meta.decorator"
       ],
       "settings": {
@@ -299,9 +297,7 @@
     {
       "name": "Numbers",
       "scope": [
-        "constant.numeric",
-        "constant.numeric.integer",
-        "constant.numeric.float"
+        "constant.numeric"
       ],
       "settings": {
         "foreground": "#F0E060"
@@ -320,9 +316,7 @@
     {
       "name": "Operators",
       "scope": [
-        "keyword.operator",
-        "keyword.operator.arithmetic",
-        "keyword.operator.comparison"
+        "keyword.operator"
       ],
       "settings": {
         "foreground": "#E0A020"
@@ -444,8 +438,7 @@
     {
       "name": "Rust derive",
       "scope": [
-        "meta.attribute.rust",
-        "punctuation.definition.attribute.rust"
+        "meta.attribute.rust"
       ],
       "settings": {
         "foreground": "#A050D0"
